@@ -1,0 +1,12 @@
+{
+  "webm": "800 x 260; VP9 with verified alpha; 24 fps",
+  "gif": "640 x 208; transparent palette; 20 fps",
+  "png": [
+    2360,
+    608
+  ],
+  "svg": "Self-contained SVG with embedded original bitmap lettering",
+  "intro_seconds": 6,
+  "idle_seconds": 4,
+  "component": "components/InfocusWordmarkAnimation.tsx"
+}

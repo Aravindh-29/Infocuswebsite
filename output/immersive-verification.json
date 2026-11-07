@@ -1,0 +1,31 @@
+{
+  "measurements": [
+    {
+      "theme": "light",
+      "noHorizontalOverflow": true,
+      "actionColor": "rgb(255, 255, 255)",
+      "guidanceColor": "rgb(22, 60, 117)",
+      "awsFilter": "none",
+      "platformLinks": [
+        "/platforms/oracle/",
+        "/platforms/azure/",
+        "/platforms/aws/",
+        "/platforms/google-cloud/"
+      ]
+    },
+    {
+      "theme": "dark",
+      "noHorizontalOverflow": true,
+      "actionColor": "rgb(255, 255, 255)",
+      "guidanceColor": "rgb(22, 60, 117)",
+      "awsFilter": "none",
+      "platformLinks": [
+        "/platforms/oracle/",
+        "/platforms/azure/",
+        "/platforms/aws/",
+        "/platforms/google-cloud/"
+      ]
+    }
+  ],
+  "errors": []
+}

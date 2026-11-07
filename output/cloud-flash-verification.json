@@ -1,0 +1,36 @@
+{
+  "imageBounds": {
+    "x": 798.3125,
+    "y": 131.265625,
+    "width": 702.8125,
+    "height": 511.828125
+  },
+  "renderedImage": {
+    "x": 798.3125,
+    "y": 152.90885416666666,
+    "width": 702.8125,
+    "height": 468.5416666666667
+  },
+  "mask": "url(#_R_51autb_-cloud-mask)",
+  "svgViewBox": "0 0 1000 666.6667",
+  "flashDisplay": "inline",
+  "clip": {
+    "x": 710,
+    "y": 116,
+    "width": 879,
+    "height": 764
+  },
+  "changedPixelsAtLeast3": 128666,
+  "changedPixelsAtLeast10": 98665,
+  "maxChannelDifference": 182,
+  "changedOutsideAlpha224": 0,
+  "changedOutsideAlpha128": 0,
+  "maxDifferenceOutsideAlpha128": 1,
+  "minSourceAlphaForChangedPixels": 251,
+  "differenceBounds": {
+    "left": 211,
+    "top": 108,
+    "right": 723,
+    "bottom": 449
+  }
+}

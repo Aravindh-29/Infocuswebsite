@@ -679,6 +679,16 @@ html[data-theme="light"] {
   max-height: 52px;
   object-fit: contain;
 }
+.original-logo-grid .original-spectrum-logo {
+  width: 180px;
+  max-width: 100%;
+  height: auto;
+}
+@media (min-width: 601px) {
+  .original-logo-grid > div:nth-child(5) {
+    grid-column: 2;
+  }
+}
 .original-network h2 {
   margin-top: 23px;
 }
@@ -1062,8 +1072,22 @@ html[data-theme="light"] {
   background: #487ff514;
 }
 
-.integration-art{width:100%;min-width:0}.vendor-visual{width:100%;min-width:0}.vendor-nodes>div{min-width:0;flex:1}.vendor-nodes strong{overflow-wrap:anywhere}
+.integration-art {
+  width: 100%;
+  min-width: 0;
+}
+.vendor-visual {
+  width: 100%;
+  min-width: 0;
+}
+.vendor-nodes > div {
+  min-width: 0;
+  flex: 1;
+}
+.vendor-nodes strong {
+  overflow-wrap: anywhere;
+}
 
-
-.vendor-visual{overflow:clip}
-
+.vendor-visual {
+  overflow: clip;
+}

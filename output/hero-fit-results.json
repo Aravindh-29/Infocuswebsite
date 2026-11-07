@@ -1,0 +1,704 @@
+[
+  {
+    "width": 1920,
+    "height": 870,
+    "overflow": false,
+    "boxes": [
+      {
+        "selector": ".header",
+        "x": 0,
+        "y": 0,
+        "right": 1920,
+        "bottom": 96,
+        "width": 1920,
+        "height": 96,
+        "font": "17px"
+      },
+      {
+        "selector": ".immersive-hero",
+        "x": 0,
+        "y": 96,
+        "right": 1920,
+        "bottom": 870,
+        "width": 1920,
+        "height": 774,
+        "font": "17px"
+      },
+      {
+        "selector": ".immersive-inner",
+        "x": 90,
+        "y": 96,
+        "right": 1830,
+        "bottom": 812,
+        "width": 1740,
+        "height": 716,
+        "font": "17px"
+      },
+      {
+        "selector": ".immersive-copy",
+        "x": 90,
+        "y": 216.58749389648438,
+        "right": 890.390625,
+        "bottom": 643.2125244140625,
+        "width": 800.390625,
+        "height": 426.6250305175781,
+        "font": "17px"
+      },
+      {
+        "selector": ".immersive-copy h1",
+        "x": 90,
+        "y": 216.58749389648438,
+        "right": 890.390625,
+        "bottom": 454.1968688964844,
+        "width": 800.390625,
+        "height": 237.609375,
+        "font": "73.08px"
+      },
+      {
+        "selector": ".immersive-copy>p",
+        "x": 90,
+        "y": 482.0249938964844,
+        "right": 680,
+        "bottom": 552.4000244140625,
+        "width": 590,
+        "height": 70.37503051757812,
+        "font": "22px"
+      },
+      {
+        "selector": ".immersive-actions",
+        "x": 90,
+        "y": 583.7125244140625,
+        "right": 890.390625,
+        "bottom": 643.2125244140625,
+        "width": 800.390625,
+        "height": 59.5,
+        "font": "17px"
+      },
+      {
+        "selector": ".immersive-visual",
+        "x": 1029.609375,
+        "y": 108,
+        "right": 1830,
+        "bottom": 803.984375,
+        "width": 800.390625,
+        "height": 695.984375,
+        "font": "17px"
+      },
+      {
+        "selector": ".cloud-universe",
+        "x": 1029.609375,
+        "y": 108,
+        "right": 1830,
+        "bottom": 803.984375,
+        "width": 800.390625,
+        "height": 695.984375,
+        "font": "17px"
+      },
+      {
+        "selector": ".immersive-signoff",
+        "x": 90,
+        "y": 812,
+        "right": 1830,
+        "bottom": 870,
+        "width": 1740,
+        "height": 58,
+        "font": "13px"
+      },
+      {
+        "selector": ".immersive-signoff > a",
+        "x": 1429.921875,
+        "y": 823.59375,
+        "right": 1600,
+        "bottom": 844.390625,
+        "width": 170.078125,
+        "height": 20.796875,
+        "font": "13px"
+      }
+    ]
+  },
+  {
+    "width": 1536,
+    "height": 695,
+    "overflow": false,
+    "boxes": [
+      {
+        "selector": ".header",
+        "x": 0,
+        "y": 0,
+        "right": 1536,
+        "bottom": 96,
+        "width": 1536,
+        "height": 96,
+        "font": "17px"
+      },
+      {
+        "selector": ".immersive-hero",
+        "x": 0,
+        "y": 96,
+        "right": 1536,
+        "bottom": 695,
+        "width": 1536,
+        "height": 599,
+        "font": "17px"
+      },
+      {
+        "selector": ".immersive-inner",
+        "x": 56,
+        "y": 96,
+        "right": 1480,
+        "bottom": 637,
+        "width": 1424,
+        "height": 541,
+        "font": "17px"
+      },
+      {
+        "selector": ".immersive-copy",
+        "x": 56,
+        "y": 167.75936889648438,
+        "right": 711.03125,
+        "bottom": 527.5406494140625,
+        "width": 655.03125,
+        "height": 359.7812805175781,
+        "font": "17px"
+      },
+      {
+        "selector": ".immersive-copy h1",
+        "x": 56,
+        "y": 167.75936889648438,
+        "right": 711.03125,
+        "bottom": 363.1968688964844,
+        "width": 655.03125,
+        "height": 195.4375,
+        "font": "58.38px"
+      },
+      {
+        "selector": ".immersive-copy>p",
+        "x": 56,
+        "y": 385.4312438964844,
+        "right": 646,
+        "bottom": 443.0249938964844,
+        "width": 590,
+        "height": 57.59375,
+        "font": "18px"
+      },
+      {
+        "selector": ".immersive-actions",
+        "x": 56,
+        "y": 468.0406188964844,
+        "right": 711.03125,
+        "bottom": 527.5406494140625,
+        "width": 655.03125,
+        "height": 59.500030517578125,
+        "font": "17px"
+      },
+      {
+        "selector": ".immersive-visual",
+        "x": 880.859375,
+        "y": 108,
+        "right": 1480,
+        "bottom": 628.984375,
+        "width": 599.140625,
+        "height": 520.984375,
+        "font": "17px"
+      },
+      {
+        "selector": ".cloud-universe",
+        "x": 880.859375,
+        "y": 108,
+        "right": 1480,
+        "bottom": 628.984375,
+        "width": 599.140625,
+        "height": 520.984375,
+        "font": "17px"
+      },
+      {
+        "selector": ".immersive-signoff",
+        "x": 56,
+        "y": 637,
+        "right": 1480,
+        "bottom": 695,
+        "width": 1424,
+        "height": 58,
+        "font": "13px"
+      },
+      {
+        "selector": ".immersive-signoff > a",
+        "x": 1079.921875,
+        "y": 648.59375,
+        "right": 1250,
+        "bottom": 669.390625,
+        "width": 170.078125,
+        "height": 20.796875,
+        "font": "13px"
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "height": 790,
+    "overflow": false,
+    "boxes": [
+      {
+        "selector": ".header",
+        "x": 0,
+        "y": 0,
+        "right": 1440,
+        "bottom": 96,
+        "width": 1440,
+        "height": 96,
+        "font": "17px"
+      },
+      {
+        "selector": ".immersive-hero",
+        "x": 0,
+        "y": 96,
+        "right": 1440,
+        "bottom": 790,
+        "width": 1440,
+        "height": 694,
+        "font": "17px"
+      },
+      {
+        "selector": ".immersive-inner",
+        "x": 56,
+        "y": 96,
+        "right": 1384,
+        "bottom": 732,
+        "width": 1328,
+        "height": 636,
+        "font": "17px"
+      },
+      {
+        "selector": ".immersive-copy",
+        "x": 56,
+        "y": 194.3000030517578,
+        "right": 666.875,
+        "bottom": 590.2843780517578,
+        "width": 610.875,
+        "height": 395.984375,
+        "font": "17px"
+      },
+      {
+        "selector": ".immersive-copy h1",
+        "x": 56,
+        "y": 194.3000030517578,
+        "right": 666.875,
+        "bottom": 412.64373779296875,
+        "width": 610.875,
+        "height": 218.34373474121094,
+        "font": "66.36px"
+      },
+      {
+        "selector": ".immersive-copy>p",
+        "x": 56,
+        "y": 437.90936279296875,
+        "right": 646,
+        "bottom": 502.34686279296875,
+        "width": 590,
+        "height": 64.4375,
+        "font": "20.145px"
+      },
+      {
+        "selector": ".immersive-actions",
+        "x": 56,
+        "y": 530.7843627929688,
+        "right": 666.875,
+        "bottom": 590.2843627929688,
+        "width": 610.875,
+        "height": 59.5,
+        "font": "17px"
+      },
+      {
+        "selector": ".immersive-visual",
+        "x": 675.609375,
+        "y": 108,
+        "right": 1384,
+        "bottom": 723.984375,
+        "width": 708.390625,
+        "height": 615.984375,
+        "font": "17px"
+      },
+      {
+        "selector": ".cloud-universe",
+        "x": 675.609375,
+        "y": 108,
+        "right": 1384,
+        "bottom": 723.984375,
+        "width": 708.390625,
+        "height": 615.984375,
+        "font": "17px"
+      },
+      {
+        "selector": ".immersive-signoff",
+        "x": 56,
+        "y": 732,
+        "right": 1384,
+        "bottom": 790,
+        "width": 1328,
+        "height": 58,
+        "font": "13px"
+      },
+      {
+        "selector": ".immersive-signoff > a",
+        "x": 983.921875,
+        "y": 743.59375,
+        "right": 1154,
+        "bottom": 764.390625,
+        "width": 170.078125,
+        "height": 20.796875,
+        "font": "13px"
+      }
+    ]
+  },
+  {
+    "width": 1366,
+    "height": 640,
+    "overflow": false,
+    "boxes": [
+      {
+        "selector": ".header",
+        "x": 0,
+        "y": 0,
+        "right": 1366,
+        "bottom": 96,
+        "width": 1366,
+        "height": 96,
+        "font": "17px"
+      },
+      {
+        "selector": ".immersive-hero",
+        "x": 0,
+        "y": 96,
+        "right": 1366,
+        "bottom": 640,
+        "width": 1366,
+        "height": 544,
+        "font": "17px"
+      },
+      {
+        "selector": ".immersive-inner",
+        "x": 56,
+        "y": 96,
+        "right": 1310,
+        "bottom": 582,
+        "width": 1254,
+        "height": 486,
+        "font": "17px"
+      },
+      {
+        "selector": ".immersive-copy",
+        "x": 56,
+        "y": 149.1437530517578,
+        "right": 632.828125,
+        "bottom": 494.4562530517578,
+        "width": 576.828125,
+        "height": 345.3125,
+        "font": "17px"
+      },
+      {
+        "selector": ".immersive-copy h1",
+        "x": 56,
+        "y": 149.1437530517578,
+        "right": 632.828125,
+        "bottom": 331.36248779296875,
+        "width": 576.828125,
+        "height": 182.21873474121094,
+        "font": "53.76px"
+      },
+      {
+        "selector": ".immersive-copy>p",
+        "x": 56,
+        "y": 353.36248779296875,
+        "right": 632.828125,
+        "bottom": 410.95623779296875,
+        "width": 576.828125,
+        "height": 57.59375,
+        "font": "18px"
+      },
+      {
+        "selector": ".immersive-actions",
+        "x": 56,
+        "y": 434.95623779296875,
+        "right": 632.828125,
+        "bottom": 494.45623779296875,
+        "width": 576.828125,
+        "height": 59.5,
+        "font": "17px"
+      },
+      {
+        "selector": ".immersive-visual",
+        "x": 774.109375,
+        "y": 108,
+        "right": 1310,
+        "bottom": 573.984375,
+        "width": 535.890625,
+        "height": 465.984375,
+        "font": "17px"
+      },
+      {
+        "selector": ".cloud-universe",
+        "x": 774.109375,
+        "y": 108,
+        "right": 1310,
+        "bottom": 573.984375,
+        "width": 535.890625,
+        "height": 465.984375,
+        "font": "17px"
+      },
+      {
+        "selector": ".immersive-signoff",
+        "x": 56,
+        "y": 582,
+        "right": 1310,
+        "bottom": 640,
+        "width": 1254,
+        "height": 58,
+        "font": "13px"
+      },
+      {
+        "selector": ".immersive-signoff > a",
+        "x": 909.921875,
+        "y": 593.59375,
+        "right": 1080,
+        "bottom": 614.390625,
+        "width": 170.078125,
+        "height": 20.796875,
+        "font": "13px"
+      }
+    ]
+  },
+  {
+    "width": 1366,
+    "height": 500,
+    "overflow": false,
+    "boxes": [
+      {
+        "selector": ".header",
+        "x": 0,
+        "y": 0,
+        "right": 1366,
+        "bottom": 96,
+        "width": 1366,
+        "height": 96,
+        "font": "17px"
+      },
+      {
+        "selector": ".immersive-hero",
+        "x": 0,
+        "y": 96,
+        "right": 1366,
+        "bottom": 920.796875,
+        "width": 1366,
+        "height": 824.796875,
+        "font": "17px"
+      },
+      {
+        "selector": ".immersive-inner",
+        "x": 56,
+        "y": 96,
+        "right": 1310,
+        "bottom": 856,
+        "width": 1254,
+        "height": 760,
+        "font": "17px"
+      },
+      {
+        "selector": ".immersive-copy",
+        "x": 56,
+        "y": 222.703125,
+        "right": 632.828125,
+        "bottom": 749.296875,
+        "width": 576.828125,
+        "height": 526.59375,
+        "font": "17px"
+      },
+      {
+        "selector": ".immersive-copy h1",
+        "x": 56,
+        "y": 252.703125,
+        "right": 632.828125,
+        "bottom": 489.046875,
+        "width": 576.828125,
+        "height": 236.34375,
+        "font": "69.666px"
+      },
+      {
+        "selector": ".immersive-copy>p",
+        "x": 56,
+        "y": 525.046875,
+        "right": 632.828125,
+        "bottom": 592.796875,
+        "width": 576.828125,
+        "height": 67.75,
+        "font": "21.173px"
+      },
+      {
+        "selector": ".immersive-actions",
+        "x": 56,
+        "y": 634.796875,
+        "right": 632.828125,
+        "bottom": 694.296875,
+        "width": 576.828125,
+        "height": 59.5,
+        "font": "17px"
+      },
+      {
+        "selector": ".immersive-visual",
+        "x": 602.828125,
+        "y": 158.96875,
+        "right": 1355,
+        "bottom": 813.03125,
+        "width": 752.171875,
+        "height": 654.0625,
+        "font": "17px"
+      },
+      {
+        "selector": ".cloud-universe",
+        "x": 602.828125,
+        "y": 158.96875,
+        "right": 1355,
+        "bottom": 813.03125,
+        "width": 752.171875,
+        "height": 654.0625,
+        "font": "17px"
+      },
+      {
+        "selector": ".immersive-signoff",
+        "x": 56,
+        "y": 856,
+        "right": 1310,
+        "bottom": 920.796875,
+        "width": 1254,
+        "height": 64.796875,
+        "font": "13px"
+      },
+      {
+        "selector": ".immersive-signoff > a",
+        "x": 1139.921875,
+        "y": 864,
+        "right": 1310,
+        "bottom": 884.796875,
+        "width": 170.078125,
+        "height": 20.796875,
+        "font": "13px"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "overflow": false,
+    "boxes": [
+      {
+        "selector": ".header",
+        "x": 0,
+        "y": 0,
+        "right": 390,
+        "bottom": 76,
+        "width": 390,
+        "height": 76,
+        "font": "17px"
+      },
+      {
+        "selector": ".immersive-hero",
+        "x": 0,
+        "y": 76,
+        "right": 390,
+        "bottom": 922.484375,
+        "width": 390,
+        "height": 846.484375,
+        "font": "17px"
+      },
+      {
+        "selector": ".immersive-inner",
+        "x": 20,
+        "y": 76,
+        "right": 370,
+        "bottom": 871.890625,
+        "width": 350,
+        "height": 795.890625,
+        "font": "17px"
+      },
+      {
+        "selector": ".immersive-copy",
+        "x": 20,
+        "y": 106,
+        "right": 370,
+        "bottom": 505.609375,
+        "width": 350,
+        "height": 399.609375,
+        "font": "17px"
+      },
+      {
+        "selector": ".immersive-copy h1",
+        "x": 20,
+        "y": 106,
+        "right": 370,
+        "bottom": 266.953125,
+        "width": 350,
+        "height": 160.953125,
+        "font": "48.75px"
+      },
+      {
+        "selector": ".immersive-copy>p",
+        "x": 20,
+        "y": 288.953125,
+        "right": 370,
+        "bottom": 378.015625,
+        "width": 350,
+        "height": 89.0625,
+        "font": "18px"
+      },
+      {
+        "selector": ".immersive-actions",
+        "x": 20,
+        "y": 404.015625,
+        "right": 370,
+        "bottom": 505.609375,
+        "width": 350,
+        "height": 101.59375,
+        "font": "17px"
+      },
+      {
+        "selector": ".immersive-visual",
+        "x": 8,
+        "y": 525.609375,
+        "right": 382,
+        "bottom": 871.890625,
+        "width": 374,
+        "height": 346.28125,
+        "font": "17px"
+      },
+      {
+        "selector": ".cloud-universe",
+        "x": 8,
+        "y": 525.609375,
+        "right": 382,
+        "bottom": 871.890625,
+        "width": 374,
+        "height": 346.28125,
+        "font": "17px"
+      },
+      {
+        "selector": ".immersive-signoff",
+        "x": 20,
+        "y": 871.890625,
+        "right": 370,
+        "bottom": 922.484375,
+        "width": 350,
+        "height": 50.59375,
+        "font": "11px"
+      },
+      {
+        "selector": ".immersive-signoff > a",
+        "x": 0,
+        "y": 0,
+        "right": 0,
+        "bottom": 0,
+        "width": 0,
+        "height": 0,
+        "font": "13px"
+      }
+    ]
+  }
+]

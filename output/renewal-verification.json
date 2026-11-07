@@ -1,0 +1,41 @@
+{
+  "baseline": {
+    "commit": "f49a130",
+    "tag": "v1",
+    "preserved": true
+  },
+  "current_revision": "local working-tree changes; not committed or published",
+  "checks": {
+    "typescript": "passed",
+    "production_build": "passed; 40 static outputs",
+    "browser_scenarios": "9 scenarios passed across suite and targeted reruns",
+    "mobile_final": "passed after compact assistant refinement",
+    "horizontal_overflow": "none in tested mobile layouts",
+    "console_errors_in_preview": [],
+    "sticky_panel_surface_height": 620,
+    "shortest_tested_sticky_viewport": 768,
+    "header_clearance": 110,
+    "diff_whitespace": "passed"
+  },
+  "coverage": [
+    "content and image parity across themes",
+    "persistent theme preference",
+    "native letter animation and playback controls",
+    "reduced motion",
+    "scroll panel recession",
+    "navbar magnification",
+    "Oracle logo visibility",
+    "static routes and local images",
+    "mobile menu",
+    "industry keyboard navigation",
+    "office globe and WebGL fallback",
+    "contact email draft",
+    "careers search",
+    "local FAQ history"
+  ],
+  "exports": "Transparent WebM/GIF intro and idle clips; PNG; self-contained SVG; reusable React component",
+  "packages": [
+    "output/infocus-renewed-static.zip",
+    "output/infocus-wordmark-kit.zip"
+  ]
+}

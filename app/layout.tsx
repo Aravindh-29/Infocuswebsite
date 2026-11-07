@@ -1,6 +1,19 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "./themes.css";
+import "./renewal.css";
+import "./readability.css";
+import "./stack-fit.css";
+import "./contact-flow.css";
+import "./cloud-universe.css";
+import "./immersive-hero.css";
+import "./deepu.css";
+import "./journey-glass.css";
+import "./services-experience.css";
+import "./contact-partnership.css";
+import "./polish.css";
+import "./cloud-service-network.css";
+import "./enterprise-artwork.css";
 import {
   Header,
   Footer,
@@ -52,7 +65,7 @@ export default function RootLayout({
               "@type": "Organization",
               name: "Infocus Consulting Services",
               url: "https://www.infocuscs.com",
-              logo: "https://www.infocuscs.com/brand/infocus-logo.svg",
+              logo: "https://www.infocuscs.com/brand/infocus-wordmark.png",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Hyderabad",

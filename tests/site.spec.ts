@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { emailRecipients } from "../lib/email-recipients";
 test("desktop interactions, images, chat and navigation", async ({ page }) => {
   const errors: string[] = [];
   page.on("response", (r) => {
@@ -10,20 +11,20 @@ test("desktop interactions, images, chat and navigation", async ({ page }) => {
   page.on("pageerror", (e) => errors.push(e.message));
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto("/");
-  await page.locator(".hero-original").waitFor();
+  await page.locator(".hero-cloud-image").waitFor();
   await page.waitForTimeout(1800);
-  await expect(page.locator("h1")).toContainText("Transforming");
-  await expect(
-    page.locator(".brand .infocus-logo-animation").first(),
-  ).toBeVisible();
+  await expect(page.locator("h1")).toHaveAccessibleName(
+    "Behind every bold dream, a world of possibility.",
+  );
+  await expect(page.locator(".brand .infocus-wordmark").first()).toBeVisible();
   await page.screenshot({ path: "output/home-desktop.png" });
   await page.getByRole("button", { name: "Show solutions menu" }).click();
   await expect(page.locator(".mega")).toBeVisible();
   await page.keyboard.press("Escape");
   await expect(page.locator(".mega")).toBeHidden();
-  await page.locator(".journey-steps article").last().scrollIntoViewIfNeeded();
-  await expect(page.locator(".journey-indicator strong")).toHaveText(
-    "Make room for what’s next",
+  await page.locator(".chapter-panel").last().scrollIntoViewIfNeeded();
+  await expect(page.locator(".chapter-panel").last()).toContainText(
+    "Go live. Keep getting better.",
   );
   await page.getByRole("tab", { name: "Manufacturing" }).click();
   await expect(page.getByRole("tabpanel")).toContainText(
@@ -39,7 +40,7 @@ test("desktop interactions, images, chat and navigation", async ({ page }) => {
     "410 North Bridge",
   );
   await expect(page.locator(".globe canvas")).toBeVisible();
-  await page.getByRole("button", { name: "Open Asthara assistant" }).click();
+  await page.getByRole("button", { name: "Open Deepu assistant" }).click();
   await page
     .getByRole("button", { name: "Do you provide Oracle services?" })
     .click();
@@ -50,7 +51,7 @@ test("desktop interactions, images, chat and navigation", async ({ page }) => {
     .getByRole("button", { name: "Close assistant", exact: true })
     .click();
   await page.reload();
-  await page.getByRole("button", { name: "Open Asthara assistant" }).click();
+  await page.getByRole("button", { name: "Open Deepu assistant" }).click();
   await expect(page.locator(".message.assistant").last()).toContainText(
     "Oracle Integration Cloud",
   );
@@ -133,10 +134,28 @@ test("all major routes render and all local assets resolve", async ({
   expect((await request.get("/sitemap.xml")).status()).toBe(200);
   expect((await request.get("/robots.txt")).status()).toBe(200);
 });
-test("contact prepares a truthful email draft and careers search works", async ({
+test("contact opens a complete Gmail draft and careers search works", async ({
   page,
 }) => {
+  await page.addInitScript(() => {
+    const browser = window as unknown as Window & { __gmailOpens: string[] };
+    browser.__gmailOpens = [];
+    window.open = (url) => {
+      browser.__gmailOpens.push(String(url));
+      return null;
+    };
+  });
   await page.goto("/contact/");
+  await page
+    .getByLabel("I’m interested in")
+    .selectOption({ label: "Oracle services" });
+  await page
+    .getByLabel("Preferred office")
+    .selectOption({ label: "Singapore" });
+  await page
+    .getByRole("textbox", { name: "Your challenge" })
+    .fill("We would like to discuss an Oracle migration.");
+  await page.getByRole("button", { name: "Continue to your details" }).click();
   await page
     .getByRole("textbox", { name: "Your name" })
     .fill("Preview visitor");
@@ -144,17 +163,31 @@ test("contact prepares a truthful email draft and careers search works", async (
     .getByRole("textbox", { name: "Work email" })
     .fill("preview@example.com");
   await page
+    .getByRole("textbox", { name: "Phone number" })
+    .fill("+65 6123 4567");
+  await page
     .getByRole("textbox", { name: "Company", exact: true })
     .fill("Preview Company");
-  await page
-    .getByRole("textbox", { name: "Your challenge" })
-    .fill("We would like to discuss an Oracle migration.");
+  await page.getByRole("button", { name: "Review", exact: true }).click();
   await page.getByRole("checkbox").check();
-  await page.getByRole("button", { name: "Prepare enquiry" }).click();
-  await expect(page.getByRole("status")).toContainText("Your enquiry is ready");
-  await expect(
-    page.getByRole("link", { name: "Open email draft" }),
-  ).toHaveAttribute("href", /^mailto:hr@infocuscs.com\?subject=/);
+  await page.getByRole("button", { name: "Send email", exact: true }).click();
+  await expect(page.getByRole("main").getByRole("status")).toContainText(
+    "Your email draft is ready.",
+  );
+  const href = (await page
+    .getByRole("link", { name: "Open Gmail draft" })
+    .getAttribute("href"))!;
+  const draft = new URL(href);
+  expect(draft.origin).toBe("https://mail.google.com");
+  expect(draft.searchParams.get("to")).toBe(emailRecipients.join(","));
+  expect(draft.searchParams.get("body")).toContain("+65 6123 4567");
+  expect(draft.searchParams.get("su")).toContain("Oracle services");
+  expect(
+    await page.evaluate(
+      () =>
+        (window as unknown as Window & { __gmailOpens: string[] }).__gmailOpens,
+    ),
+  ).toEqual([href]);
   await page.goto("/careers/");
   await page
     .getByRole("textbox", { name: "Search career areas" })
@@ -193,12 +226,14 @@ test("mobile layouts have no overflow and menu works", async ({ page }) => {
     page.getByRole("navigation", { name: "Main navigation" }),
   ).toBeVisible();
   await page
-    .getByRole("navigation")
+    .getByRole("navigation", { name: "Main navigation", exact: true })
     .getByRole("link", { name: "Careers", exact: true })
     .click();
   await expect(page).toHaveURL(/careers/);
-  await expect(page.getByRole("navigation")).toBeHidden();
-  await page.getByRole("button", { name: "Open Asthara assistant" }).click();
+  await expect(
+    page.getByRole("navigation", { name: "Main navigation", exact: true }),
+  ).toBeHidden();
+  await page.getByRole("button", { name: "Open Deepu assistant" }).click();
   await expect(page.locator(".chat")).toBeVisible();
   expect(
     await page.evaluate(

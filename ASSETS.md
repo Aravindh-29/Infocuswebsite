@@ -6,7 +6,7 @@ All four new assets were generated with the built-in ImageGen tool for this rede
 | --- | --- | --- |
 | Glass cloud | Hero and cloud capability | `public/images/cloud-hero.webp` |
 | Application architecture | Integration section and Oracle pages | `public/images/integration.webp` |
-| IF monogram | Navigation, footer and favicon | `public/images/logo-3d.png`, `app/icon.png` |
+| IF monogram (v1 archive) | Previous design; no live usage | `public/images/logo-3d.png`, `app/icon.png` |
 | Industry worlds | Ten unique industry illustrations in one sprite atlas | `public/images/industry-worlds.webp` |
 
 The image outputs were converted to optimized WebP for website delivery; the transparent logo was cropped to its visible bounds and resized for navigation. The industry atlas is displayed using CSS background positions without duplicating the ten images. Existing company assets and WOFF2 fonts were retained from the supplied project. Confirm company usage rights before publication.
@@ -34,10 +34,44 @@ Use case: stylized-concept. Create a production sprite sheet of TEN premium ente
 
 ## Revision: native logo, original imagery and vendor identities
 
-The live brand mark is now an SVG/GSAP drawing animation from `components/InfocusLogoAnimation.tsx`, with shared path geometry in `lib/logo.ts`. It replaces the generated logo in the website. The user's supplied purple INFOCUS wordmark was cropped to its lettering with a small glow margin and resized to `public/brand/infocus-wordmark.png`. See `LOGO-ANIMATION.md` for all native animation exports.
+The current live brand uses only the uploaded INFOCUS lettering through `components/InfocusWordmarkAnimation.tsx`. Seven clipped letters animate with GSAP, then settle into a subtle gold shimmer. The previous generated and native IF monograms are retained only as v1 references. The user's supplied purple INFOCUS wordmark was cropped to its lettering with a small glow margin and resized to `public/brand/infocus-wordmark.png`. See `LOGO-ANIMATION.md` for all native animation exports.
 
 Oracle uses the existing `par-or (4).webp`, trimmed without redrawing to `public/brands/oracle.webp`. AWS, Azure, Google Cloud, Salesforce and OpenStack SVGs come from the [Devicon project](https://github.com/devicons/devicon), with individual download sources recorded in `public/brands/sources.json`. SAP uses its SVG silhouette from [Simple Icons](https://simpleicons.org/). Microsoft's four-colour mark is rendered as SVG geometry. These identify the platforms discussed; they do not assert partner certification.
 
 Brand reference resources: [Oracle logos](https://www.oracle.com/legal/logos/), [AWS architecture icons](https://aws.amazon.com/architecture/icons/), [Microsoft Azure icons](https://learn.microsoft.com/en-us/azure/architecture/icons/).
 
-Original photos, logos and icons are preserved in `images/` and `public/images/`. The revision reuses the original Oracle diagram, operations/team photos, office-location illustrations, industry icons and company network logos in their relevant sections. The generated cloud/architecture illustrations remain in the optional night hero and transformation story.
+Original photos, logos and icons are preserved in `images/` and `public/images/`. The revision reuses the original Oracle diagram, operations/team photos, office-location illustrations, industry icons and company network logos in their relevant sections. The generated cloud/architecture illustrations appear in the hero and transformation story in both light and dark modes. Theme changes do not change the content or imagery.
+
+## Approved immersive cloud hero
+
+The approved light-mode concept is preserved at `output/approved-hero-concept.png`. The live site uses native text and links; it does not use a screenshot of the mockup as its interface.
+
+`public/images/hero-cloud-light.png` is the isolated central cloud generated with the built-in ImageGen tool from the approved concept. It is a 1536×1024 RGBA PNG with verified transparency. The final production-asset prompt is in `output/cloud-asset-prompt.txt`. The cloud, silver pedestal, energy paths, provider nodes and page typography are separate layers so they can respond to interaction.
+
+The original dark glass cloud remains available for the transformation story and other relevant content. The new hero uses the same isolated cloud and platform identities in both colour modes. SVG energy and flash effects are clipped using the cloud's alpha mask; the effect does not flash the page background. AWS, Azure, Oracle and Google Cloud identities use the existing local vendor assets.
+
+## Deepu assistant avatar
+
+`public/images/deepu-avatar.png` is an original generated male business-assistant portrait in a navy suit, white shirt and blue tie. The built-in ImageGen tool created the 1254×1254 RGBA PNG with a transparent background. The selected asset is copied into the project; the original generation is preserved. The production prompt is saved at `output/deepu-avatar-prompt.txt`. This fictional avatar appears in the launcher, welcome and chat header.
+
+The short popup chime is synthesized locally with Web Audio. There is no spoken greeting or use of speech synthesis, and no externally hosted audio file is needed.
+
+## Services diagrams
+
+The Services page uses the existing local Oracle, Azure, AWS and Google Cloud vendor marks. Its landing-zone, high-availability and recovery diagrams are native HTML/CSS/SVG illustrations; application, website, mobile, database and support diagrams are native illustrations too. No stock architecture screenshot or newly generated bitmap is required. Official architecture references are recorded in `lib/service-catalog.ts` under `serviceArchitectureSources`.
+
+The Full-stack & enterprise applications card uses an original native SVG illustration in `components/EnterpriseApplicationVisual.tsx`, styled by `app/enterprise-artwork.css`. Desktop and mobile interfaces connect to APIs, workflows, a database and ERP/CRM/HCM tiles. This is an illustrative interface, not a customer screenshot, and uses no external image asset.
+
+## Contact partnership image
+
+`public/images/contact-partnership.png` is an original photorealistic image created with built-in ImageGen: two smiling business professionals shaking hands, one in a navy suit and one in a light-blue blazer. The 1536×1024 RGBA asset has a true transparent background; the production page preserves its alpha and softly feathers the bottom edge with CSS, with no photo frame or opaque rectangle. Both themes use the same image. The exact generation prompt is saved in `output/contact-partnership-prompt.txt`; the original remains under the session's generated_images directory as `exec-be43a5b4-8f59-4461-ad88-8499258eabea.png`.
+
+## Globe geography: Natural Earth
+
+The live globe's real coastlines, country boundaries and land mask come from [Natural Earth 1:50m Admin 0 countries](https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries-2/). Natural Earth's [official terms](https://www.naturalearthdata.com/about/terms-of-use/) place its raster and vector data in the public domain and permit modification and commercial use. The source uses Natural Earth's default de facto boundary representation.
+
+The pinned source is the project's [maintainer repository GeoJSON at tag v5.1.2](https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_50m_admin_0_countries.geojson), containing the Admin 0 country layer version 5.1.1. Source SHA-256: `3e458fc036ad0a66411f2c1e6cac49c5d7bfb81cb1123bc513b22511a2b7fdeb`.
+
+`scripts/build-globe-map.mjs` processes the original polygon rings into `lib/globe-map-data.json`: 0.09-degree outline simplification, 0.01-degree coordinate quantization, and a land-only, approximately equal-spaced dot grid sampled against the original polygons and their holes. Small islands are retained. The 320,250-byte local data file contains 1,632 rings, 24,896 boundary vertices and 4,435 land points. The builder verifies land classification for Hyderabad, Singapore, Petaling Jaya and Newark, and ocean classification at two open-ocean locations. The original download is cached under `output/map-source/` for reproducibility; the runtime requires only the bundled processed file and makes no map CDN requests.
+
+`lib/globe-map.ts` constructs four rendering layers from this local asset: a shaded navy sphere, a subtle triangulated mesh, cyan country/coastline segments and land dots. Long outline segments are subdivided along the sphere, shared borders are deduplicated where their endpoints match, and all geometries/materials are registered with the scene's disposal list. Coordinates use the same geographic frame as the existing office pins. Made with Natural Earth.

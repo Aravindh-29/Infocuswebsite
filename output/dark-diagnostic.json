@@ -1,0 +1,442 @@
+[
+  {
+    "reduced": true,
+    "entry": "fresh",
+    "pause": false,
+    "filename": "output/dark-diagnostic-fresh-reduced-running.png",
+    "errors": [],
+    "theme": "dark",
+    "overflow": false,
+    "regions": [
+      {
+        "selector": ".contact-nav",
+        "color": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "opacity": "1",
+        "filter": "none",
+        "x": 1333.53125,
+        "y": 22.703125,
+        "w": 147.46875,
+        "h": 49.59375
+      },
+      {
+        "selector": ".immersive-actions .button",
+        "color": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "opacity": "1",
+        "filter": "none",
+        "x": 56,
+        "y": 689.15625,
+        "w": 268.96875,
+        "h": 59.5
+      },
+      {
+        "selector": ".cloud-platform-node .vendor-aws img",
+        "color": "rgb(237, 244, 255)",
+        "fill": "rgb(237, 244, 255)",
+        "opacity": "1",
+        "filter": "none",
+        "x": 797.3395385742188,
+        "y": 619.2604370117188,
+        "w": 107.2188720703125,
+        "h": 74.12457275390625
+      },
+      {
+        "selector": ".cloud-universe-guidance p",
+        "color": "rgb(22, 60, 117)",
+        "fill": "rgb(22, 60, 117)",
+        "opacity": "1",
+        "filter": "none",
+        "x": 1062.578125,
+        "y": 766.203125,
+        "w": 251.609375,
+        "h": 18.890625
+      }
+    ]
+  },
+  {
+    "reduced": true,
+    "entry": "fresh",
+    "pause": true,
+    "filename": "output/dark-diagnostic-fresh-reduced-paused.png",
+    "errors": [],
+    "theme": "dark",
+    "overflow": false,
+    "regions": [
+      {
+        "selector": ".contact-nav",
+        "color": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "opacity": "1",
+        "filter": "none",
+        "x": 1333.53125,
+        "y": 22.703125,
+        "w": 147.46875,
+        "h": 49.59375
+      },
+      {
+        "selector": ".immersive-actions .button",
+        "color": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "opacity": "1",
+        "filter": "none",
+        "x": 56,
+        "y": 689.15625,
+        "w": 268.96875,
+        "h": 59.5
+      },
+      {
+        "selector": ".cloud-platform-node .vendor-aws img",
+        "color": "rgb(237, 244, 255)",
+        "fill": "rgb(237, 244, 255)",
+        "opacity": "1",
+        "filter": "none",
+        "x": 797.3395385742188,
+        "y": 619.2604370117188,
+        "w": 107.2188720703125,
+        "h": 74.12457275390625
+      },
+      {
+        "selector": ".cloud-universe-guidance p",
+        "color": "rgb(22, 60, 117)",
+        "fill": "rgb(22, 60, 117)",
+        "opacity": "1",
+        "filter": "none",
+        "x": 1062.578125,
+        "y": 766.203125,
+        "w": 251.609375,
+        "h": 18.890625
+      }
+    ]
+  },
+  {
+    "reduced": true,
+    "entry": "toggle",
+    "pause": false,
+    "filename": "output/dark-diagnostic-toggle-reduced-running.png",
+    "errors": [],
+    "theme": "dark",
+    "overflow": false,
+    "regions": [
+      {
+        "selector": ".contact-nav",
+        "color": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "opacity": "1",
+        "filter": "none",
+        "x": 1333.53125,
+        "y": 22.703125,
+        "w": 147.46875,
+        "h": 49.59375
+      },
+      {
+        "selector": ".immersive-actions .button",
+        "color": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "opacity": "1",
+        "filter": "none",
+        "x": 56,
+        "y": 689.15625,
+        "w": 268.96875,
+        "h": 59.5
+      },
+      {
+        "selector": ".cloud-platform-node .vendor-aws img",
+        "color": "rgb(237, 244, 255)",
+        "fill": "rgb(237, 244, 255)",
+        "opacity": "1",
+        "filter": "none",
+        "x": 797.3395385742188,
+        "y": 619.2604370117188,
+        "w": 107.2188720703125,
+        "h": 74.12457275390625
+      },
+      {
+        "selector": ".cloud-universe-guidance p",
+        "color": "rgb(22, 60, 117)",
+        "fill": "rgb(22, 60, 117)",
+        "opacity": "1",
+        "filter": "none",
+        "x": 1062.578125,
+        "y": 766.203125,
+        "w": 251.609375,
+        "h": 18.890625
+      }
+    ]
+  },
+  {
+    "reduced": true,
+    "entry": "toggle",
+    "pause": true,
+    "filename": "output/dark-diagnostic-toggle-reduced-paused.png",
+    "errors": [],
+    "theme": "dark",
+    "overflow": false,
+    "regions": [
+      {
+        "selector": ".contact-nav",
+        "color": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "opacity": "1",
+        "filter": "none",
+        "x": 1333.53125,
+        "y": 22.703125,
+        "w": 147.46875,
+        "h": 49.59375
+      },
+      {
+        "selector": ".immersive-actions .button",
+        "color": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "opacity": "1",
+        "filter": "none",
+        "x": 56,
+        "y": 689.15625,
+        "w": 268.96875,
+        "h": 59.5
+      },
+      {
+        "selector": ".cloud-platform-node .vendor-aws img",
+        "color": "rgb(237, 244, 255)",
+        "fill": "rgb(237, 244, 255)",
+        "opacity": "1",
+        "filter": "none",
+        "x": 797.3395385742188,
+        "y": 619.2604370117188,
+        "w": 107.2188720703125,
+        "h": 74.12457275390625
+      },
+      {
+        "selector": ".cloud-universe-guidance p",
+        "color": "rgb(22, 60, 117)",
+        "fill": "rgb(22, 60, 117)",
+        "opacity": "1",
+        "filter": "none",
+        "x": 1062.578125,
+        "y": 766.203125,
+        "w": 251.609375,
+        "h": 18.890625
+      }
+    ]
+  },
+  {
+    "reduced": false,
+    "entry": "fresh",
+    "pause": false,
+    "filename": "output/dark-diagnostic-fresh-normal-running.png",
+    "errors": [],
+    "theme": "dark",
+    "overflow": false,
+    "regions": [
+      {
+        "selector": ".contact-nav",
+        "color": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "opacity": "1",
+        "filter": "none",
+        "x": 1333.53125,
+        "y": 22.703125,
+        "w": 147.46875,
+        "h": 49.59375
+      },
+      {
+        "selector": ".immersive-actions .button",
+        "color": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "opacity": "1",
+        "filter": "none",
+        "x": 56,
+        "y": 690.5,
+        "w": 268.96875,
+        "h": 59.5
+      },
+      {
+        "selector": ".cloud-platform-node .vendor-aws img",
+        "color": "rgb(237, 244, 255)",
+        "fill": "rgb(237, 244, 255)",
+        "opacity": "1",
+        "filter": "none",
+        "x": 795.3067626953125,
+        "y": 618.7781982421875,
+        "w": 108.700927734375,
+        "h": 76.01763916015625
+      },
+      {
+        "selector": ".cloud-universe-guidance p",
+        "color": "rgb(22, 60, 117)",
+        "fill": "rgb(22, 60, 117)",
+        "opacity": "1",
+        "filter": "none",
+        "x": 1062.578125,
+        "y": 766.203125,
+        "w": 251.609375,
+        "h": 18.890625
+      }
+    ]
+  },
+  {
+    "reduced": false,
+    "entry": "fresh",
+    "pause": true,
+    "filename": "output/dark-diagnostic-fresh-normal-paused.png",
+    "errors": [],
+    "theme": "dark",
+    "overflow": false,
+    "regions": [
+      {
+        "selector": ".contact-nav",
+        "color": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "opacity": "1",
+        "filter": "none",
+        "x": 1333.53125,
+        "y": 22.703125,
+        "w": 147.46875,
+        "h": 49.59375
+      },
+      {
+        "selector": ".immersive-actions .button",
+        "color": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "opacity": "1",
+        "filter": "none",
+        "x": 56,
+        "y": 690.5,
+        "w": 268.96875,
+        "h": 59.5
+      },
+      {
+        "selector": ".cloud-platform-node .vendor-aws img",
+        "color": "rgb(237, 244, 255)",
+        "fill": "rgb(237, 244, 255)",
+        "opacity": "1",
+        "filter": "none",
+        "x": 801.6321411132812,
+        "y": 612.32421875,
+        "w": 103.7451171875,
+        "h": 71.5220947265625
+      },
+      {
+        "selector": ".cloud-universe-guidance p",
+        "color": "rgb(22, 60, 117)",
+        "fill": "rgb(22, 60, 117)",
+        "opacity": "1",
+        "filter": "none",
+        "x": 1062.578125,
+        "y": 766.203125,
+        "w": 251.609375,
+        "h": 18.890625
+      }
+    ]
+  },
+  {
+    "reduced": false,
+    "entry": "toggle",
+    "pause": false,
+    "filename": "output/dark-diagnostic-toggle-normal-running.png",
+    "errors": [],
+    "theme": "dark",
+    "overflow": false,
+    "regions": [
+      {
+        "selector": ".contact-nav",
+        "color": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "opacity": "1",
+        "filter": "none",
+        "x": 1333.53125,
+        "y": 22.703125,
+        "w": 147.46875,
+        "h": 49.59375
+      },
+      {
+        "selector": ".immersive-actions .button",
+        "color": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "opacity": "1",
+        "filter": "none",
+        "x": 56,
+        "y": 690.5,
+        "w": 268.96875,
+        "h": 59.5
+      },
+      {
+        "selector": ".cloud-platform-node .vendor-aws img",
+        "color": "rgb(237, 244, 255)",
+        "fill": "rgb(237, 244, 255)",
+        "opacity": "1",
+        "filter": "none",
+        "x": 793.67236328125,
+        "y": 618.056884765625,
+        "w": 109.29473876953125,
+        "h": 75.794677734375
+      },
+      {
+        "selector": ".cloud-universe-guidance p",
+        "color": "rgb(22, 60, 117)",
+        "fill": "rgb(22, 60, 117)",
+        "opacity": "1",
+        "filter": "none",
+        "x": 1062.578125,
+        "y": 766.203125,
+        "w": 251.609375,
+        "h": 18.890625
+      }
+    ]
+  },
+  {
+    "reduced": false,
+    "entry": "toggle",
+    "pause": true,
+    "filename": "output/dark-diagnostic-toggle-normal-paused.png",
+    "errors": [],
+    "theme": "dark",
+    "overflow": false,
+    "regions": [
+      {
+        "selector": ".contact-nav",
+        "color": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "opacity": "1",
+        "filter": "none",
+        "x": 1333.53125,
+        "y": 22.703125,
+        "w": 147.46875,
+        "h": 49.59375
+      },
+      {
+        "selector": ".immersive-actions .button",
+        "color": "rgb(255, 255, 255)",
+        "fill": "rgb(255, 255, 255)",
+        "opacity": "1",
+        "filter": "none",
+        "x": 56,
+        "y": 690.5,
+        "w": 268.96875,
+        "h": 59.5
+      },
+      {
+        "selector": ".cloud-platform-node .vendor-aws img",
+        "color": "rgb(237, 244, 255)",
+        "fill": "rgb(237, 244, 255)",
+        "opacity": "1",
+        "filter": "none",
+        "x": 801.5825805664062,
+        "y": 612.3511352539062,
+        "w": 103.7781982421875,
+        "h": 71.54339599609375
+      },
+      {
+        "selector": ".cloud-universe-guidance p",
+        "color": "rgb(22, 60, 117)",
+        "fill": "rgb(22, 60, 117)",
+        "opacity": "1",
+        "filter": "none",
+        "x": 1062.578125,
+        "y": 766.203125,
+        "w": 251.609375,
+        "h": 18.890625
+      }
+    ]
+  }
+]

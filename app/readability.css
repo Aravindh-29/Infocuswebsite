@@ -1,0 +1,503 @@
+/* Readability refinement: retain the visual hierarchy while giving supporting
+   copy and interactive labels enough size and contrast to read comfortably. */
+:root {
+  --action: #315fc5;
+  --action-hover: #244da9;
+  --action-edge: #315fc5;
+  --action-soft: #172b4d;
+  --action-soft-text: #e3edff;
+}
+html[data-theme="light"] {
+  --action-soft: #dfe9fb;
+  --action-soft-text: #21477f;
+}
+body {
+  font-size: 17px;
+}
+
+/* Section labels and numbers are supporting information, never microtype. */
+.eyebrow,
+:is(
+    .renewed-hero-copy,
+    .integration-copy,
+    .office-selector,
+    .industry-overlay,
+    .culture-banner,
+    .renewal-cta
+  )
+  > .eyebrow,
+.capability-tile .card-category,
+.context-note .context-label,
+.human-image-note > span,
+.oracle-visual-footer > span,
+.chapter-number,
+.chapter-coordinate,
+.capability-tile-top,
+.editorial-points > div > span,
+.oracle-accordion summary > span,
+.vendor-nodes i,
+.vendor-core > span,
+.vendor-caption,
+.footer-location,
+.globe-caption,
+.office-address > span,
+.visual-labels > span,
+.workflow-nodes small,
+.monitor-status > span {
+  font-size: 12px;
+  line-height: 1.6;
+  letter-spacing: 1px;
+}
+.renewed-hero-copy > .eyebrow {
+  letter-spacing: 1.2px;
+}
+.eyebrow {
+  flex-wrap: wrap;
+}
+.eyebrow .dash {
+  flex-shrink: 0;
+}
+
+/* These are the capability-card footer labels highlighted in the feedback. */
+.capability-bottom {
+  font-size: 15px;
+  line-height: 1.55;
+  gap: 14px;
+  flex-wrap: wrap;
+  color: var(--muted);
+}
+.capability-bottom > span:first-child {
+  flex: 1 1 180px;
+  min-width: 0;
+}
+.capability-bottom > span:last-child {
+  font-weight: 700;
+  gap: 7px;
+}
+.capability-bottom svg {
+  width: 17px;
+  height: 17px;
+}
+.text-link,
+.office-grid .text-link,
+.office-address a,
+.industry-overlay > a,
+.oracle-accordion details a,
+.chapter-copy > a,
+.mega > div > a {
+  font-size: 16px;
+  line-height: 1.6;
+}
+.hero-assurance,
+.chapter-result,
+.delivery-result,
+.cta-small,
+.tags > span,
+.breadcrumbs,
+.platform-disclaimer,
+.office-tabs button,
+.careers-list > a > span:last-child,
+.mega-links small,
+.scene-fallback span {
+  font-size: 14px;
+  line-height: 1.65;
+}
+.tags > span {
+  padding: 7px 11px;
+}
+.breadcrumbs {
+  flex-wrap: wrap;
+}
+.capability-tile p,
+.capability-grid p,
+.solution-card p,
+.solution-row p,
+.services-grid p,
+.platform-context li p,
+.values-grid p,
+.story-grid p,
+.original-photo-story p,
+.approach-grid p,
+.delivery-grid p,
+.editorial-points p,
+.industry-overlay p,
+.office-selector > p,
+.office-address p,
+.office-grid p,
+.culture-banner p,
+.legal p,
+.secondary-solutions p,
+.chapter-copy > p,
+.oracle-accordion details p {
+  font-size: 17px;
+  line-height: 1.8;
+}
+.chapter-copy li {
+  font-size: 15px;
+  line-height: 1.6;
+}
+.oracle-accordion summary {
+  font-size: 18px;
+}
+.industry-tabs button {
+  font-size: 16px;
+  line-height: 1.45;
+}
+.industry-tabs button > span {
+  font-size: 12px;
+}
+.platform-line {
+  font-size: 17px;
+}
+.ecosystem-brand .vendor-brand strong {
+  font-size: 15px;
+}
+.vendor-brand strong {
+  font-size: 17px;
+}
+.vendor-nodes strong {
+  font-size: 15px;
+  line-height: 1.4;
+}
+.oracle-visual-footer {
+  font-size: 15px;
+}
+.vendor-caption {
+  padding-inline: 8px;
+  letter-spacing: 0.6px;
+}
+
+/* The header and the footer remain easy to scan at every size. */
+.header .contact-nav {
+  font-size: 16px;
+}
+.footer-top h4 {
+  font-size: 17px;
+}
+.footer-top > div > p,
+.footer-top > div > a:not(.brand) {
+  font-size: 16px;
+  line-height: 1.7;
+}
+.footer-bottom,
+.footer-bottom > span {
+  font-size: 13px;
+  line-height: 1.7;
+}
+.footer-bottom {
+  flex-wrap: wrap;
+  gap: 18px 30px;
+}
+.renewed-hero-bottom,
+.cta-footnote {
+  font-size: 12px;
+  line-height: 1.6;
+  letter-spacing: 0.9px;
+}
+.renewed-hero-bottom {
+  gap: 22px;
+  flex-wrap: wrap;
+}
+.cta-footnote {
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.ecosystem-strip > .container > span {
+  font-size: 12px;
+  line-height: 1.8;
+  letter-spacing: 0.6px;
+}
+
+/* Labels in the dimensional artwork also need to stay readable. */
+.scene-topline {
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: 1px;
+}
+.scene-topline > span:first-child {
+  max-width: 83%;
+}
+.cloud-platform {
+  min-width: 165px;
+  max-width: 190px;
+}
+.cloud-platform > span:last-child {
+  font-size: 12px;
+  line-height: 1.45;
+  gap: 8px;
+}
+.cloud-platform > span:last-child svg {
+  flex-shrink: 0;
+}
+.scene-caption > span {
+  font-size: 11px;
+  line-height: 1.7;
+  letter-spacing: 1px;
+  flex-wrap: wrap;
+}
+
+/* Medium-depth blue gives primary actions presence without a neon finish.
+   Platform actions keep their own identity, darkened enough for white text. */
+.button,
+.renewed-hero .button,
+.culture-banner .button {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  min-height: 52px;
+  background: var(--action);
+  border-color: var(--action-edge);
+  color: #fff;
+  box-shadow: 0 5px 14px #214b9b18;
+}
+.button:hover,
+.renewed-hero .button:hover,
+.culture-banner .button:hover {
+  background: var(--action-hover);
+  border-color: var(--action-hover);
+  box-shadow: 0 8px 22px #214b9b2b;
+}
+.brand-oracle .button,
+.vendor-page .button {
+  background: color-mix(in srgb, var(--vendor-color) 72%, #17243a);
+  border-color: color-mix(in srgb, var(--vendor-color) 72%, #17243a);
+  color: #fff;
+}
+.brand-oracle .button:hover,
+.vendor-page .button:hover {
+  background: color-mix(in srgb, var(--vendor-color) 64%, #17243a);
+  border-color: color-mix(in srgb, var(--vendor-color) 64%, #17243a);
+}
+.button-secondary,
+.renewed-hero .button-secondary,
+[data-theme="light"] .button-secondary {
+  background: var(--action-soft);
+  color: var(--action-soft-text);
+  border-color: #7898d5;
+  box-shadow: none;
+}
+.button-secondary:hover,
+.renewed-hero .button-secondary:hover,
+[data-theme="light"] .button-secondary:hover {
+  background: color-mix(in srgb, var(--action-soft) 88%, #6d8ed2);
+  border-color: #6486c7;
+}
+.culture-banner .button-secondary,
+[data-theme="light"] .culture-banner .button-secondary {
+  background: #e2ebfb;
+  color: #21477f;
+  border-color: #b6c9e9;
+}
+.header .contact-nav,
+[data-theme="light"] .header .contact-nav {
+  background: var(--action-soft);
+  border-color: #7898d5;
+  color: var(--action-soft-text);
+}
+.header .contact-nav:hover,
+[data-theme="light"] .header .contact-nav:hover {
+  background: color-mix(in srgb, var(--action-soft) 88%, #6d8ed2);
+}
+.button:focus-visible,
+.contact-nav:focus-visible {
+  outline: 3px solid #82a9ef;
+  outline-offset: 4px;
+}
+
+/* The existing FAQ assistant gets the same readable supporting type. */
+.assistant-launch {
+  font-size: 14px;
+}
+.assistant-launch small,
+.chat-head small,
+.chat-note {
+  font-size: 12px;
+}
+.chat-head strong {
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+.message,
+.chat-form input {
+  font-size: 16px;
+}
+.suggestions button {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+@media (max-width: 1250px) {
+  .renewed-hero .button {
+    font-size: 15px;
+    padding-inline: 18px;
+  }
+  .hero-assurance {
+    gap: 14px;
+  }
+  .cloud-platform {
+    min-width: 145px;
+    max-width: 165px;
+  }
+  .cloud-platform > span:last-child {
+    font-size: 11px;
+  }
+  .cta-footnote {
+    letter-spacing: 0.6px;
+  }
+}
+@media (max-width: 900px) {
+  .renewed-hero .button {
+    font-size: 16px;
+  }
+  .cloud-platform {
+    min-width: 160px;
+    max-width: 185px;
+  }
+  .cloud-platform > span:last-child {
+    font-size: 12px;
+  }
+  .footer-top {
+    gap: 35px;
+  }
+  .industry-tabs button {
+    font-size: 15px;
+  }
+}
+@media (max-width: 600px) {
+  .eyebrow,
+  :is(
+      .renewed-hero-copy,
+      .integration-copy,
+      .office-selector,
+      .industry-overlay,
+      .culture-banner,
+      .renewal-cta
+    )
+    > .eyebrow,
+  .capability-tile .card-category,
+  .chapter-number,
+  .chapter-coordinate,
+  .context-note .context-label,
+  .human-image-note > span {
+    font-size: 11px;
+    letter-spacing: 0.7px;
+  }
+  .capability-bottom {
+    font-size: 15px;
+  }
+  .capability-bottom > span:first-child {
+    flex-basis: 170px;
+  }
+  .hero-assurance {
+    font-size: 13px;
+    gap: 10px 16px;
+  }
+  .hero-assurance svg {
+    flex-shrink: 0;
+  }
+  .renewed-hero .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .renewed-hero .button,
+  .culture-banner .button,
+  .button {
+    font-size: 16px;
+    padding: 15px 20px;
+  }
+  .tags > span {
+    font-size: 13px;
+    padding: 6px 9px;
+  }
+  .text-link,
+  .office-address a,
+  .office-grid .text-link {
+    font-size: 15px;
+  }
+  .scene-topline {
+    font-size: 10px;
+    letter-spacing: 0.8px;
+  }
+  .scene-topline > span:first-child {
+    max-width: 100%;
+  }
+  .cloud-platform {
+    min-width: 130px;
+    max-width: 146px;
+    padding: 12px;
+  }
+  .cloud-platform > span:last-child {
+    font-size: 11px;
+    gap: 5px;
+  }
+  .cloud-platform > span:last-child svg {
+    width: 12px;
+  }
+  .scene-caption > span {
+    font-size: 10px;
+    letter-spacing: 0.6px;
+    gap: 8px;
+  }
+  .renewed-hero-bottom,
+  .cta-footnote {
+    font-size: 11px;
+    letter-spacing: 0.6px;
+  }
+  .industry-tabs {
+    grid-template-columns: 1fr;
+  }
+  .industry-tabs button {
+    font-size: 16px;
+    padding: 15px 10px;
+  }
+  .industry-overlay p {
+    font-size: 16px;
+  }
+  .vendor-core > span {
+    font-size: 10px;
+    letter-spacing: 0.6px;
+  }
+  .vendor-nodes strong {
+    font-size: 14px;
+  }
+  .vendor-nodes i {
+    font-size: 11px;
+  }
+  .vendor-caption {
+    font-size: 10px;
+    letter-spacing: 0.4px;
+  }
+  .footer-top > div > p,
+  .footer-top > div > a:not(.brand) {
+    font-size: 16px;
+  }
+  .footer-location {
+    font-size: 11px;
+    letter-spacing: 0.7px;
+  }
+  .footer-bottom,
+  .footer-bottom > span {
+    font-size: 12px;
+  }
+  .chapter-result,
+  .delivery-result,
+  .cta-small {
+    font-size: 14px;
+  }
+  .chapter-copy li {
+    font-size: 15px;
+  }
+  .oracle-accordion summary {
+    font-size: 17px;
+  }
+  .oracle-accordion details p {
+    font-size: 16px;
+  }
+  .office-tabs button {
+    font-size: 14px;
+  }
+  .ecosystem-strip > .container > span {
+    font-size: 11px;
+  }
+}

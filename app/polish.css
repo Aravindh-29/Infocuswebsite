@@ -1,0 +1,401 @@
+/* Direct manipulation of the office globe, with keyboard and touch support. */
+.webgl.globe {
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+  border-radius: 50%;
+}
+.webgl.globe[data-dragging="true"] {
+  cursor: grabbing;
+}
+.webgl.globe:focus {
+  outline: none;
+}
+.webgl.globe:focus-visible ~ .globe-caption {
+  text-decoration: underline;
+  text-decoration-color: var(--blue);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+}
+.globe-caption {
+  pointer-events: none;
+}
+.globe-instructions {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Keep the existing Pure Storage wordmark legible alongside cloud brands. */
+.ecosystem-pure-storage {
+  flex: 0 0 auto;
+}
+.ecosystem-pure-storage img {
+  display: block;
+  width: 140px;
+  height: 32px;
+  object-fit: contain;
+}
+[data-theme="dark"] .ecosystem-pure-storage img {
+  filter: brightness(0) invert(1);
+}
+@media (max-width: 1200px) {
+  .ecosystem-strip > .container {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .ecosystem-strip > .container > span {
+    flex-basis: 100%;
+    text-align: center;
+  }
+}
+@media (max-width: 600px) {
+  .ecosystem-pure-storage img {
+    width: 112px;
+    height: 30px;
+  }
+}
+
+/* Supporting typography and navigation. The homepage quote and cloud scene
+   keep their own proportions; diagrams use a smaller, legible label scale. */
+.breadcrumbs {
+  font-size: clamp(17px, 1.1vw, 18px);
+  line-height: 1.6;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--muted);
+}
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+.breadcrumbs li {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  max-width: 100%;
+}
+.breadcrumbs a,
+.breadcrumbs li > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.breadcrumbs a {
+  color: var(--muted);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+  transition: color 180ms;
+}
+.breadcrumbs a:hover {
+  color: var(--blue);
+  text-decoration: underline;
+}
+.breadcrumbs [aria-current="page"] {
+  color: var(--text);
+  font-weight: 700;
+}
+.breadcrumbs .breadcrumb-separator {
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+  color: var(--blue);
+  opacity: 0.85;
+}
+
+/* Section headings retain their scale; their introductory labels gain weight. */
+.eyebrow,
+.inner-hero .eyebrow,
+.section .eyebrow,
+.story-heading .eyebrow,
+.contact-progress-heading .eyebrow,
+.integration-copy > .eyebrow,
+.office-selector > .eyebrow,
+.industry-overlay > .eyebrow,
+.culture-banner .eyebrow,
+.renewal-cta .eyebrow,
+.services-experience .services-eyebrow {
+  font-size: 15px;
+  line-height: 1.6;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.contact-progress-heading {
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+.contact-progress-heading .eyebrow {
+  min-width: 0;
+}
+.capability-tile .card-category,
+.capability-tile-top,
+.context-note .context-label,
+.chapter-number,
+.chapter-coordinate,
+.footer-location,
+.office-address > span,
+.human-image-note > span,
+.cta-footnote {
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 0.7px;
+}
+.chapter-number,
+.chapter-coordinate,
+.cta-footnote {
+  gap: 10px 18px;
+  flex-wrap: wrap;
+}
+.capability-bottom,
+.tags > span,
+.chapter-result,
+.delivery-result,
+.cta-small,
+.footer-bottom,
+.footer-bottom > span {
+  font-size: 15px;
+  line-height: 1.65;
+}
+.text-link,
+.office-grid .text-link,
+.office-address a,
+.industry-overlay > a,
+.chapter-copy > a,
+.service-related,
+.service-related a,
+.contact-grid .contact-introduction > p.muted,
+.contact-field-hint,
+.contact-form.guided-contact .form-note,
+.contact-form.guided-contact .contact-consent {
+  font-size: 16px;
+  line-height: 1.65;
+}
+.chapter-copy li,
+.contact-steps strong,
+.review-heading button {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Service details remain comfortable to read without inflating diagram text. */
+.services-experience .service-point h4 {
+  font-size: 17px;
+  line-height: 1.45;
+}
+.services-hero-grid > div {
+  min-width: 0;
+}
+.services-experience .service-point p {
+  font-size: 16px;
+  line-height: 1.75;
+}
+.services-experience .service-card-eyebrow,
+.services-experience .service-visual-label,
+.services-experience .services-visual-kicker,
+.services-experience .services-cloud-shortcuts > span,
+.services-experience .service-outcome > span {
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 0.8px;
+}
+.service-card-eyebrow {
+  flex-wrap: wrap;
+  gap: 8px 10px;
+}
+.service-card-eyebrow > span:last-child {
+  flex: 1 1 170px;
+  min-width: 0;
+}
+.services-experience .service-card-number,
+.services-experience .services-jump-nav > a > span {
+  font-size: 14px;
+}
+.services-experience .architecture-tier-heading {
+  font-size: 16px;
+  line-height: 1.5;
+}
+.services-experience .architecture-foundation-items > span,
+.services-experience .architecture-services-label,
+.services-experience .architecture-lane-label,
+.services-experience .architecture-workload,
+.services-experience .architecture-recovery > div:last-child > span,
+.services-experience .service-visual figcaption {
+  font-size: 14px;
+  line-height: 1.65;
+}
+.architecture-services > div {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.architecture-workload > span,
+.architecture-foundation-items > span,
+.architecture-recovery > div:last-child > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.services-experience .services-hero-path span,
+.services-experience .product-layer > span,
+.services-experience .product-launch-orbit > span,
+.services-experience .product-release-stages span,
+.services-experience .product-browser-bar > span,
+.services-experience .product-browser-content > span,
+.services-experience .product-phone-screen > span,
+.services-experience .product-support-heading > div > span {
+  font-size: 13px;
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+}
+.services-experience .product-browser-action,
+.services-experience .product-quality-tags > span,
+.services-experience .product-data-sources > span,
+.services-experience .product-phone-row,
+.services-experience .product-mobile-notes > span,
+.services-experience .product-support-row span {
+  font-size: 14px;
+  line-height: 1.6;
+}
+.services-experience .product-browser-action {
+  max-width: 100%;
+}
+
+/* Arrow icons keep their shape and sit on the same visual centre as the label. */
+:is(.inner-hero, .section, .services-experience, .guided-contact, .renewal-cta)
+  .button,
+.service-card-cta,
+.text-link,
+.contact-direct a,
+.review-heading button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.button > svg,
+.contact-nav > svg,
+.text-link > svg,
+.service-card-cta > svg,
+.service-related a > svg,
+.services-text-action > svg,
+.services-jump-nav > a > svg,
+.contact-direct a > svg,
+.review-heading button > svg,
+.product-browser-action > svg {
+  flex-shrink: 0;
+  align-self: center;
+  stroke-width: 2;
+}
+.service-card-cta,
+.services-primary-action,
+.contact-step-actions .button {
+  font-weight: 700;
+  white-space: normal;
+  text-align: left;
+}
+.breadcrumbs a:focus-visible,
+.button:focus-visible,
+.text-link:focus-visible,
+.service-card-cta:focus-visible,
+.service-related a:focus-visible,
+.services-text-action:focus-visible,
+.services-jump-nav > a:focus-visible,
+.contact-direct a:focus-visible,
+.review-heading button:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 4px;
+  border-radius: 5px;
+}
+.text-link > svg,
+.service-card-cta > svg,
+.service-related a > svg {
+  transition: transform 180ms ease;
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .text-link:hover > svg,
+  .service-card-cta:hover > svg,
+  .service-related a:hover > svg {
+    transform: translate(2px, -2px);
+  }
+}
+@media (max-width: 600px) {
+  .breadcrumbs {
+    font-size: 16px;
+  }
+  .breadcrumbs ol,
+  .breadcrumbs li {
+    gap: 8px;
+  }
+  .eyebrow,
+  .inner-hero .eyebrow,
+  .section .eyebrow,
+  .contact-progress-heading .eyebrow,
+  .integration-copy > .eyebrow,
+  .office-selector > .eyebrow,
+  .industry-overlay > .eyebrow,
+  .culture-banner .eyebrow,
+  .renewal-cta .eyebrow,
+  .services-experience .services-eyebrow {
+    font-size: 14px;
+    letter-spacing: 0.7px;
+  }
+  .contact-steps strong {
+    font-size: 15px;
+  }
+  .services-experience .architecture-foundation-items > span,
+  .services-experience .architecture-lane-label,
+  .services-experience .architecture-workload,
+  .services-experience .architecture-recovery > div:last-child > span {
+    font-size: 13px;
+  }
+  .services-experience .architecture-tier-heading {
+    font-size: 15px;
+  }
+  .services-experience .services-primary-action,
+  .services-experience .service-card-cta {
+    font-size: 16px;
+  }
+  .services-experience .service-related {
+    font-size: 15px;
+  }
+}
+@media (max-width: 420px) {
+  /* Give each delivery stage enough room for its label on narrow phones. */
+  .services-hero-path {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .services-hero-path > div {
+    display: grid;
+    grid-template-columns: 32px minmax(0, 1fr);
+    align-items: center;
+    gap: 6px 14px;
+    padding: 16px;
+  }
+  .services-hero-path svg {
+    grid-row: span 2;
+  }
+  .services-experience .services-hero-path strong {
+    font-size: 17px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .breadcrumbs a,
+  .text-link > svg,
+  .service-card-cta > svg,
+  .service-related a > svg {
+    transition: none;
+  }
+  .text-link:hover > svg,
+  .service-card-cta:hover > svg,
+  .service-related a:hover > svg {
+    transform: none;
+  }
+}

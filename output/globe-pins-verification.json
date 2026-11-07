@@ -1,0 +1,32 @@
+[
+  {
+    "name": "desktop-light",
+    "before": -2.94053,
+    "after": -1.36973,
+    "dragDelta": 1.5708,
+    "outline": "none",
+    "keyboardOutline": "none",
+    "focusCue": "underline",
+    "errors": []
+  },
+  {
+    "name": "desktop-dark",
+    "before": -2.94053,
+    "after": -1.36973,
+    "dragDelta": 1.5708,
+    "outline": "none",
+    "keyboardOutline": "none",
+    "focusCue": "underline",
+    "errors": []
+  },
+  {
+    "name": "mobile-light",
+    "before": -2.94053,
+    "after": -1.36973,
+    "dragDelta": 1.5708,
+    "outline": "none",
+    "keyboardOutline": "none",
+    "focusCue": "underline",
+    "errors": []
+  }
+]

@@ -1,3 +1,12 @@
+import { capabilityDescriptions } from "@/lib/capabilities";
+import {
+  ServiceNarrative,
+  PlatformNarrative,
+} from "@/components/ServiceNarrative";
+import {
+  DeliveryApproach,
+  ProjectQuestions,
+} from "@/components/BusinessContent";
 import { vendors, vendorForName } from "@/lib/vendors";
 import VendorBrand from "@/components/VendorBrand";
 import VendorVisual from "@/components/VendorVisual";
@@ -21,6 +30,8 @@ import CapabilityVisual from "@/components/CapabilityVisual";
 import Globe from "@/components/Globe";
 import { solutions, services, platforms, offices } from "@/lib/content";
 import CTA from "@/components/CTA";
+import ServicesExperience from "@/components/ServicesExperience";
+import Breadcrumbs from "@/components/Breadcrumbs";
 const pages: Record<
   string,
   { title: string; headline: string; description: string; image?: string }
@@ -29,27 +40,27 @@ const pages: Record<
     title: "Solutions",
     headline: "Built for your business.\nDesigned for what’s next.",
     description:
-      "Connect cloud, applications and enterprise expertise to move your business forward.",
+      "The strongest technology investments solve a business problem and create room for progress. We connect cloud strategy, modern applications, enterprise integration and ongoing operations into a practical path for your organisation.",
     image: "cloud-hero.webp",
   },
   industries: {
     title: "Industries",
     headline: "Your industry.\nA sharper perspective.",
     description:
-      "Technology begins with understanding the world you work in. Explore a focused approach to your industry.",
+      "Different industries carry different pressures: service continuity, disconnected information, complex supply chains and changing customer expectations. We bring cloud and enterprise expertise to the operational context that makes your business distinct.",
   },
   platforms: {
     title: "Technology ecosystem",
     headline: "The right platforms.\nWorking better together.",
     description:
-      "An ecosystem of cloud, enterprise, infrastructure and collaboration technologies, connected around your goals.",
+      "Every platform decision becomes part of a wider architecture. Connect cloud infrastructure, enterprise applications and everyday collaboration around the information, processes and people your business depends on.",
     image: "integration.webp",
   },
   services: {
-    title: "Oracle services",
-    headline: "Deep expertise.\nConnected possibilities.",
+    title: "Cloud, application development & support services",
+    headline: "Build what your business needs.\nSupport everything it runs.",
     description:
-      "Make more of your Oracle investment with integration, enterprise applications and communications solutions.",
+      "Build and support your business with Oracle Cloud, Microsoft Azure, AWS and Google Cloud expertise, full-stack and enterprise software, startup products, websites, mobile apps, databases, and ongoing application and infrastructure support.",
     image: "integration.webp",
   },
   about: {
@@ -70,7 +81,7 @@ const pages: Record<
     title: "Contact us",
     headline: "Every possibility starts\nwith a conversation.",
     description:
-      "A complex challenge. A bold ambition. A new beginning. Tell us what you have in mind.",
+      "A new application, a cloud foundation, a better website or support for the software you already depend on. Tell us what you need to build, connect or improve, and we’ll help shape a practical way forward.",
   },
   privacy: {
     title: "Privacy policy",
@@ -133,6 +144,7 @@ export default async function Page({
 }) {
   const { slug } = await params;
   const path = resolve(slug);
+  if (path === "services") return <ServicesExperience />;
   const vendor = vendors.find((v) => path === "platforms/" + v.slug);
   if (vendor)
     return (
@@ -143,13 +155,13 @@ export default async function Page({
       >
         <section className="inner-hero">
           <div className="container">
-            <div className="breadcrumbs">
-              <Link href="/">Home</Link>
-              <span>/</span>
-              <Link href="/platforms">Platforms</Link>
-              <span>/</span>
-              {vendor.title}
-            </div>
+            <Breadcrumbs
+              items={[
+                { label: "Home", href: "/" },
+                { label: "Platforms", href: "/platforms" },
+                { label: vendor.title },
+              ]}
+            />
             <div className="inner-hero-grid vendor-hero-grid">
               <div>
                 <VendorBrand
@@ -197,6 +209,7 @@ export default async function Page({
             }
           />
         </section>
+        <PlatformNarrative slug={vendor.slug} />
         <CTA />
       </main>
     );
@@ -217,15 +230,16 @@ export default async function Page({
       <main id="main" className={service ? "brand-oracle" : ""}>
         <section className="inner-hero detail-hero">
           <div className="container">
-            <div className="breadcrumbs">
-              <Link href="/">Home</Link>
-              <span>/</span>
-              <Link href={solution ? "/solutions" : "/services"}>
-                {solution ? "Solutions" : "Services"}
-              </Link>
-              <span>/</span>
-              {detail.title}
-            </div>
+            <Breadcrumbs
+              items={[
+                { label: "Home", href: "/" },
+                {
+                  label: solution ? "Solutions" : "Services",
+                  href: solution ? "/solutions" : "/services",
+                },
+                { label: detail.title },
+              ]}
+            />
             <div className="inner-hero-grid">
               <div>
                 <span className="eyebrow">
@@ -271,6 +285,7 @@ export default async function Page({
             </div>
           </div>
         </section>
+        <ServiceNarrative slug={detail.slug} />
         <section className="section container">
           <div className="section-heading">
             <div>
@@ -282,8 +297,9 @@ export default async function Page({
               </h2>
             </div>
             <p>
-              Build a practical path forward with capabilities shaped around
-              your organization’s needs.
+              Connect the technical work with the business process it supports.
+              Each capability is considered alongside the wider environment,
+              implementation priorities and ongoing operational needs.
             </p>
           </div>
           <div className="capability-grid">
@@ -291,7 +307,7 @@ export default async function Page({
               <article key={c} data-reveal>
                 <span className="eyebrow">0{i + 1} /</span>
                 <h3>{c}</h3>
-                <p>{capabilityCopy(c)}</p>
+                <p>{capabilityDescriptions[c]}</p>
                 <Check size={22} />
               </article>
             ))}
@@ -306,8 +322,10 @@ export default async function Page({
                 : "Technology built around the way you work."}
             </h2>
             <p>
-              Connect experienced people, a clear architecture and the systems
-              your business depends on.
+              Make implementation decisions with the operating reality in view.
+              We bring the systems, their dependencies and the people using them
+              into a shared understanding of the work, so the result can support
+              everyday business as well as the next phase of growth.
             </p>
             <Button href="/contact">Talk to our team</Button>
           </div>
@@ -335,29 +353,7 @@ export default async function Page({
             }
           />
         </section>
-        <section className="section approach-section">
-          <div className="container detail-process">
-            <h2>
-              A clear path.
-              <br />
-              <span className="muted">A shared focus.</span>
-            </h2>
-            <div>
-              {[
-                "Understand your environment",
-                "Define the right architecture",
-                "Implement with purpose",
-                "Optimize as you evolve",
-              ].map((t, i) => (
-                <div key={t}>
-                  <span>0{i + 1}</span>
-                  <h3>{t}</h3>
-                  <ArrowRight size={20} />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <DeliveryApproach />
         <section className="section container">
           <span className="eyebrow">EXPLORE FURTHER</span>
           <h2>Connected expertise.</h2>
@@ -387,15 +383,13 @@ export default async function Page({
         className={
           "inner-hero " +
           (p.image ? "has-image" : "") +
-          (path === "services" ? " brand-oracle" : "")
+          (path === "contact" ? " contact-hero" : "")
         }
       >
         <div className="container">
-          <div className="breadcrumbs">
-            <Link href="/">Home</Link>
-            <span>/</span>
-            {p.title}
-          </div>
+          <Breadcrumbs
+            items={[{ label: "Home", href: "/" }, { label: p.title }]}
+          />
           <div className="inner-hero-grid">
             <div>
               <span className="eyebrow">
@@ -416,22 +410,30 @@ export default async function Page({
                 </Button>
               )}
             </div>
-            {path === "services" ? (
-              <VendorVisual vendor="oracle" />
-            ) : (
-              p.image && (
+            {path === "contact" && (
+              <div className="contact-partnership">
+                <div className="contact-partnership-glow" aria-hidden="true" />
                 <img
-                  className="inner-art"
-                  src={"/images/" + p.image}
-                  alt={
-                    p.title === "About Infocus"
-                      ? "Infocus company culture"
-                      : p.title === "Careers"
-                        ? "People and collaboration at Infocus"
-                        : "Connected technology ecosystem"
-                  }
+                  src="/images/contact-partnership.png"
+                  alt="Two smiling business professionals shaking hands to begin a partnership"
+                  width={1536}
+                  height={1024}
+                  fetchPriority="high"
                 />
-              )
+              </div>
+            )}
+            {p.image && (
+              <img
+                className="inner-art"
+                src={"/images/" + p.image}
+                alt={
+                  p.title === "About Infocus"
+                    ? "Infocus company culture"
+                    : p.title === "Careers"
+                      ? "People and collaboration at Infocus"
+                      : "Connected technology ecosystem"
+                }
+              />
             )}
           </div>
         </div>
@@ -500,36 +502,6 @@ export default async function Page({
               </article>
             ))}
           </div>
-        </section>
-      )}
-      {path === "services" && (
-        <section className="container section services-grid">
-          {services.map((s, i) => (
-            <Link href={"/services/" + s.slug} key={s.slug} data-reveal>
-              <span className="eyebrow">0{i + 1} / ORACLE SERVICES</span>
-              <div className="service-brand-art">
-                <VendorBrand vendor="oracle" />
-                <img
-                  src={
-                    "/images/" +
-                    [
-                      "t3.webp",
-                      "oracle-expertise 1.webp",
-                      "t2.webp",
-                      "t1.webp",
-                    ][i]
-                  }
-                  alt={s.title + " expertise"}
-                  loading="lazy"
-                />
-              </div>
-              <h2>{s.title}</h2>
-              <p>{s.description}</p>
-              <span className="text-link">
-                Explore service <ArrowUpRight size={17} />
-              </span>
-            </Link>
-          ))}
         </section>
       )}
       {path === "about" && (
@@ -652,26 +624,58 @@ export default async function Page({
       {path === "contact" && (
         <>
           <section className="container section contact-grid">
-            <div>
-              <span className="eyebrow">LET’S CONNECT</span>
+            <div className="contact-introduction">
+              <span className="eyebrow">A SIMPLE WAY TO GET STARTED</span>
               <h2>
-                Good conversations.
-                <br />
-                Great beginnings.
+                Your challenge.
+                <br />A clearer direction.
               </h2>
               <p>
-                Tell us about your business and where you want to go. Prepare an
-                enquiry for our team, or explore your nearest office below.
+                Let’s take it one step at a time. Share your goal, introduce
+                yourself and review your enquiry before you connect with our
+                team.
               </p>
-              <a className="text-link" href="mailto:hr@infocuscs.com">
-                hr@infocuscs.com <ArrowUpRight size={17} />
-              </a>
-              <p className="muted">
-                Published company contact for enquiries and careers.
+              <ol className="contact-intro-guide">
+                <li>
+                  <span>1</span>
+                  <div>
+                    <strong>Start with your project</strong>
+                    <p>
+                      Choose your focus and tell us what you want to achieve.
+                    </p>
+                  </div>
+                </li>
+                <li>
+                  <span>2</span>
+                  <div>
+                    <strong>Make the introduction</strong>
+                    <p>
+                      Add your details so the conversation has the right
+                      context.
+                    </p>
+                  </div>
+                </li>
+                <li>
+                  <span>3</span>
+                  <div>
+                    <strong>Review, then connect</strong>
+                    <p>
+                      Check your answers, open your completed draft in Gmail,
+                      then choose Send in Gmail.
+                    </p>
+                  </div>
+                </li>
+              </ol>
+              <p className="contact-direct">
+                Prefer to start by email?
+                <br />
+                <a href="mailto:hr@infocuscs.com">
+                  hr@infocuscs.com <ArrowUpRight size={17} />
+                </a>
               </p>
               <img
-                src="/images/formimg.webp"
-                alt="A business conversation with Infocus"
+                src="/images/greater.webp"
+                alt="A team working together on a business challenge"
                 loading="lazy"
               />
             </div>
@@ -722,16 +726,25 @@ export default async function Page({
         <section className="container section legal">
           <h2>Website privacy information</h2>
           <p>
-            This website does not send your enquiry to a server. The contact
-            form prepares a draft in your email application, where you can
-            review and send it. Your form data is held in the current page only.
+            When you choose Send email, this website opens Gmail with your name,
+            email address, phone number, company, selected service and office,
+            and project details in a draft. You review and send the message in
+            Gmail. You can also open the draft in your preferred email app. The
+            website does not send the email or confirm delivery. Your answers
+            stay in the current page until you leave it. Please do not include
+            passwords or other sensitive information in your enquiry.
           </p>
-          <h3>Asthara assistant</h3>
+          <h3>Deepu assistant</h3>
           <p>
-            Asthara is a local FAQ guide. Conversation history is stored in your
+            Deepu is a local FAQ guide. Conversation history is stored in your
             browser’s session storage and is not sent to an AI provider. Close
             the browser tab to end the session. Please avoid sharing sensitive
             information in chat.
+          </p>
+          <p>
+            Deepu’s optional popup sound is a short chime generated locally in
+            your browser. There is no voice greeting or microphone recording.
+            Your mute preference is saved in local storage on this device.
           </p>
           <h3>Your colour preference</h3>
           <p>
@@ -752,16 +765,10 @@ export default async function Page({
           </p>
         </section>
       )}
+      {["solutions", "industries", "platforms"].includes(path) && (
+        <ProjectQuestions />
+      )}
       {path !== "contact" && path !== "privacy" && <CTA />}
     </main>
   );
-}
-function capabilityCopy(c: string) {
-  if (/migration|modernization/i.test(c))
-    return "Assess your existing landscape and define a practical transition that aligns technology with your business priorities.";
-  if (/integration|connectivity|orchestration/i.test(c))
-    return "Connect systems and workflows across your technology environment with an architecture shaped around your operations.";
-  if (/optimization|operations|support|monitoring/i.test(c))
-    return "Bring ongoing visibility and a structured approach to keeping your technology aligned with changing business needs.";
-  return "Combine hands-on technical expertise with an understanding of your business to plan and implement the right solution.";
 }

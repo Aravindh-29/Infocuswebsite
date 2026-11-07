@@ -1,7 +1,10 @@
 "use client";
+import ContactJourney from "./ContactJourney";
 import Link from "next/link";
-import InfocusLogoAnimation from "./InfocusLogoAnimation";
+import InfocusWordmarkAnimation from "./InfocusWordmarkAnimation";
+import { usePathname } from "next/navigation";
 import ThemeToggle from "./ThemeToggle";
+import DeepuWelcome, { DeepuAvatar } from "./DeepuWelcome";
 import { useState, useEffect, useRef } from "react";
 import {
   ArrowUpRight,
@@ -36,19 +39,15 @@ export function Icon({ name, size = 24 }: { name: string; size?: number }) {
 export function Brand() {
   return (
     <Link href="/" className="brand" aria-label="Infocus home">
-      <InfocusLogoAnimation mode="intro" />
-      <span className="brand-wordmark">
-        <img src="/brand/infocus-wordmark.png" alt="INFOCUS" />
-        <small>CONSULTING SERVICES</small>
-      </span>
+      <InfocusWordmarkAnimation mode="intro" />
     </Link>
   );
 }
 const nav = [
   ["Solutions", "/solutions"],
+  ["Services", "/services"],
   ["Industries", "/industries"],
   ["Platforms", "/platforms"],
-  ["Services", "/services"],
   ["Careers", "/careers"],
   ["About", "/about"],
 ];
@@ -174,6 +173,7 @@ export function Button({
   );
 }
 export function MotionProvider({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
   useEffect(() => {
     if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     let cleanup = () => {};
@@ -216,7 +216,7 @@ export function MotionProvider({ children }: { children: React.ReactNode }) {
       cancelled = true;
       cleanup();
     };
-  }, []);
+  }, [pathname]);
   return <>{children}</>;
 }
 export function Footer() {
@@ -237,9 +237,9 @@ export function Footer() {
         <div>
           <h4>Explore</h4>
           <Link href="/solutions">Solutions</Link>
+          <Link href="/services">Services</Link>
           <Link href="/industries">Industries</Link>
           <Link href="/platforms">Platforms</Link>
-          <Link href="/services">Services</Link>
         </div>
         <div>
           <h4>Infocus</h4>
@@ -270,49 +270,85 @@ export function Footer() {
 type Message = { role: "assistant" | "user"; text: string };
 const initial: Message = {
   role: "assistant",
-  text: "Hello, I’m Asthara, your Infocus guide. I can help you explore our services, technology platforms, offices and careers. What would you like to know?",
+  text: "Tell us what you want to build, connect or support. Explore our cloud, application development and support services, or ask about Infocus offices and careers.",
 };
 export function faqAnswer(q: string) {
   const t = q.toLowerCase();
   if (/career|job|hiring|apply/.test(t))
     return "Explore our Careers page for areas of expertise. To ask about current opportunities, email hr@infocuscs.com. We do not list unverified vacancies. Infocus recruiters use Infocus email addresses.";
   if (/contact|sales|email|talk|office|location/.test(t))
-    return "Visit our Contact page to choose an office in India, the United States, Singapore or Malaysia and prepare your enquiry. The form opens your email application; it does not submit to a server.";
+    return "Visit our Contact page to choose an office in India, the United States, Singapore or Malaysia. Share your project and contact details, review your answers, then choose Send email to open a completed draft in Gmail. Review the message and click Send in Gmail to email our team. You can also use your preferred email app.";
   if (/oracle/.test(t))
-    return "Yes. Infocus offers Oracle Integration Cloud, Oracle ERP solutions, Oracle Integration solutions and Oracle Communications RODOD. Explore Services for capabilities and speak with the team about your requirements.";
+    return "Yes. Infocus builds and supports Oracle Cloud Infrastructure, landing zones, resilient workloads and recovery plans, alongside Oracle Integration Cloud, ERP, integration solutions and Communications RODOD. Explore Services or contact us to discuss your requirements.";
   if (/industr/.test(t))
     return "Infocus works across banking and finance, healthcare, education, oil and gas, manufacturing, agriculture, telecommunications, retail, automotive, and media and entertainment.";
-  if (/cloud|azure|aws/.test(t))
-    return "Our cloud offerings include strategy, migration, multicloud, private cloud and ongoing optimization. Our published technology ecosystem includes Azure, AWS, Google Cloud and Oracle Cloud Infrastructure.";
+  if (/cloud|azure|aws|gcp|google/.test(t))
+    return "Infocus builds and supports Oracle Cloud, Microsoft Azure, AWS and Google Cloud environments. Services include infrastructure from scratch, landing zones, migration, high availability, reliability, disaster recovery planning, application integrations and ongoing operations. Visit Services to explore each platform.";
+  if (/database|\bdb\b|data platform/.test(t))
+    return "We design, migrate and manage databases and data platforms, including performance tuning, access controls, backup and restore planning, and ongoing support. Tell us about your data, applications and availability requirements through Contact.";
+  if (/application|software|full.?stack|startup|mobile|website|develop/.test(t))
+    return "We build full-stack and enterprise applications, startup MVPs, websites and mobile apps. Our work includes discovery, interface design, APIs, integrations, databases, testing, deployment and ongoing application support. Bring your idea or existing system to our team through Contact.";
+  if (/support|infra|technical|training/.test(t))
+    return "Infocus supports applications, infrastructure and the people using them. Discuss incident resolution, maintenance, monitoring, technical troubleshooting, functional support and user guidance with us. We will define the scope and support arrangements around your requirements.";
   if (/ai|automation/.test(t))
     return "Our published capabilities include Oracle Integration Cloud process automation, visual low-code workflows, application connectivity and integration insight. Ask our team about the scope of a specific AI project.";
   if (/service|solution|offer|help/.test(t))
-    return "Infocus offers cloud solutions, application modernization, enterprise applications, Oracle integration, process automation and managed services. Which area would you like to explore?";
-  return "I can answer questions about Infocus services, Oracle, cloud platforms, industries, careers and office locations. For a project-specific answer, please use our Contact page. I’m a company FAQ guide, so I can’t quote pricing or confirm project availability.";
+    return "Explore our Services page for Oracle Cloud, Azure, AWS and Google Cloud, full-stack and enterprise applications, startup products, websites, mobile apps, databases, and application and infrastructure support. We also help teams with functional questions and everyday software use. What would you like to build or improve?";
+  return "I can guide you through our cloud platforms, application development, websites, mobile apps, databases and support services, plus industries, careers and office locations. For your specific requirement, visit Contact. I’m a company FAQ guide, so I can’t quote pricing or confirm project availability.";
 }
 export function Assistant() {
   const [open, setOpen] = useState(false),
     [messages, setMessages] = useState<Message[]>([initial]),
     [input, setInput] = useState(""),
-    [typing, setTyping] = useState(false);
+    [typing, setTyping] = useState(false),
+    [historyLoaded, setHistoryLoaded] = useState(false);
   const end = useRef<HTMLDivElement>(null),
     timer = useRef<ReturnType<typeof setTimeout> | null>(null),
     panel = useRef<HTMLElement>(null);
   useEffect(() => {
     try {
-      const saved = sessionStorage.getItem("asthara-chat");
-      if (saved) setMessages(JSON.parse(saved));
+      const saved =
+        sessionStorage.getItem("deepu-chat") ||
+        sessionStorage.getItem("asthara-chat");
+      if (saved) {
+        const history: unknown = JSON.parse(saved);
+        if (
+          Array.isArray(history) &&
+          history.length &&
+          history.every(
+            (message) =>
+              message &&
+              (message.role === "assistant" || message.role === "user") &&
+              typeof message.text === "string",
+          )
+        ) {
+          const migrated: Message[] = history.map((message: Message) => ({
+            ...message,
+            text:
+              message.role === "assistant"
+                ? /^Hi, this is Deepu\./.test(message.text)
+                  ? initial.text
+                  : message.text.replace(/Asthara/g, "Deepu")
+                : message.text,
+          }));
+          setMessages(migrated);
+          sessionStorage.setItem("deepu-chat", JSON.stringify(migrated));
+          sessionStorage.removeItem("asthara-chat");
+        }
+      }
     } catch {}
+    setHistoryLoaded(true);
     return () => {
       if (timer.current) clearTimeout(timer.current);
     };
   }, []);
   useEffect(() => {
+    if (!historyLoaded) return;
     try {
-      sessionStorage.setItem("asthara-chat", JSON.stringify(messages));
+      sessionStorage.setItem("deepu-chat", JSON.stringify(messages));
     } catch {}
     end.current?.scrollIntoView({ block: "nearest" });
-  }, [messages, typing]);
+  }, [messages, typing, historyLoaded]);
   useEffect(() => {
     if (open) panel.current?.querySelector("input")?.focus();
   }, [open]);
@@ -328,21 +364,21 @@ export function Assistant() {
   }
   return (
     <>
+      <DeepuWelcome chatOpen={open} onStartChat={() => setOpen(true)} />
       <button
-        className={"assistant-launch " + (open ? "is-open" : "")}
+        className={"assistant-launch deepu-launch " + (open ? "is-open" : "")}
         onClick={() => setOpen(!open)}
-        aria-label={open ? "Close Asthara assistant" : "Open Asthara assistant"}
+        aria-label={open ? "Close Deepu assistant" : "Open Deepu assistant"}
         aria-expanded={open}
+        data-deepu-control
       >
         {open ? (
           <X size={22} />
         ) : (
           <>
-            <span className="orb">
-              <Sparkles size={20} />
-            </span>
+            <DeepuAvatar />
             <span>
-              Ask Asthara <small>AI</small>
+              Ask Deepu <small>GUIDE</small>
             </span>
             <Plus size={15} />
           </>
@@ -351,18 +387,16 @@ export function Assistant() {
       {open && (
         <aside
           ref={panel}
-          className="chat"
-          aria-label="Asthara Infocus assistant"
+          className="chat deepu-chat"
+          aria-label="Deepu Infocus assistant"
           onKeyDown={(e) => {
             if (e.key === "Escape") setOpen(false);
           }}
         >
           <div className="chat-head">
-            <span className="orb">
-              <Sparkles />
-            </span>
+            <DeepuAvatar />
             <div>
-              <strong>ASTHARA</strong>
+              <strong>DEEPU</strong>
               <small>
                 <i /> Your Infocus assistant
               </small>
@@ -529,117 +563,7 @@ export function IndustryExplorer() {
   );
 }
 export function ContactForm() {
-  const [ready, setReady] = useState(false),
-    [emailLink, setEmailLink] = useState("");
-  return (
-    <form
-      className="contact-form"
-      onSubmit={(e) => {
-        e.preventDefault();
-        const data = new FormData(e.currentTarget);
-        const office = data.get("office") as string;
-        const body = `Name: ${data.get("name")}\nWork email: ${data.get("email")}\nCompany: ${data.get("company")}\nOffice: ${office}\nInterest: ${data.get("interest")}\n\n${data.get("message")}`;
-        setEmailLink(
-          `mailto:hr@infocuscs.com?subject=${encodeURIComponent("Infocus enquiry — " + data.get("interest"))}&body=${encodeURIComponent(body)}`,
-        );
-        setReady(true);
-      }}
-    >
-      <span className="eyebrow">START SOMETHING EXTRAORDINARY</span>
-      <h2>Tell us what’s next.</h2>
-      <div className="form-grid">
-        <label>
-          Your name
-          <input
-            required
-            name="name"
-            autoComplete="name"
-            placeholder="Full name"
-          />
-        </label>
-        <label>
-          Work email
-          <input
-            required
-            type="email"
-            name="email"
-            autoComplete="email"
-            placeholder="you@company.com"
-          />
-        </label>
-      </div>
-      <label>
-        Company
-        <input
-          required
-          name="company"
-          autoComplete="organization"
-          placeholder="Company name"
-        />
-      </label>
-      <div className="form-grid">
-        <label>
-          I’m interested in
-          <select name="interest">
-            {solutions.map((s) => (
-              <option key={s.slug}>{s.title}</option>
-            ))}
-            <option>Oracle services</option>
-            <option>Careers</option>
-          </select>
-        </label>
-        <label>
-          Preferred office
-          <select name="office">
-            {[
-              "Hyderabad",
-              "Newark",
-              "Singapore",
-              "Petaling Jaya",
-              "Guntur",
-            ].map((s) => (
-              <option key={s}>{s}</option>
-            ))}
-          </select>
-        </label>
-      </div>
-      <label>
-        Your challenge
-        <textarea
-          required
-          name="message"
-          rows={4}
-          placeholder="What would you like to make possible?"
-        />
-      </label>
-      <label className="checkbox">
-        <input type="checkbox" required />I agree to the{" "}
-        <Link href="/privacy">privacy policy</Link> for this enquiry.
-      </label>
-      <button className="button" type="submit">
-        Prepare enquiry <ArrowUpRight size={17} />
-      </button>
-      <p className="form-note">
-        This static site prepares an email draft. Review and send it to
-        hr@infocuscs.com in your email app; no enquiry is sent or stored here.
-      </p>
-      {ready && (
-        <div className="form-result" role="status">
-          <Check size={20} />
-          <div>
-            <strong>Your enquiry is ready.</strong>
-            <p>
-              Review your draft and send it to the published Infocus contact
-              from your email app.
-            </p>
-            <a href={emailLink}>
-              Open email draft <ArrowUpRight size={14} />
-            </a>
-          </div>
-        </div>
-      )}
-    </form>
-  );
+  return <ContactJourney />;
 }
 export function CareersList() {
   const [query, setQuery] = useState("");

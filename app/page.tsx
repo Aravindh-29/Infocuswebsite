@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowUpRight, ArrowRight, Plus } from "lucide-react";
+import { ArrowUpRight, Plus } from "lucide-react";
 import VendorBrand from "@/components/VendorBrand";
 import VendorVisual from "@/components/VendorVisual";
 import { OriginalLogoStrip } from "@/components/OriginalAssets";
@@ -8,19 +8,24 @@ import CTA from "@/components/CTA";
 import Journey from "@/components/Journey";
 import Hero from "@/components/Hero";
 import Globe from "@/components/Globe";
+import {
+  DeliveryApproach,
+  WhyInfocus,
+  ProjectQuestions,
+} from "@/components/BusinessContent";
 import { Button, Icon, IndustryExplorer } from "@/components/Interface";
 import { solutions } from "@/lib/content";
 export const metadata: Metadata = { alternates: { canonical: "/" } };
 export default function Home() {
   return (
-    <main id="main">
+    <main id="main" className="renewed-home">
       <Hero />
       <section className="ecosystem-strip">
         <div className="container">
           <span>
-            EXPERTISE ACROSS
+            CONNECTED EXPERTISE.
             <br />
-            <strong>THE TECHNOLOGY THAT MATTERS.</strong>
+            <strong>LEADING TECHNOLOGY.</strong>
           </span>
           {["oracle", "microsoft", "aws", "azure", "google-cloud", "sap"].map(
             (v) => (
@@ -36,131 +41,144 @@ export default function Home() {
               </Link>
             ),
           )}
+          <Link
+            href="/services#application-infrastructure-support"
+            className="ecosystem-brand ecosystem-pure-storage"
+            aria-label="Pure Storage infrastructure support"
+          >
+            <img
+              src="/images/pure-storage.png"
+              alt="Pure Storage"
+              width={140}
+              height={32}
+            />
+          </Link>
         </div>
       </section>
-      <section className="section container" id="possibilities">
+      <section
+        className="section container capability-intro"
+        id="possibilities"
+      >
         <div className="section-heading" data-reveal>
           <div>
             <span className="eyebrow">
-              <span className="dash" /> WHAT WE MAKE POSSIBLE
+              <span className="dash" /> YOUR AMBITION IS OUR STARTING POINT
             </span>
             <h2>
-              Your next advantage.
+              Make technology
               <br />
-              <span className="muted">Engineered together.</span>
+              <span className="muted">your business advantage.</span>
             </h2>
           </div>
           <div>
             <p>
-              From your cloud foundation to the experiences you create, we
-              connect the right expertise with the right technology.
+              Growth exposes the gaps between systems, teams and information. We
+              help close them — connecting cloud infrastructure, business
+              applications and operational expertise around the way your
+              organisation needs to work.
             </p>
             <Link className="text-link" href="/solutions">
-              Discover our capabilities <ArrowUpRight size={17} />
+              Explore all capabilities <ArrowUpRight size={18} />
             </Link>
           </div>
         </div>
-        <div className="solution-grid">
-          {solutions.slice(0, 3).map((s) => (
+        <div className="renewed-capabilities">
+          {solutions.map((s, i) => (
             <Link
-              data-reveal
-              className={"solution-card " + s.slug}
               key={s.slug}
               href={"/solutions/" + s.slug}
+              className={"capability-tile capability-" + s.slug}
+              data-reveal
             >
-              <div className="card-top">
+              <div className="capability-tile-top">
                 <span>{s.number} /</span>
-                <ArrowUpRight size={20} />
+                <ArrowUpRight size={22} />
               </div>
-              <div
-                className={"solution-sculpture " + s.slug}
-                aria-hidden="true"
-              >
-                {s.slug === "cloud" ? (
-                  <>
-                    <i />
-                    <i />
-                    <i />
-                  </>
-                ) : s.slug === "applications" ? (
-                  <>
-                    <i />
-                    <i />
-                    <i />
-                    <i />
-                  </>
-                ) : (
-                  <>
-                    <i />
-                    <i />
-                    <i />
-                    <i />
-                    <i />
-                  </>
-                )}
+              <div className="capability-object" aria-hidden="true">
+                <i />
+                <i />
+                <Icon name={s.icon} size={45} />
               </div>
-              <div>
-                <span className="card-category">
-                  {s.slug === "cloud"
-                    ? "BUILD YOUR FOUNDATION"
-                    : s.slug === "applications"
-                      ? "REIMAGINE YOUR APPLICATIONS"
-                      : "CONNECT YOUR BUSINESS"}
+              <span className="card-category">
+                {
+                  [
+                    "BUILD A STRONGER FOUNDATION",
+                    "REIMAGINE THE EXPERIENCE",
+                    "CONNECT THE WHOLE BUSINESS",
+                    "REMOVE EVERYDAY FRICTION",
+                    "SUSTAIN THE MOMENTUM",
+                  ][i]
+                }
+              </span>
+              <h3>{s.title}</h3>
+              <p>{s.description}</p>
+              <div className="capability-bottom">
+                <span>{s.capabilities[0]}</span>
+                <span>
+                  Explore <ArrowUpRight size={14} />
                 </span>
-                <h3>{s.title}</h3>
-                <p>{s.short}</p>
               </div>
-            </Link>
-          ))}
-        </div>
-        <div className="secondary-solutions">
-          {solutions.slice(3).map((s) => (
-            <Link key={s.slug} href={"/solutions/" + s.slug}>
-              <Icon name={s.icon} />
-              <div>
-                <h3>{s.title}</h3>
-                <p>{s.short}</p>
-              </div>
-              <ArrowUpRight size={20} />
             </Link>
           ))}
         </div>
       </section>
       <Journey />
-      <section className="integration-section brand-oracle">
+      <section className="integration-section brand-oracle renewed-oracle">
         <div className="container integration-grid">
           <div className="integration-art" data-reveal>
             <VendorVisual vendor="oracle" />
-            <div className="art-note">
-              <span className="live-dot" /> COMPLEXITY, CONNECTED.
+            <div className="oracle-visual-footer">
+              <span>ONE CONNECTED ECOSYSTEM</span>
+              <p>Cloud + Applications + Business processes</p>
             </div>
           </div>
           <div className="integration-copy" data-reveal>
             <span className="eyebrow">
-              <span className="dash" /> ORACLE EXPERTISE. REAL BUSINESS VALUE.
+              <span className="dash" /> ORACLE EXPERTISE. BUSINESS IN FOCUS.
             </span>
             <h2>
-              Everything connected.
+              Less disconnected.
               <br />
-              <span className="blue-text">Anything possible.</span>
+              <span className="blue-text">More accomplished.</span>
             </h2>
             <p>
-              Your applications should work together as seamlessly as your
-              people. We bring Oracle integration, ERP and enterprise expertise
-              into one connected approach.
+              When your applications work in isolation, your people carry the
+              complexity. Connect your Oracle ecosystem with the processes and
+              platforms around it, and create a clearer path from information to
+              action.
             </p>
-            <ul className="line-list">
-              <li>
-                <span>01</span> Unify your applications <Plus size={16} />
-              </li>
-              <li>
-                <span>02</span> Simplify your processes <Plus size={16} />
-              </li>
-              <li>
-                <span>03</span> Build for what comes next <Plus size={16} />
-              </li>
-            </ul>
-            <Button href="/services">Explore our Oracle services</Button>
+            <div className="oracle-accordion">
+              {[
+                [
+                  "Unify applications and information",
+                  "Connect cloud and on-premises systems through Oracle Integration Cloud. Bring application interfaces, data flows and orchestration into a coherent integration approach.",
+                  "/services/oracle-integration-cloud",
+                ],
+                [
+                  "Make core processes work together",
+                  "Align Oracle ERP with the needs of finance and operations. Connect enterprise information, reduce fragmented workflows and design for the way your organisation runs.",
+                  "/services/oracle-erp",
+                ],
+                [
+                  "Connect offers, orders and fulfilment",
+                  "Bring offer design and order delivery together with Oracle RODOD. Support a more connected communications service lifecycle, from configuration through fulfilment.",
+                  "/services/oracle-rodod",
+                ],
+              ].map(([title, desc, href], i) => (
+                <details key={title} open={i === 0}>
+                  <summary>
+                    <span>0{i + 1}</span>
+                    {title}
+                    <Plus size={18} />
+                  </summary>
+                  <p>{desc}</p>
+                  <Link href={href}>
+                    Explore this service <ArrowUpRight size={14} />
+                  </Link>
+                </details>
+              ))}
+            </div>
+            <Button href="/services">Discover our Oracle services</Button>
           </div>
         </div>
       </section>
@@ -168,96 +186,51 @@ export default function Home() {
         <div className="section-heading" data-reveal>
           <div>
             <span className="eyebrow">
-              <span className="dash" /> INDUSTRY UNDERSTANDING. TECHNOLOGY
-              DEPTH.
+              <span className="dash" /> CONTEXT MAKES THE DIFFERENCE
             </span>
             <h2>
-              Your world.
+              Your industry.
               <br />
-              <span className="muted">Our shared focus.</span>
+              <span className="muted">Understood from the inside out.</span>
             </h2>
           </div>
           <p>
-            Every industry has its own challenges.
-            <br />
-            We start by understanding yours.
+            A connected supply chain. A more responsive service. A simpler
+            operational workflow. Every industry has different priorities; the
+            right technology approach starts by understanding yours.
           </p>
         </div>
         <IndustryExplorer />
       </section>
-      <section className="approach-section section">
-        <div className="container">
-          <div className="section-heading" data-reveal>
-            <div>
-              <span className="eyebrow">
-                <span className="dash" /> THE INFOCUS APPROACH
-              </span>
-              <h2>
-                Big thinking.
-                <br />
-                Purposeful execution.
-              </h2>
-            </div>
-            <p>
-              A technology partner for the whole journey.
-              <br />
-              From the first conversation to what comes next.
-            </p>
-          </div>
-          <div className="approach-grid">
-            {[
-              [
-                "Discover",
-                "Your ambition is our starting point. We listen, understand your challenges and define what success looks like.",
-              ],
-              [
-                "Design",
-                "We connect business priorities with the right architecture, platforms and a practical roadmap.",
-              ],
-              [
-                "Deliver",
-                "We bring the plan to life with hands-on implementation and a focus on your business outcomes.",
-              ],
-              [
-                "Evolve",
-                "We stay focused on continuous improvement, helping your technology move with your business.",
-              ],
-            ].map(([t, d], i) => (
-              <div key={t} data-reveal>
-                <span className="step-number">
-                  0{i + 1}
-                  <ArrowRight size={20} />
-                </span>
-                <h3>{t}</h3>
-                <p>{d}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <WhyInfocus />
+      <DeliveryApproach />
       <section className="section container" id="presence">
         <Globe />
       </section>
       <section className="container culture-banner" data-reveal>
         <img
           src="/images/careers.webp"
-          alt="The people and collaborative culture behind Infocus"
+          alt="Collaborative team culture at Infocus"
           loading="lazy"
         />
         <div>
-          <span className="eyebrow">OUR GREATEST TECHNOLOGY IS HUMAN.</span>
+          <span className="eyebrow">THE PEOPLE BEHIND THE POSSIBILITIES</span>
           <h2>
-            Great minds.
+            Bring your perspective.
             <br />
-            Greater possibilities.
+            Build something that matters.
           </h2>
-          <p>Bring your curiosity. Build your next chapter with us.</p>
+          <p>
+            Curiosity opens the conversation. Collective expertise moves it
+            forward. Explore a career connecting people, ideas and technology.
+          </p>
           <Button href="/careers" secondary>
-            Life at Infocus
+            Find your focus at Infocus
           </Button>
         </div>
       </section>
       <OriginalLogoStrip />
+      <ProjectQuestions />
       <CTA />
     </main>
   );

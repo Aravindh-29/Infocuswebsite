@@ -1,6 +1,8 @@
 # INFOCUS — redesigned enterprise technology website
 
-A complete static Next.js website for Infocus Consulting Services. The design opens in light mode, with explicit sun/moon controls and a persistent night-mode preference. It combines original company photography, recognizable vendor logos, contextual brand colours and a native animated IF monogram with the uploaded purple wordmark.
+A complete static Next.js website for Infocus Consulting Services. The design opens in light mode, with explicit sun/moon controls and a persistent night-mode preference. It combines original company photography, recognizable vendor logos, contextual brand colours and the uploaded INFOCUS wordmark animated letter by letter. The cloud scene and all page content are identical in both themes.
+
+For simple step-by-step Windows, Linux, Netlify, IIS and Nginx instructions, open [Run locally and publish the website](README-HOSTING.md).
 
 ## Run locally
 
@@ -24,7 +26,7 @@ Open http://localhost:4173. `npm start` serves the generated `out/` directory. N
 - Solutions, plus Cloud, Applications, Enterprise, Intelligent Automation and Managed Services pages
 - Industries, with ten selectable industry illustrations and keyboard navigation
 - Platforms, grouped by cloud, enterprise, infrastructure and collaboration
-- Services, plus four Oracle service pages
+- Services covering four clouds, application development, databases and support, plus four detailed Oracle service pages
 - About, Careers, Contact and Privacy
 - Legacy addresses for About, Careers, Jobs, Contact and the four original service pages
 - Custom 404, sitemap, robots and generated favicon
@@ -35,16 +37,23 @@ Open http://localhost:4173. `npm start` serves the generated `out/` directory. N
 app/                       Server-rendered pages and static metadata
   page.tsx                 Homepage
   [...slug]/page.tsx       Static internal and detail routes
-  globals.css              Responsive tokens, styles and CSS 3D visuals
+  globals.css              Original base styles
+  themes.css               Theme and vendor colours
+  renewal.css              Current responsive design and dimensional visuals
 components/
   Interface.tsx            Navigation, assistant, forms and interactive explorers
   Hero.tsx                 Hero image with pointer interaction
   Scene.tsx                Lazy-loaded Three.js network and globe
   Globe.tsx                Accessible office controls and addresses
-  Journey.tsx              Sticky scroll-scrub transformation story
+  Journey.tsx              Overlapping sections with scroll-linked recession
+  InfocusWordmarkAnimation.tsx  Native letter fall, wobble and gold shimmer
+  BusinessContent.tsx       Business narrative, delivery approach and project FAQs
+  ServiceNarrative.tsx      Service-specific context and platform guidance
   CapabilityVisual.tsx     Distinct dimensional service illustrations
   CTA.tsx                  Shared contact call to action
 lib/content.ts             Company content, offices, platforms and capabilities
+lib/service-narratives.ts   Detailed service and platform editorial content
+lib/capabilities.ts         Specific explanations of each capability
 public/images/             Optimized generated artwork and retained company assets
 public/font/               Existing company WOFF2 fonts
 scripts/serve.mjs           Local static preview server
@@ -61,7 +70,7 @@ The original asset directories `images/`, `font/` and `external/` remain as sour
 
 - Next.js App Router, React and TypeScript: static HTML per route, shared components and typed company content.
 - Three.js: original procedural network and office globe; dynamically imported near the viewport. No external Spline scene or paid asset dependency is needed.
-- GSAP / ScrollTrigger: section reveals, hero parallax and the scroll-scrub transformation sequence. Sticky positioning keeps the story in view without taking over native scrolling.
+- GSAP / ScrollTrigger: staggered headline and wordmark entrances, section reveals and layered transformation panels. The next panel slides over the previous panel as it scales back. Sticky offsets adapt to each card and the available viewport, including browser zoom changes. Taller cards scroll through their full content before pinning at the bottom; reduced-motion preferences retain normal reading flow.
 - Native CSS: dimensional service objects, hover scale, glass materials, responsive layouts and reduced-motion support. Tailwind, a second motion library and a smooth-scroll library were unnecessary for this implementation.
 - Lucide: consistent interface icons.
 - Playwright: browser verification of routing, assets, key interactions and mobile overflow.
@@ -71,7 +80,7 @@ The original asset directories `images/`, `font/` and `external/` remain as sour
 
 Asthara is a local FAQ assistant, clearly identified in its interface. It uses company information, shows a typing state and retains history in session storage. It does not connect to a live model. To integrate a model later, replace the `faqAnswer` call with a request to a secure server endpoint and store credentials only in that server environment. The static export must never contain an API key.
 
-The contact form validates fields and prepares a reviewable email draft addressed to `hr@infocuscs.com`, the recipient used by the previous website. It does not claim a message was submitted or deliver email itself. Careers links also use the published HR address; listed expertise areas are explicitly not asserted to be live vacancies.
+The contact form collects project details, name, email, phone and company. **Review** shows the complete enquiry; **Send email** opens a prefilled Gmail draft addressed to every recipient in root `emails.json` (currently `hr@infocuscs.com` and `aravindhkumar146@gmail.com`). The customer clicks Send in Gmail; an alternative email-app link is also available. `lib/email-recipients.ts` validates and deduplicates addresses. Edit the file and rebuild/redeploy to apply changes; see `EMAILS.md`. No SMTP credentials are needed, recipient addresses are public, and the website never claims to have sent or delivered the message. Careers links continue to use the published HR address; listed expertise areas are explicitly not asserted to be live vacancies.
 
 ## Verification
 
@@ -100,10 +109,9 @@ Canonical URLs and the sitemap currently use `https://www.infocuscs.com`. Change
 - Confirm whether HR should remain the public contact-form recipient, or supply a dedicated sales address.
 - Confirm current platform partnership/certification status. The redesign deliberately presents technology expertise without claiming certification.
 - Supply verified leadership, current vacancies, project case studies, company milestones and approved metrics if desired. Inconsistent old statistics and copied references to another company were excluded.
-- Approve the updated monogram, generated illustrations, existing photography/font usage and privacy wording.
+- Review the animated wordmark, generated illustrations, existing photography/font usage and privacy wording.
 
 See `ASSETS.md` for artwork sources and generation prompts. No public deployment or DNS changes were made.
-
 
 ## Requested visual revision
 
@@ -111,8 +119,68 @@ See `ASSETS.md` for artwork sources and generation prompts. No public deployment
 - Navigation text is larger and bold on desktop and mobile.
 - Oracle, AWS, Azure, Microsoft, Google Cloud, SAP, Salesforce and OpenStack each have a dedicated page with the matching logo and visual colour treatment. The platform listing links to these pages.
 - Original Oracle logos/diagram, company logos, team imagery, operations photos and location photography are reused where relevant. The native logo replaces the previous generated icon; the supplied wordmark is retained as an optimized transparent PNG.
-- `components/InfocusLogoAnimation.tsx` provides intro/idle modes and playback controls. See `LOGO-ANIMATION.md` for integration, exports and the construction sequence.
+- `components/InfocusWordmarkAnimation.tsx` provides intro/idle modes and playback controls for the current lettering-only logo. The old `InfocusLogoAnimation.tsx` monogram is retained as a v1 reference. See `LOGO-ANIMATION.md` for integration and exports.
 - `/logo-preview/` is the interactive logo studio (excluded from search indexing).
 - Eight browser tests cover the previous functionality plus theme persistence, vendor navigation, logo construction/controls, reduced motion and mobile layouts in both modes.
 
 The production build currently exports 26 primary content pages, eight legacy aliases and the logo studio, plus framework/metadata files. `output/infocus-static.zip` contains deployable files. `output/infocus-logo-kit.zip` contains animation exports, static assets, component source and the integration guide.
+
+## Current renewal and saved baseline
+
+The local v1 checkpoint remains at f49a130, tagged v1. Current changes add wordmark-only branding, a shared cloud hero for both themes, layered scroll panels, stronger service and platform content, functional Oracle disclosures, navigation magnification and the new “Make your next move matter” contact section.
+
+Use output/infocus-renewed-static.zip for the current build and output/infocus-wordmark-kit.zip for the current logo. The previous output/infocus-static.zip and output/infocus-logo-kit.zip are the v1 packages. See LOGO-ANIMATION.md for native wordmark integration and export details.
+
+## Readability and guided contact refinement
+
+`app/readability.css` increases supporting text, card footer links, labels and footer navigation while keeping the headline hierarchy. Primary buttons use a deeper medium-saturation blue; platform actions retain their brand colours with readable white text. Mobile actions have room for their larger labels.
+
+The contact page uses `components/ContactJourney.tsx` and `app/contact-flow.css` to guide visitors through their project, contact details and review. Required fields, including phone, validate before proceeding; Back and Edit controls preserve answers. Larger labels and solid field backgrounds improve contrast in both themes. **Send email** opens Gmail with the completed draft; the customer sends it from Gmail.
+
+Current visual checks are saved as `output/readability-*.png`. The static package remains `output/infocus-renewed-static.zip`.
+
+## Approved immersive cloud hero
+
+`components/Hero.tsx` renders the approved “Behind every bold dream, a world of possibility.” headline as native, accessible text with a once-per-visit typing reveal. `app/immersive-hero.css` creates a continuous light or dark environment across the hero and navigation, with no separate image card.
+
+`components/CloudUniverse.tsx` and `app/cloud-universe.css` layer the transparent generated cloud over a native SVG silver pedestal. Oracle, AWS, Azure and Google Cloud nodes link directly to their platform pages. The cloud completes one CSS 3D turn every 60 seconds; horizontal dragging pauses the automatic turn and adds unrestricted rotation. Left/right arrows and Home/reset also adjust the cloud; vertical touch scrolling remains available. The visible drag instruction is removed, with keyboard guidance retained for screen readers. This is a rotated raster layer, not a volumetric 3D model. The headline types at 75 milliseconds per character.
+
+Blue paths carry travelling highlights. Interior energy and flashes share an SVG mask derived from the cloud image's alpha channel, thresholded and inset to prevent illumination outside its silhouette. Motion pauses offscreen or in a hidden tab. Reduced-motion visitors see the complete headline and a stationary scene, with all platform links still available.
+
+The four small platform clouds scale up to 1.24 and back down one at a time: Oracle, Azure, AWS, then Google Cloud. Each gets a three-second turn in a twelve-second repeating sequence; the same offscreen pause and reduced-motion handling apply. On desktop and laptop screens at least 1000px wide and 600px tall, the quote stays left and the complete network stays right within the available viewport below the measured header. Capsule dimensions and typography follow the scene width. Narrow screens use readable connected rows and natural scrolling.
+
+The office globe uses the approved navy X-ray map treatment with locally bundled Natural Earth coastlines, country boundaries and land particles. `lib/globe-map.ts` builds the actual spherical geometry so the complete map remains visible through a full turn. The generated concept image is a visual reference; the interactive globe uses geographic data.
+
+It supports unlimited horizontal drag rotation and vertical tilt. Automatic rotation starts by default, takes approximately two minutes per revolution, pauses during interaction, and gently resumes after 2.5 seconds of inactivity. No rotation button is displayed. Selecting another office or pressing Home returns to that office using the shortest turn and holds for five seconds. Arrow keys provide keyboard control; after clicking or focusing the globe, the mouse wheel also turns it. Unfocused wheel gestures scroll the page, and Control-wheel browser zoom is preserved. Horizontal touch gestures rotate while vertical gestures scroll the page. Reduced motion disables automatic movement and marker pulsing while retaining deliberate controls. Rendering pauses offscreen or in hidden tabs; listeners, pointer capture and rendering resources are cleaned up on unmount.
+
+Small glossy red location pins mark the actual office coordinates as the globe turns, and pins on its hidden side are occluded. Choosing a location highlights its pin in green at 30% larger size, with the previous selection returning to red and its normal size. Keyboard focus is indicated on the caption rather than by an outline around the globe. All map assets are served locally; no external map service or API key is required.
+
+## Deepu welcome and glass cards
+
+The assistant is Deepu, with the generated suited avatar used in its welcome, launcher and chat header. A compact welcome appears 1.2 seconds after a full page load or refresh without taking focus or opening the full chat. It asks, “How can we help with your next project?” The card has only Chat and Dismiss controls. A short, locally synthesized chime plays once when the browser permits it or after the first trusted interaction; unsupported or blocked audio fails silently. Existing saved mute preferences are still honored. There is no spoken introduction, speech synthesis, sound setting or sound-status text. Dismissing cancels pending playback, and internal navigation does not create another welcome.
+
+`components/DeepuWelcome.tsx` cleans up timers, listeners and audio resources. Existing session FAQ history migrates from the previous assistant name to `deepu-chat`; no live AI connection or microphone recording is introduced. `app/deepu.css` styles the avatar and welcome. Sound playback respects the [Chrome autoplay policy](https://developer.chrome.com/blog/autoplay/).
+
+`app/journey-glass.css` gives the sliding cards frosted light surfaces with navy/slate text and smoke-blue glass with light text in dark mode. It preserves the responsive sticky geometry, complete content and explicit brightness transition from 1 to 0.65.
+
+## Expanded Services experience
+
+Services sits immediately after Solutions in the main navigation. `lib/service-catalog.ts` supplies ten substantial service cards: Oracle Cloud and integration, Microsoft Azure, AWS, Google Cloud, full-stack enterprise software, startup products, websites, mobile apps, databases, and application/infrastructure support. Technical and functional assistance, user guidance and software adoption are included in support.
+
+`components/ServicesExperience.tsx` and `app/services-experience.css` render larger sliding stacks with native platform colours, existing vendor logos and illustrative landing-zone, availability and recovery diagrams. Each platform covers infrastructure from scratch, resilience, recovery planning, integrations and ongoing operations. Cloud diagrams are reference concepts, not a claim about a deployed environment; the supporting official documentation is listed in `serviceArchitectureSources`.
+
+Cards retain natural reading space before the next card overlaps them. Sticky offsets adapt to the measured header, viewport and card height, including narrow and zoomed layouts; reduced-motion visitors get ordinary document flow. Light and dark themes contain identical content. Service enquiry links preserve the selected topic in the guided Contact form, which still prepares a reviewable email draft rather than submitting to a server.
+
+## Contact artwork, readable navigation and service network
+
+The Contact hero uses `public/images/contact-partnership.png`, an original transparent photograph generated with built-in ImageGen. Two smiling professionals shake hands on the right of the introduction; native alpha, soft lighting and a CSS feather at the lower edge blend the artwork into both page themes. There is no photograph frame or opaque image backdrop. The exact prompt is in `output/contact-partnership-prompt.txt`.
+
+`components/Breadcrumbs.tsx` provides semantic breadcrumb navigation with chevron separators, a current-page label and keyboard focus. `app/polish.css` increases supporting text, service details, section labels and diagram labels while keeping a clear hierarchy and consistent button-arrow alignment.
+
+`components/CloudServiceNetwork.tsx` adds nine service branches around the existing homepage cloud. Each GSAP sequence draws a connector outward, draws the capsule perimeter from the connection point, reveals the glass and icon, then reveals the heading and description with a spring settle. The finished network remains visible, and each capsule links to its related service or enquiry. Existing AWS, Azure, Oracle and Google Cloud controls, links, pulse, rotation, dragging and contained flash effects are preserved.
+
+The network uses a compact radial scene beside the quote on desktop and a connected vertical arrangement on narrow screens. Its desktop width is capped by both column width and viewport height to keep all nine capsules in view at normal zoom. Reduced motion shows the completed network directly; keyboard focus reveals the complete network. Timelines and travelling highlights pause offscreen or in a hidden tab. Browser checks cover 1920×870, 1536×695, 1440×790, 1366×640, 1280×720 and 1024×768 in both themes, including the four platform pulse peaks.
+
+The Full-stack & enterprise applications service now uses `components/EnterpriseApplicationVisual.tsx` and `app/enterprise-artwork.css`. A native SVG illustration connects desktop and mobile interfaces to APIs, workflows, a database and enterprise systems, followed by a readable three-layer legend. It supports both themes and reduced motion.
+
+The approved mockup is `output/approved-hero-concept.png`; the production asset and its generation prompt are documented in `ASSETS.md`. Browser coverage includes four platform destinations, dragging/reset, keyboard access, reduced motion, mobile themes and the internal flash mask.

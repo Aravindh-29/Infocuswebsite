@@ -3,9 +3,7 @@ const logos = [
   ["ltm-logo.webp", "LTM"],
   ["par-or (1).webp", "Charter Communications"],
   ["par-or (3).webp", "Verizon"],
-  ["par-or (2).webp", "MindPec Solutions"],
   ["pure-storage.png", "Pure Storage"],
-  ["ltimindtree.png", "LTIMindtree"],
   ["spectrum.svg", "Spectrum"],
 ];
 export function OriginalLogoStrip() {
@@ -20,7 +18,14 @@ export function OriginalLogoStrip() {
       <div className="original-logo-grid">
         {logos.map(([file, name]) => (
           <div key={file}>
-            <img src={"/images/" + file} alt={name} loading="lazy" />
+            <img
+              src={"/images/" + file}
+              alt={name}
+              loading="lazy"
+              className={
+                name === "Spectrum" ? "original-spectrum-logo" : undefined
+              }
+            />
           </div>
         ))}
       </div>

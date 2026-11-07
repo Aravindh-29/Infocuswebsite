@@ -1,16 +1,16 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import InfocusLogoAnimation, {
-  InfocusLogoHandle,
-} from "./InfocusLogoAnimation";
+import InfocusWordmarkAnimation, {
+  InfocusWordmarkHandle,
+} from "./InfocusWordmarkAnimation";
 declare global {
   interface Window {
-    infocusLogo?: InfocusLogoHandle;
+    infocusLogo?: InfocusWordmarkHandle;
     logoReady?: boolean;
   }
 }
 export default function LogoStudio() {
-  const ref = useRef<InfocusLogoHandle>(null);
+  const ref = useRef<InfocusWordmarkHandle>(null);
   const [loop, setLoop] = useState(true),
     [mode, setMode] = useState<"intro" | "idle">("intro");
   useEffect(() => {
@@ -30,7 +30,7 @@ export default function LogoStudio() {
         Always in focus.
       </h1>
       <div id="logo-export-stage">
-        <InfocusLogoAnimation ref={ref} mode={mode} loop={loop} />
+        <InfocusWordmarkAnimation ref={ref} mode={mode} loop={loop} />
       </div>
       <div className="logo-controls">
         <button onClick={() => ref.current?.play()}>Play</button>
@@ -50,10 +50,11 @@ export default function LogoStudio() {
         </button>
       </div>
       <p>
-        The line is drawn from the top-right to the middle-right endpoint. The
-        sphere falls, bounces and settles into a gentle colour cycle.
+        The seven original INFOCUS letters fall into place, settle with a
+        playful wobble and catch a travelling gold highlight. The website uses
+        this native animation with your supplied artwork.
       </p>
-      <a className="text-link" href="/brand/infocus-logo.svg" download>
+      <a className="text-link" href="/brand/infocus-wordmark.svg" download>
         Download static SVG
       </a>
     </main>

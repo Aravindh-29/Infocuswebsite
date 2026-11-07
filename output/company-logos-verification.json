@@ -1,0 +1,99 @@
+[
+  {
+    "route": "/",
+    "width": 1440,
+    "theme": "light",
+    "names": [
+      "Oracle",
+      "LTM",
+      "Charter Communications",
+      "Verizon",
+      "Pure Storage",
+      "Spectrum"
+    ],
+    "rows": [
+      4,
+      2
+    ],
+    "spectrumWidth": 180,
+    "overflow": false
+  },
+  {
+    "route": "/",
+    "width": 1440,
+    "theme": "dark",
+    "names": [
+      "Oracle",
+      "LTM",
+      "Charter Communications",
+      "Verizon",
+      "Pure Storage",
+      "Spectrum"
+    ],
+    "rows": [
+      4,
+      2
+    ],
+    "spectrumWidth": 180,
+    "overflow": false
+  },
+  {
+    "route": "/about/",
+    "width": 1440,
+    "theme": "light",
+    "names": [
+      "Oracle",
+      "LTM",
+      "Charter Communications",
+      "Verizon",
+      "Pure Storage",
+      "Spectrum"
+    ],
+    "rows": [
+      4,
+      2
+    ],
+    "spectrumWidth": 180,
+    "overflow": false
+  },
+  {
+    "route": "/",
+    "width": 390,
+    "theme": "light",
+    "names": [
+      "Oracle",
+      "LTM",
+      "Charter Communications",
+      "Verizon",
+      "Pure Storage",
+      "Spectrum"
+    ],
+    "rows": [
+      2,
+      2,
+      2
+    ],
+    "spectrumWidth": 131,
+    "overflow": false
+  },
+  {
+    "route": "/",
+    "width": 390,
+    "theme": "dark",
+    "names": [
+      "Oracle",
+      "LTM",
+      "Charter Communications",
+      "Verizon",
+      "Pure Storage",
+      "Spectrum"
+    ],
+    "rows": [
+      2,
+      2,
+      2
+    ],
+    "spectrumWidth": 131,
+    "overflow": false
+  }
+]

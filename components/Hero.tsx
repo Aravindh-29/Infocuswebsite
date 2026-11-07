@@ -1,95 +1,138 @@
 "use client";
-import { ArrowDown, ArrowUpRight, Play } from "lucide-react";
-import InfocusLogoAnimation from "./InfocusLogoAnimation";
-import { useRef } from "react";
-import dynamic from "next/dynamic";
+import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { Button } from "./Interface";
-const Scene = dynamic(() => import("./Scene"), { ssr: false });
+import CloudServiceNetwork from "./CloudServiceNetwork";
+
+const lines = ["Behind every", "bold dream,", "a world of possibility."];
+const headline = lines.join(" ");
+const offsets = lines.map(
+  (_, index) => lines.slice(0, index).join(" ").length + (index ? 1 : 0),
+);
+
 export default function Hero() {
-  const ref = useRef<HTMLDivElement>(null);
+  const hero = useRef<HTMLElement>(null);
+  const [letters, setLetters] = useState(headline.length);
+  const [typing, setTyping] = useState(false);
+  useEffect(() => {
+    const header = document.querySelector<HTMLElement>(".header");
+    if (!header) return;
+    const measureHeader = () => {
+      hero.current?.style.setProperty(
+        "--hero-header-height",
+        `${header.offsetHeight}px`,
+      );
+    };
+    const observer = new ResizeObserver(measureHeader);
+    observer.observe(header);
+    measureHeader();
+    return () => observer.disconnect();
+  }, []);
+  useEffect(() => {
+    const preference = matchMedia("(prefers-reduced-motion: reduce)");
+    let frame = 0;
+    function animate() {
+      cancelAnimationFrame(frame);
+      if (preference.matches) {
+        setLetters(headline.length);
+        setTyping(false);
+        return;
+      }
+      setLetters(0);
+      setTyping(true);
+      const start = performance.now() + 400;
+      const tick = (now: number) => {
+        const count = Math.max(
+          0,
+          Math.min(headline.length, Math.floor((now - start) / 75)),
+        );
+        setLetters(count);
+        if (count === headline.length) {
+          setTyping(false);
+          return;
+        }
+        frame = requestAnimationFrame(tick);
+      };
+      frame = requestAnimationFrame(tick);
+    }
+    animate();
+    preference.addEventListener("change", animate);
+    return () => {
+      cancelAnimationFrame(frame);
+      preference.removeEventListener("change", animate);
+    };
+  }, []);
+  const activeLine =
+    letters >= headline.length
+      ? 2
+      : Math.max(
+          0,
+          offsets.findLastIndex((offset) => letters >= offset),
+        );
   return (
-    <section
-      className="hero"
-      ref={ref}
-      onPointerMove={(e) => {
-        if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-        const b = e.currentTarget.getBoundingClientRect();
-        e.currentTarget.style.setProperty(
-          "--mx",
-          `${((e.clientX - b.left) / b.width - 0.5) * 12}px`,
-        );
-        e.currentTarget.style.setProperty(
-          "--my",
-          `${((e.clientY - b.top) / b.height - 0.5) * 9}px`,
-        );
-      }}
-    >
-      <div className="hero-art">
-        <img
-          src="/images/cloud-hero.webp"
-          alt="A luminous glass cloud connecting enterprise infrastructure in an orbital technology ecosystem"
-          fetchPriority="high"
-        />
-        <img
-          className="hero-original"
-          src="/images/t1.webp"
-          alt="Technology specialists monitoring enterprise systems"
-          fetchPriority="high"
-        />
-        <Scene variant="network" />
+    <section className="immersive-hero" ref={hero}>
+      <div className="immersive-atmosphere" aria-hidden="true">
+        <svg viewBox="0 0 1600 900" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="hero-atmosphere-ink">
+              <stop stopColor="#fff" stopOpacity="0" />
+              <stop offset=".45" stopColor="#9defff" stopOpacity=".6" />
+              <stop offset=".65" stopColor="#fff" stopOpacity=".85" />
+              <stop offset="1" stopColor="#91d5ff" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+          <path d="M-200 260C180 70 240 245 460 120S850 90 1120-80" />
+          <path d="M-200 790C250 590 500 890 950 580S1500 620 1800 310" />
+          <path d="M-120 900C320 640 620 940 1080 710S1500 590 1800 730" />
+        </svg>
       </div>
-      <div className="hero-native-mark">
-        <InfocusLogoAnimation mode="idle" />
-      </div>
-      <div className="hero-grain" />
-      <div className="container hero-content">
-        <div className="eyebrow">
-          <span className="live-dot" /> TECHNOLOGY WITH PURPOSE. IMPACT WITHOUT
-          LIMITS.
+      <div className="immersive-inner">
+        <div className="immersive-copy">
+          <h1
+            aria-label={headline}
+            data-typing-state={typing ? "typing" : "complete"}
+          >
+            {lines.map((line, index) => (
+              <span
+                aria-hidden="true"
+                className={
+                  "quote-line " + (index === 2 ? "quote-gradient" : "")
+                }
+                key={line}
+              >
+                <span className="quote-layout">{line}</span>
+                <span className="quote-typed">
+                  {line.slice(0, Math.max(0, letters - offsets[index]))}
+                  {activeLine === index && (
+                    <i
+                      className={typing ? "type-caret typing" : "type-caret"}
+                    />
+                  )}
+                </span>
+              </span>
+            ))}
+          </h1>
+          <p>
+            Bring your ambition. We’ll connect the technology, people and
+            possibilities to move it forward.
+          </p>
+          <div className="immersive-actions">
+            <Button href="/contact">Build your next chapter</Button>
+            <Link className="immersive-explore" href="/solutions">
+              Explore our expertise <ArrowUpRight size={20} />
+            </Link>
+          </div>
         </div>
-        <h1>
-          Transforming
-          <br />
-          businesses through
-          <br />
-          <span>intelligent</span>
-          <br />
-          <span>technology.</span>
-        </h1>
-        <p>
-          Cloud innovation. Connected enterprises. New possibilities.
-          <br className="desktop-break" /> We bring your next chapter into
-          focus.
-        </p>
-        <div className="hero-actions">
-          <Button href="/solutions">Explore our solutions</Button>
-          <Button href="/contact" secondary>
-            Talk to our experts
-          </Button>
-        </div>
-        <div className="hero-proof">
-          <span className="mini-line" /> HUMAN EXPERTISE. TECHNOLOGY THAT MOVES
-          YOU.
+        <div className="immersive-visual">
+          <CloudServiceNetwork />
         </div>
       </div>
-      <div className="hero-label label-cloud">
-        <span className="label-dot" /> CLOUD & INFRASTRUCTURE{" "}
-        <ArrowUpRight size={13} />
-      </div>
-      <div className="hero-label label-integration">
-        <span className="label-dot violet" /> CONNECTED ENTERPRISE
-      </div>
-      <div className="container hero-bottom">
+      <div className="immersive-signoff">
+        <span>YOUR VISION. OUR SHARED PURPOSE.</span>
         <a href="#possibilities">
-          <span className="scroll-icon">
-            <ArrowDown size={16} />
-          </span>{" "}
-          SCROLL TO DISCOVER
+          Explore the possibilities <span aria-hidden="true">↓</span>
         </a>
-        <span>YOUR AMBITION. OUR EXPERTISE.</span>
-        <span className="hero-index">
-          01 <i /> 05
-        </span>
       </div>
     </section>
   );

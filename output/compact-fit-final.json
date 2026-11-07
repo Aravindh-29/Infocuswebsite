@@ -1,0 +1,51 @@
+{
+  "reports": [
+    {
+      "width": 1920,
+      "height": 870,
+      "covered": [],
+      "overflow": false
+    },
+    {
+      "width": 1536,
+      "height": 695,
+      "covered": [],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "height": 790,
+      "covered": [],
+      "overflow": false
+    },
+    {
+      "width": 1366,
+      "height": 640,
+      "covered": [],
+      "overflow": false
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "covered": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "covered": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "covered": [],
+      "overflow": false
+    }
+  ],
+  "artwork": {
+    "width": 542.90625,
+    "height": 513.8125,
+    "label": "A connected enterprise application, from screen to system"
+  }
+}

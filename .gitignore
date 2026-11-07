@@ -7,3 +7,6 @@ playwright-report/
 
 .tools/
 output/logo/frames/
+
+output/wordmark/frames/
+output/wordmark/idle-frames/

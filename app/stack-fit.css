@@ -1,0 +1,18 @@
+/* Tall panels scroll through their content before pinning at the viewport bottom. */
+.transformation-story .chapter-panel {
+  position: relative;
+  top: auto;
+}
+
+.transformation-story:not([data-stack-active="true"]) .chapter-surface,
+.transformation-story:not([data-stack-active="true"]) .chapter-visual img {
+  transform: none !important;
+  filter: none !important;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .transformation-story[data-stack-active="true"] .chapter-panel {
+    position: sticky;
+    top: var(--stack-top, 110px);
+  }
+}

@@ -1,0 +1,43 @@
+[
+  {
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "theme": "dark",
+    "reading": {
+      "count": 24,
+      "failures": []
+    },
+    "geometry": {
+      "active": "true",
+      "overflow": false,
+      "positions": [
+        {
+          "position": "sticky",
+          "top": "110px",
+          "height": 670
+        },
+        {
+          "position": "sticky",
+          "top": "110px",
+          "height": 670
+        },
+        {
+          "position": "sticky",
+          "top": "110px",
+          "height": 670
+        }
+      ],
+      "overlapHeight": 246.95679473876953,
+      "nextOnTop": true,
+      "previousScale": 0.964,
+      "background": "linear-gradient(135deg, rgba(27, 42, 64, 0.93), rgba(16, 28, 45, 0.91))",
+      "backdrop": "blur(24px) saturate(1.15)",
+      "titleColor": "rgb(242, 246, 255)",
+      "textColor": "rgb(196, 209, 227)",
+      "imageLoaded": true
+    },
+    "errors": []
+  }
+]

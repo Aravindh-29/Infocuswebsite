@@ -1,0 +1,422 @@
+[
+  {
+    "size": {
+      "width": 1440,
+      "height": 950
+    },
+    "theme": "light",
+    "errors": [],
+    "overflow": false,
+    "mainLandmark": true,
+    "headings": [
+      "Oracle Cloud & Integration",
+      "Microsoft Azure",
+      "Amazon Web Services",
+      "Google Cloud",
+      "Full-stack & enterprise applications",
+      "Startup MVP & product development",
+      "Websites & digital experiences",
+      "Mobile applications",
+      "Databases & data platforms",
+      "Application & infrastructure support"
+    ],
+    "cards": [
+      {
+        "id": "oracle-cloud",
+        "width": 1344,
+        "height": 1108.953125,
+        "font": "15px",
+        "color": "rgb(119, 84, 75)",
+        "background": "linear-gradient(135deg, rgb(255, 250, 242), rgb(249, 234, 226))"
+      },
+      {
+        "id": "microsoft-azure",
+        "width": 1344,
+        "height": 1082.703125,
+        "font": "15px",
+        "color": "rgb(60, 91, 126)",
+        "background": "linear-gradient(135deg, rgb(244, 251, 255), rgb(226, 239, 253))"
+      },
+      {
+        "id": "amazon-web-services",
+        "width": 1344,
+        "height": 1078.359375,
+        "font": "15px",
+        "color": "rgb(212, 220, 231)",
+        "background": "linear-gradient(135deg, rgb(23, 40, 63), rgb(16, 29, 49))"
+      },
+      {
+        "id": "google-cloud",
+        "width": 1344,
+        "height": 1110.75,
+        "font": "15px",
+        "color": "rgb(82, 98, 119)",
+        "background": "radial-gradient(at 96% 6%, rgba(66, 133, 244, 0.11), rgba(0, 0, 0, 0) 42%), radial-gradient(at 96% 94%, rgba(52, 168, 83, 0.11), rgba(0, 0, 0, 0) 38%), radial-gradient(at 4% 95%, rgba(251, 188, 5, 0.08), rgba(0, 0, 0, 0) 36%), radial-gradient(at 3% 4%, rgba(234, 67, 53, 0.043), rgba(0, 0, 0, 0) 32%), linear-gradient(135deg, rgb(255, 255, 255), rgb(240, 246, 252))"
+      },
+      {
+        "id": "enterprise-applications",
+        "width": 1344,
+        "height": 1134.9375,
+        "font": "15px",
+        "color": "rgb(64, 87, 114)",
+        "background": "linear-gradient(135deg, rgb(249, 251, 255), rgb(234, 241, 252))"
+      },
+      {
+        "id": "startup-product-development",
+        "width": 1344,
+        "height": 1022,
+        "font": "15px",
+        "color": "rgb(64, 87, 114)",
+        "background": "linear-gradient(135deg, rgb(249, 251, 255), rgb(234, 241, 252))"
+      },
+      {
+        "id": "websites-digital-experiences",
+        "width": 1344,
+        "height": 1084.5,
+        "font": "15px",
+        "color": "rgb(64, 87, 114)",
+        "background": "linear-gradient(135deg, rgb(249, 251, 255), rgb(234, 241, 252))"
+      },
+      {
+        "id": "mobile-applications",
+        "width": 1344,
+        "height": 1030.203125,
+        "font": "15px",
+        "color": "rgb(64, 87, 114)",
+        "background": "linear-gradient(135deg, rgb(249, 251, 255), rgb(234, 241, 252))"
+      },
+      {
+        "id": "databases-data-platforms",
+        "width": 1344,
+        "height": 1084.5,
+        "font": "15px",
+        "color": "rgb(64, 87, 114)",
+        "background": "linear-gradient(135deg, rgb(249, 251, 255), rgb(234, 241, 252))"
+      },
+      {
+        "id": "application-infrastructure-support",
+        "width": 1344,
+        "height": 1187.4375,
+        "font": "15px",
+        "color": "rgb(64, 87, 114)",
+        "background": "linear-gradient(135deg, rgb(249, 251, 255), rgb(234, 241, 252))"
+      }
+    ],
+    "brokenImages": []
+  },
+  {
+    "size": {
+      "width": 1440,
+      "height": 950
+    },
+    "theme": "dark",
+    "errors": [],
+    "overflow": false,
+    "mainLandmark": true,
+    "headings": [
+      "Oracle Cloud & Integration",
+      "Microsoft Azure",
+      "Amazon Web Services",
+      "Google Cloud",
+      "Full-stack & enterprise applications",
+      "Startup MVP & product development",
+      "Websites & digital experiences",
+      "Mobile applications",
+      "Databases & data platforms",
+      "Application & infrastructure support"
+    ],
+    "cards": [
+      {
+        "id": "oracle-cloud",
+        "width": 1344,
+        "height": 1108.953125,
+        "font": "15px",
+        "color": "rgb(223, 199, 191)",
+        "background": "linear-gradient(135deg, rgb(48, 32, 29), rgb(37, 30, 30))"
+      },
+      {
+        "id": "microsoft-azure",
+        "width": 1344,
+        "height": 1082.703125,
+        "font": "15px",
+        "color": "rgb(188, 213, 233)",
+        "background": "linear-gradient(135deg, rgb(20, 44, 72), rgb(16, 34, 57))"
+      },
+      {
+        "id": "amazon-web-services",
+        "width": 1344,
+        "height": 1078.359375,
+        "font": "15px",
+        "color": "rgb(212, 220, 231)",
+        "background": "linear-gradient(135deg, rgb(23, 40, 63), rgb(16, 29, 49))"
+      },
+      {
+        "id": "google-cloud",
+        "width": 1344,
+        "height": 1110.75,
+        "font": "15px",
+        "color": "rgb(195, 207, 225)",
+        "background": "radial-gradient(at 96% 6%, rgba(66, 133, 244, 0.11), rgba(0, 0, 0, 0) 42%), radial-gradient(at 96% 94%, rgba(52, 168, 83, 0.11), rgba(0, 0, 0, 0) 38%), radial-gradient(at 4% 95%, rgba(251, 188, 5, 0.08), rgba(0, 0, 0, 0) 36%), radial-gradient(at 3% 4%, rgba(234, 67, 53, 0.043), rgba(0, 0, 0, 0) 32%), linear-gradient(135deg, rgb(29, 42, 60), rgb(21, 34, 53))"
+      },
+      {
+        "id": "enterprise-applications",
+        "width": 1344,
+        "height": 1134.9375,
+        "font": "15px",
+        "color": "rgb(192, 207, 227)",
+        "background": "linear-gradient(135deg, rgb(23, 36, 58), rgb(16, 29, 49))"
+      },
+      {
+        "id": "startup-product-development",
+        "width": 1344,
+        "height": 1022,
+        "font": "15px",
+        "color": "rgb(192, 207, 227)",
+        "background": "linear-gradient(135deg, rgb(23, 36, 58), rgb(16, 29, 49))"
+      },
+      {
+        "id": "websites-digital-experiences",
+        "width": 1344,
+        "height": 1084.5,
+        "font": "15px",
+        "color": "rgb(192, 207, 227)",
+        "background": "linear-gradient(135deg, rgb(23, 36, 58), rgb(16, 29, 49))"
+      },
+      {
+        "id": "mobile-applications",
+        "width": 1344,
+        "height": 1030.203125,
+        "font": "15px",
+        "color": "rgb(192, 207, 227)",
+        "background": "linear-gradient(135deg, rgb(23, 36, 58), rgb(16, 29, 49))"
+      },
+      {
+        "id": "databases-data-platforms",
+        "width": 1344,
+        "height": 1084.5,
+        "font": "15px",
+        "color": "rgb(192, 207, 227)",
+        "background": "linear-gradient(135deg, rgb(23, 36, 58), rgb(16, 29, 49))"
+      },
+      {
+        "id": "application-infrastructure-support",
+        "width": 1344,
+        "height": 1187.4375,
+        "font": "15px",
+        "color": "rgb(192, 207, 227)",
+        "background": "linear-gradient(135deg, rgb(23, 36, 58), rgb(16, 29, 49))"
+      }
+    ],
+    "brokenImages": []
+  },
+  {
+    "size": {
+      "width": 390,
+      "height": 844
+    },
+    "theme": "light",
+    "errors": [],
+    "overflow": false,
+    "mainLandmark": true,
+    "headings": [
+      "Oracle Cloud & Integration",
+      "Microsoft Azure",
+      "Amazon Web Services",
+      "Google Cloud",
+      "Full-stack & enterprise applications",
+      "Startup MVP & product development",
+      "Websites & digital experiences",
+      "Mobile applications",
+      "Databases & data platforms",
+      "Application & infrastructure support"
+    ],
+    "cards": [
+      {
+        "id": "oracle-cloud",
+        "width": 354,
+        "height": 2569.546875,
+        "font": "15px",
+        "color": "rgb(119, 84, 75)",
+        "background": "linear-gradient(135deg, rgb(255, 250, 242), rgb(249, 234, 226))"
+      },
+      {
+        "id": "microsoft-azure",
+        "width": 354,
+        "height": 2562.09375,
+        "font": "15px",
+        "color": "rgb(60, 91, 126)",
+        "background": "linear-gradient(135deg, rgb(244, 251, 255), rgb(226, 239, 253))"
+      },
+      {
+        "id": "amazon-web-services",
+        "width": 354,
+        "height": 2545.84375,
+        "font": "15px",
+        "color": "rgb(212, 220, 231)",
+        "background": "linear-gradient(135deg, rgb(23, 40, 63), rgb(16, 29, 49))"
+      },
+      {
+        "id": "google-cloud",
+        "width": 354,
+        "height": 2509.59375,
+        "font": "15px",
+        "color": "rgb(82, 98, 119)",
+        "background": "radial-gradient(at 96% 6%, rgba(66, 133, 244, 0.11), rgba(0, 0, 0, 0) 42%), radial-gradient(at 96% 94%, rgba(52, 168, 83, 0.11), rgba(0, 0, 0, 0) 38%), radial-gradient(at 4% 95%, rgba(251, 188, 5, 0.08), rgba(0, 0, 0, 0) 36%), radial-gradient(at 3% 4%, rgba(234, 67, 53, 0.043), rgba(0, 0, 0, 0) 32%), linear-gradient(135deg, rgb(255, 255, 255), rgb(240, 246, 252))"
+      },
+      {
+        "id": "enterprise-applications",
+        "width": 354,
+        "height": 2458.671875,
+        "font": "15px",
+        "color": "rgb(64, 87, 114)",
+        "background": "linear-gradient(135deg, rgb(249, 251, 255), rgb(234, 241, 252))"
+      },
+      {
+        "id": "startup-product-development",
+        "width": 354,
+        "height": 2259.390625,
+        "font": "15px",
+        "color": "rgb(64, 87, 114)",
+        "background": "linear-gradient(135deg, rgb(249, 251, 255), rgb(234, 241, 252))"
+      },
+      {
+        "id": "websites-digital-experiences",
+        "width": 354,
+        "height": 2288.78125,
+        "font": "15px",
+        "color": "rgb(64, 87, 114)",
+        "background": "linear-gradient(135deg, rgb(249, 251, 255), rgb(234, 241, 252))"
+      },
+      {
+        "id": "mobile-applications",
+        "width": 354,
+        "height": 2347.546875,
+        "font": "15px",
+        "color": "rgb(64, 87, 114)",
+        "background": "linear-gradient(135deg, rgb(249, 251, 255), rgb(234, 241, 252))"
+      },
+      {
+        "id": "databases-data-platforms",
+        "width": 354,
+        "height": 2326.859375,
+        "font": "15px",
+        "color": "rgb(64, 87, 114)",
+        "background": "linear-gradient(135deg, rgb(249, 251, 255), rgb(234, 241, 252))"
+      },
+      {
+        "id": "application-infrastructure-support",
+        "width": 354,
+        "height": 2437.359375,
+        "font": "15px",
+        "color": "rgb(64, 87, 114)",
+        "background": "linear-gradient(135deg, rgb(249, 251, 255), rgb(234, 241, 252))"
+      }
+    ],
+    "brokenImages": []
+  },
+  {
+    "size": {
+      "width": 390,
+      "height": 844
+    },
+    "theme": "dark",
+    "errors": [],
+    "overflow": false,
+    "mainLandmark": true,
+    "headings": [
+      "Oracle Cloud & Integration",
+      "Microsoft Azure",
+      "Amazon Web Services",
+      "Google Cloud",
+      "Full-stack & enterprise applications",
+      "Startup MVP & product development",
+      "Websites & digital experiences",
+      "Mobile applications",
+      "Databases & data platforms",
+      "Application & infrastructure support"
+    ],
+    "cards": [
+      {
+        "id": "oracle-cloud",
+        "width": 354,
+        "height": 2569.546875,
+        "font": "15px",
+        "color": "rgb(223, 199, 191)",
+        "background": "linear-gradient(135deg, rgb(48, 32, 29), rgb(37, 30, 30))"
+      },
+      {
+        "id": "microsoft-azure",
+        "width": 354,
+        "height": 2562.09375,
+        "font": "15px",
+        "color": "rgb(188, 213, 233)",
+        "background": "linear-gradient(135deg, rgb(20, 44, 72), rgb(16, 34, 57))"
+      },
+      {
+        "id": "amazon-web-services",
+        "width": 354,
+        "height": 2545.84375,
+        "font": "15px",
+        "color": "rgb(212, 220, 231)",
+        "background": "linear-gradient(135deg, rgb(23, 40, 63), rgb(16, 29, 49))"
+      },
+      {
+        "id": "google-cloud",
+        "width": 354,
+        "height": 2509.59375,
+        "font": "15px",
+        "color": "rgb(195, 207, 225)",
+        "background": "radial-gradient(at 96% 6%, rgba(66, 133, 244, 0.11), rgba(0, 0, 0, 0) 42%), radial-gradient(at 96% 94%, rgba(52, 168, 83, 0.11), rgba(0, 0, 0, 0) 38%), radial-gradient(at 4% 95%, rgba(251, 188, 5, 0.08), rgba(0, 0, 0, 0) 36%), radial-gradient(at 3% 4%, rgba(234, 67, 53, 0.043), rgba(0, 0, 0, 0) 32%), linear-gradient(135deg, rgb(29, 42, 60), rgb(21, 34, 53))"
+      },
+      {
+        "id": "enterprise-applications",
+        "width": 354,
+        "height": 2458.671875,
+        "font": "15px",
+        "color": "rgb(192, 207, 227)",
+        "background": "linear-gradient(135deg, rgb(23, 36, 58), rgb(16, 29, 49))"
+      },
+      {
+        "id": "startup-product-development",
+        "width": 354,
+        "height": 2259.390625,
+        "font": "15px",
+        "color": "rgb(192, 207, 227)",
+        "background": "linear-gradient(135deg, rgb(23, 36, 58), rgb(16, 29, 49))"
+      },
+      {
+        "id": "websites-digital-experiences",
+        "width": 354,
+        "height": 2288.78125,
+        "font": "15px",
+        "color": "rgb(192, 207, 227)",
+        "background": "linear-gradient(135deg, rgb(23, 36, 58), rgb(16, 29, 49))"
+      },
+      {
+        "id": "mobile-applications",
+        "width": 354,
+        "height": 2347.546875,
+        "font": "15px",
+        "color": "rgb(192, 207, 227)",
+        "background": "linear-gradient(135deg, rgb(23, 36, 58), rgb(16, 29, 49))"
+      },
+      {
+        "id": "databases-data-platforms",
+        "width": 354,
+        "height": 2326.859375,
+        "font": "15px",
+        "color": "rgb(192, 207, 227)",
+        "background": "linear-gradient(135deg, rgb(23, 36, 58), rgb(16, 29, 49))"
+      },
+      {
+        "id": "application-infrastructure-support",
+        "width": 354,
+        "height": 2437.359375,
+        "font": "15px",
+        "color": "rgb(192, 207, 227)",
+        "background": "linear-gradient(135deg, rgb(23, 36, 58), rgb(16, 29, 49))"
+      }
+    ],
+    "brokenImages": []
+  }
+]

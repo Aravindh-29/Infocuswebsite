@@ -1,0 +1,166 @@
+[
+  {
+    "width": 1440,
+    "theme": "light",
+    "visual": {
+      "width": 542.90625,
+      "height": 863.6875,
+      "topWithinCard": 45
+    },
+    "art": {
+      "width": 542.90625,
+      "height": 513.8125,
+      "viewBox": "0 0 560 530",
+      "contentBox": {
+        "x": 20,
+        "y": 34.425392150878906,
+        "width": 530,
+        "height": 489.5746154785156
+      }
+    },
+    "overflow": false,
+    "title": "A connected enterprise application, from screen to system",
+    "legend": [
+      {
+        "text": "Web & mobile experiencesUseful interfaces for customers and teams.",
+        "headingSize": "16px",
+        "bodySize": "14px"
+      },
+      {
+        "text": "APIs & business workflowsConnect processes, services and integrations.",
+        "headingSize": "16px",
+        "bodySize": "14px"
+      },
+      {
+        "text": "Data & enterprise systemsBring information and access together.",
+        "headingSize": "16px",
+        "bodySize": "14px"
+      }
+    ],
+    "labelColor": "rgb(43, 77, 117)",
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "theme": "dark",
+    "visual": {
+      "width": 542.90625,
+      "height": 863.6875,
+      "topWithinCard": 45
+    },
+    "art": {
+      "width": 542.90625,
+      "height": 513.8125,
+      "viewBox": "0 0 560 530",
+      "contentBox": {
+        "x": 20,
+        "y": 34.425392150878906,
+        "width": 530,
+        "height": 489.5746154785156
+      }
+    },
+    "overflow": false,
+    "title": "A connected enterprise application, from screen to system",
+    "legend": [
+      {
+        "text": "Web & mobile experiencesUseful interfaces for customers and teams.",
+        "headingSize": "16px",
+        "bodySize": "14px"
+      },
+      {
+        "text": "APIs & business workflowsConnect processes, services and integrations.",
+        "headingSize": "16px",
+        "bodySize": "14px"
+      },
+      {
+        "text": "Data & enterprise systemsBring information and access together.",
+        "headingSize": "16px",
+        "bodySize": "14px"
+      }
+    ],
+    "labelColor": "rgb(219, 234, 255)",
+    "errors": []
+  },
+  {
+    "width": 390,
+    "theme": "light",
+    "visual": {
+      "width": 316,
+      "height": 691.328125,
+      "topWithinCard": 1803.671875
+    },
+    "art": {
+      "width": 316,
+      "height": 299.0625,
+      "viewBox": "0 0 560 530",
+      "contentBox": {
+        "x": 20,
+        "y": 34.425392150878906,
+        "width": 530,
+        "height": 489.5746154785156
+      }
+    },
+    "overflow": false,
+    "title": "A connected enterprise application, from screen to system",
+    "legend": [
+      {
+        "text": "Web & mobile experiencesUseful interfaces for customers and teams.",
+        "headingSize": "15px",
+        "bodySize": "14px"
+      },
+      {
+        "text": "APIs & business workflowsConnect processes, services and integrations.",
+        "headingSize": "15px",
+        "bodySize": "14px"
+      },
+      {
+        "text": "Data & enterprise systemsBring information and access together.",
+        "headingSize": "15px",
+        "bodySize": "14px"
+      }
+    ],
+    "labelColor": "rgb(43, 77, 117)",
+    "errors": []
+  },
+  {
+    "width": 390,
+    "theme": "dark",
+    "visual": {
+      "width": 316,
+      "height": 691.328125,
+      "topWithinCard": 1803.671875
+    },
+    "art": {
+      "width": 316,
+      "height": 299.0625,
+      "viewBox": "0 0 560 530",
+      "contentBox": {
+        "x": 20,
+        "y": 34.425392150878906,
+        "width": 530,
+        "height": 489.5746154785156
+      }
+    },
+    "overflow": false,
+    "title": "A connected enterprise application, from screen to system",
+    "legend": [
+      {
+        "text": "Web & mobile experiencesUseful interfaces for customers and teams.",
+        "headingSize": "15px",
+        "bodySize": "14px"
+      },
+      {
+        "text": "APIs & business workflowsConnect processes, services and integrations.",
+        "headingSize": "15px",
+        "bodySize": "14px"
+      },
+      {
+        "text": "Data & enterprise systemsBring information and access together.",
+        "headingSize": "15px",
+        "bodySize": "14px"
+      }
+    ],
+    "labelColor": "rgb(219, 234, 255)",
+    "errors": []
+  }
+]

@@ -1,0 +1,52 @@
+[
+  {
+    "file": "immersive-hero-light.png",
+    "regions": [
+      {
+        "name": "headerCTA",
+        "bounds": [
+          1334,
+          23,
+          1481,
+          72
+        ],
+        "nearWhiteTextPixels": 234
+      },
+      {
+        "name": "heroCTA",
+        "bounds": [
+          56,
+          691,
+          325,
+          751
+        ],
+        "nearWhiteTextPixels": 776
+      }
+    ]
+  },
+  {
+    "file": "immersive-hero-dark.png",
+    "regions": [
+      {
+        "name": "headerCTA",
+        "bounds": [
+          1334,
+          23,
+          1481,
+          72
+        ],
+        "nearWhiteTextPixels": 222
+      },
+      {
+        "name": "heroCTA",
+        "bounds": [
+          56,
+          691,
+          325,
+          751
+        ],
+        "nearWhiteTextPixels": 718
+      }
+    ]
+  }
+]

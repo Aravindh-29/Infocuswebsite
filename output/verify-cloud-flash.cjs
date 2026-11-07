@@ -1,0 +1,40 @@
+const {chromium}=require('@playwright/test');
+const fs=require('node:fs/promises');
+const sharp=require('sharp');
+(async()=>{
+ const browser=await chromium.launch();
+ const page=await browser.newPage({viewport:{width:1600,height:1100},deviceScaleFactor:1});
+ await page.goto('http://127.0.0.1:4174/');
+ await page.locator('.hero-cloud-image').waitFor();
+ await page.waitForFunction(()=>{const im=document.querySelector('.hero-cloud-image');return im?.complete&&im.naturalWidth>0;});
+ await page.evaluate(()=>document.fonts.ready);
+ await page.waitForTimeout(4500);
+ await page.addStyleTag({content:'*{animation:none!important;transition:none!important}.cloud-universe-world,.cloud-auto-turn,.cloud-main-float,.cloud-node-body,.cloud-orbit-lines{transform:none!important}.cloud-inner-flash{display:inline!important;animation:none!important}'});
+ const viewport=page.viewportSize();
+ const box=await page.locator('.cloud-universe').boundingBox();
+ const clip={x:Math.max(0,Math.floor(box.x)),y:Math.max(0,Math.floor(box.y)),width:Math.min(viewport.width,Math.ceil(box.x+box.width))-Math.max(0,Math.floor(box.x)),height:Math.min(viewport.height,Math.ceil(box.y+box.height))-Math.max(0,Math.floor(box.y))};
+ const info=await page.evaluate(clip=>{
+   const img=document.querySelector('.hero-cloud-image');const r=img.getBoundingClientRect();
+   const scale=Math.min(r.width/img.naturalWidth,r.height/img.naturalHeight),w=img.naturalWidth*scale,h=img.naturalHeight*scale;
+   const canvas=document.createElement('canvas');canvas.width=clip.width;canvas.height=clip.height;
+   canvas.getContext('2d').drawImage(img,r.x+(r.width-w)/2-clip.x,r.y+(r.height-h)/2-clip.y,w,h);
+   const mask=document.querySelector('.cloud-inner-energy').getAttribute('mask');
+   const flash=document.querySelector('.cloud-inner-flash');
+   return {alpha:canvas.toDataURL('image/png'),imageBounds:{x:r.x,y:r.y,width:r.width,height:r.height},renderedImage:{x:r.x+(r.width-w)/2,y:r.y+(r.height-h)/2,width:w,height:h},mask,svgViewBox:document.querySelector('.cloud-interior-effects').getAttribute('viewBox'),flashDisplay:getComputedStyle(flash).display};
+ },clip);
+ await fs.writeFile('output/cloud-flash-source-alpha.png',Buffer.from(info.alpha.split(',')[1],'base64'));delete info.alpha;
+ await page.locator('.cloud-inner-flash').evaluate(el=>el.style.setProperty('opacity','0','important'));
+ await page.screenshot({path:'output/cloud-flash-off.png',clip});
+ await page.locator('.cloud-inner-flash').evaluate(el=>el.style.setProperty('opacity','1','important'));
+ await page.screenshot({path:'output/cloud-flash-on.png',clip});
+ const off=await sharp('output/cloud-flash-off.png').ensureAlpha().raw().toBuffer({resolveWithObject:true});
+ const on=await sharp('output/cloud-flash-on.png').ensureAlpha().raw().toBuffer();
+ const alpha=await sharp('output/cloud-flash-source-alpha.png').ensureAlpha().raw().toBuffer();
+ const diff=Buffer.alloc(off.data.length);let changed3=0,changed10=0,outside224=0,outside128=0,max=0,minAlpha=255,maxOutside128=0;
+ let bounds={left:Infinity,top:Infinity,right:-1,bottom:-1};
+ for(let i=0;i<on.length;i+=4){const d=Math.max(Math.abs(on[i]-off.data[i]),Math.abs(on[i+1]-off.data[i+1]),Math.abs(on[i+2]-off.data[i+2]));max=Math.max(max,d);const a=alpha[i+3];if(a<128)maxOutside128=Math.max(maxOutside128,d);if(d>=3){changed3++;minAlpha=Math.min(minAlpha,a);if(a<224)outside224++;if(a<128)outside128++;const pixel=i/4,x=pixel%off.info.width,y=Math.floor(pixel/off.info.width);bounds.left=Math.min(bounds.left,x);bounds.top=Math.min(bounds.top,y);bounds.right=Math.max(bounds.right,x);bounds.bottom=Math.max(bounds.bottom,y);}if(d>=10)changed10++;diff[i]=Math.min(d*4,255);diff[i+1]=Math.min(d*2,255);diff[i+2]=Math.min(d*8,255);diff[i+3]=255;}
+ await sharp(diff,{raw:{width:off.info.width,height:off.info.height,channels:4}}).png().toFile('output/cloud-flash-difference.png');
+ const report={...info,clip,changedPixelsAtLeast3:changed3,changedPixelsAtLeast10:changed10,maxChannelDifference:max,changedOutsideAlpha224:outside224,changedOutsideAlpha128:outside128,maxDifferenceOutsideAlpha128:maxOutside128,minSourceAlphaForChangedPixels:minAlpha,differenceBounds:bounds};
+ await fs.writeFile('output/cloud-flash-verification.json',JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));
+ await browser.close();
+})().catch(e=>{console.error(e);process.exit(1)});

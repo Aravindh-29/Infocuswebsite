@@ -1,0 +1,32 @@
+[
+  {
+    "width": 1536,
+    "height": 695,
+    "gap": 32,
+    "networkWidth": 979.203125,
+    "networkHeight": 523,
+    "coreWidth": 444.546875,
+    "heading": "54.21px",
+    "covered": []
+  },
+  {
+    "width": 1366,
+    "height": 640,
+    "gap": 32,
+    "networkWidth": 863.609375,
+    "networkHeight": 468,
+    "coreWidth": 397.796875,
+    "heading": "49.92px",
+    "covered": []
+  },
+  {
+    "width": 1920,
+    "height": 870,
+    "gap": 32,
+    "networkWidth": 1161.453125,
+    "networkHeight": 698,
+    "coreWidth": 593.296875,
+    "heading": "67.86px",
+    "covered": []
+  }
+]

@@ -1,0 +1,182 @@
+/* Glass changes the material, not the measured height or sticky scroll geometry. */
+.transformation-story {
+  --journey-base: #0a1220;
+  --journey-halo: #557fd71a;
+  --journey-halo-secondary: #8e72be12;
+  --glass-fill-top: #1b2a40ed;
+  --glass-fill-bottom: #101c2de8;
+  --glass-copy-wash: #15233975;
+  --glass-edge: #b5d1f338;
+  --glass-highlight: #e5f1ff24;
+  --glass-shadow: #01081245;
+  --glass-title: #f2f6ff;
+  --glass-copy: #c4d1e3;
+  --glass-secondary: #afc2dc;
+  --glass-image-edge: #17263bec;
+  --glass-image-bottom: #111e32f5;
+  --glass-caption-fill: #13243de8;
+  --glass-caption-ink: #e7f0ff;
+  background:
+    radial-gradient(ellipse at 12% 38%, var(--journey-halo), transparent 42%),
+    radial-gradient(
+      ellipse at 90% 70%,
+      var(--journey-halo-secondary),
+      transparent 44%
+    ),
+    var(--journey-base);
+}
+
+html[data-theme="light"] .transformation-story {
+  --journey-base: #eef4fb;
+  --journey-halo: #8cbdff35;
+  --journey-halo-secondary: #b4a3ef28;
+  --glass-fill-top: #fffffff0;
+  --glass-fill-bottom: #edf5fbe0;
+  --glass-copy-wash: #ffffff69;
+  --glass-edge: #b2c8e4a8;
+  --glass-highlight: #ffffffed;
+  --glass-shadow: #284d7c1b;
+  --glass-title: #172f50;
+  --glass-copy: #415570;
+  --glass-secondary: #506580;
+  --glass-image-edge: #eff6fcee;
+  --glass-image-bottom: #e8f1fcf0;
+  --glass-caption-fill: #f7fbfff0;
+  --glass-caption-ink: #263f62;
+}
+
+.transformation-story .chapter-panel {
+  --glass-accent-ink: #9bd7ff;
+}
+.transformation-story .chapter-panel:nth-child(2) {
+  --glass-accent-ink: #d5beff;
+}
+.transformation-story .chapter-panel:nth-child(3) {
+  --glass-accent-ink: #a1e9d1;
+}
+html[data-theme="light"] .transformation-story .chapter-panel {
+  --glass-accent-ink: #245da0;
+}
+html[data-theme="light"] .transformation-story .chapter-panel:nth-child(2) {
+  --glass-accent-ink: #684a9b;
+}
+html[data-theme="light"] .transformation-story .chapter-panel:nth-child(3) {
+  --glass-accent-ink: #206a60;
+}
+
+.transformation-story .chapter-surface {
+  position: relative;
+  color: var(--glass-title);
+  border-color: var(--glass-edge);
+  background: linear-gradient(
+    135deg,
+    var(--glass-fill-top),
+    var(--glass-fill-bottom)
+  );
+  -webkit-backdrop-filter: blur(24px) saturate(115%);
+  backdrop-filter: blur(24px) saturate(115%);
+  box-shadow:
+    0 18px 50px var(--glass-shadow),
+    0 3px 9px #0d214c08,
+    inset 0 1px 0 var(--glass-highlight);
+}
+
+.transformation-story .chapter-surface::before {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow:
+    inset 0 1px 0 var(--glass-highlight),
+    inset 1px 0 0 var(--glass-highlight);
+  pointer-events: none;
+}
+
+.transformation-story .chapter-copy {
+  background: linear-gradient(135deg, var(--glass-copy-wash), transparent 75%);
+}
+.transformation-story .chapter-copy h3 {
+  color: var(--glass-title);
+  text-shadow: none;
+}
+.transformation-story .chapter-copy > p,
+.transformation-story .chapter-copy li {
+  color: var(--glass-copy);
+}
+.transformation-story .chapter-number,
+.transformation-story .chapter-copy li svg,
+.transformation-story .chapter-copy > a {
+  color: var(--glass-accent-ink);
+}
+.transformation-story .chapter-number {
+  font-weight: 700;
+}
+.transformation-story .chapter-number i {
+  background: var(--glass-accent-ink);
+}
+.transformation-story .chapter-copy > a {
+  border-color: color-mix(in srgb, var(--glass-accent-ink) 38%, transparent);
+  font-weight: 700;
+  transition: border-color 180ms ease;
+}
+.transformation-story .chapter-copy > a:hover {
+  border-color: var(--glass-accent-ink);
+}
+.transformation-story .chapter-copy > a:focus-visible {
+  outline: 2px solid var(--glass-accent-ink);
+  outline-offset: 6px;
+  border-radius: 2px;
+}
+.transformation-story .chapter-result {
+  color: var(--glass-secondary);
+}
+
+/* Keep the artwork vivid at its centre and feather it into the frosted edge. */
+.transformation-story .chapter-visual {
+  background: var(--glass-fill-bottom);
+}
+.transformation-story .chapter-visual > img {
+  opacity: 1;
+}
+.transformation-story .chapter-visual::after {
+  background:
+    linear-gradient(90deg, var(--glass-image-edge), transparent 28%),
+    linear-gradient(0deg, var(--glass-image-bottom), transparent 30%);
+}
+.transformation-story .chapter-coordinate {
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border: 1px solid var(--glass-edge);
+  border-radius: 10px;
+  background: var(--glass-caption-fill);
+  color: var(--glass-caption-ink);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 1px 0 var(--glass-highlight) inset;
+  font-weight: 600;
+}
+.transformation-story .chapter-glow {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .transformation-story .chapter-visual::after {
+    background: linear-gradient(0deg, var(--glass-image-edge), transparent 36%);
+  }
+}
+
+@media (max-width: 600px) {
+  .transformation-story .chapter-coordinate {
+    gap: 8px;
+    padding: 8px 10px;
+    letter-spacing: 0.6px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .transformation-story .chapter-copy > a {
+    transition: none;
+  }
+}

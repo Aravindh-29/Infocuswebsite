@@ -1,42 +1,64 @@
-const { chromium } = require("playwright");
+const { chromium } = require("@playwright/test");
 const fs = require("node:fs/promises");
 const sharp = require("sharp");
-const { staticLogoSvg } = require("../lib/logo.ts");
 (async () => {
   const base = process.env.TEST_URL || "http://127.0.0.1:4174";
-  await fs.mkdir("output/logo/frames", { recursive: true });
-  await fs.writeFile("output/logo/infocus-logo.svg", staticLogoSvg());
-  await fs.writeFile("public/brand/infocus-logo.svg", staticLogoSvg());
-  await sharp(Buffer.from(staticLogoSvg()))
-    .resize(2400, 2520)
+  await fs.mkdir("output/wordmark/frames", { recursive: true });
+  const svg = await fs.readFile("public/brand/infocus-wordmark.svg");
+  await fs.writeFile("output/wordmark/infocus-wordmark.svg", svg);
+  await sharp(svg)
+    .resize(2360, 608)
     .png()
-    .toFile("output/logo/infocus-logo.png");
-  const b = await chromium.launch();
-  const page = await b.newPage({
-    viewport: { width: 512, height: 538 },
+    .toFile("output/wordmark/infocus-wordmark.png");
+  const browser = await chromium.launch();
+  const page = await browser.newPage({
+    viewport: { width: 800, height: 260 },
     deviceScaleFactor: 1,
   });
   await page.goto(base + "/logo-preview/");
   await page.waitForFunction(() => window.logoReady);
   await page.addStyleTag({
-    content:
-      "html,body{background:transparent!important;margin:0!important;padding:0!important;width:512px!important;height:538px!important;overflow:hidden!important}.header,.footer,.assistant-launch,.skip-link,.logo-studio>*:not(#logo-export-stage){display:none!important}.logo-studio{padding:0!important;margin:0!important;width:512px!important;height:538px!important}#logo-export-stage{position:fixed!important;inset:0!important;width:512px!important;height:538px!important;margin:0!important;max-width:none!important;background:transparent!important}#logo-export-stage svg{width:512px!important;height:538px!important}",
+    content: `
+ html,body { background:transparent!important; margin:0!important; padding:0!important; width:800px!important; height:260px!important; overflow:hidden!important; }
+ .header,.footer,.assistant-launch,.skip-link,.logo-studio>*:not(#logo-export-stage) { display:none!important; }
+ .logo-studio { padding:0!important; margin:0!important; width:800px!important; height:260px!important; }
+ #logo-export-stage { position:fixed!important; inset:0!important; width:800px!important; height:260px!important; margin:0!important; padding:0!important; max-width:none!important; background:transparent!important; border:0!important; border-radius:0!important; box-shadow:none!important; }
+ #logo-export-stage svg { width:800px!important; height:206.102px!important; }
+ `,
   });
+  await page.evaluate(() => {
+    document.documentElement.dataset.theme = "light";
+    window.infocusLogo.setLoop(false);
+    window.infocusLogo.pause();
+  });
+  for (let i = 0; i < 144; i++) {
+    await page.evaluate((t) => window.infocusLogo.seek(t), i / 24);
+    await page.screenshot({
+      path: "output/wordmark/frames/" + String(i).padStart(4, "0") + ".png",
+      omitBackground: true,
+    });
+    if (i % 48 === 0) console.log("Wordmark frames: " + i + "/144");
+  }
+  await page
+    .locator(".logo-controls button")
+    .filter({ hasText: "Use idle mode" })
+    .evaluate((el) => el.click());
   await page.evaluate(() => {
     window.infocusLogo.setLoop(false);
     window.infocusLogo.pause();
   });
-  for (let i = 0; i < 288; i++) {
+  await fs.mkdir("output/wordmark/idle-frames", { recursive: true });
+  for (let i = 0; i < 96; i++) {
     await page.evaluate((t) => window.infocusLogo.seek(t), i / 24);
     await page.screenshot({
-      path: `output/logo/frames/${String(i).padStart(4, "0")}.png`,
+      path:
+        "output/wordmark/idle-frames/" + String(i).padStart(4, "0") + ".png",
       omitBackground: true,
     });
-    if (i % 72 === 0) console.log(`Logo frames: ${i}/288`);
   }
-  await b.close();
-  console.log("Transparent frames and high-resolution static files ready.");
-})().catch((e) => {
-  console.error(e);
+  await browser.close();
+  console.log("Native wordmark frames and static artwork exported.");
+})().catch((error) => {
+  console.error(error);
   process.exit(1);
 });

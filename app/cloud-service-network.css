@@ -1,0 +1,480 @@
+.cloud-service-network {
+  --network-compact: 0;
+  --network-single: 0;
+  --capsule-ink: #1b3558;
+  --capsule-muted: #4b6481;
+  --capsule-glass: #f8fcffe8;
+  --capsule-glass-end: #e8f2fce3;
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 1.45;
+  container-type: inline-size;
+  isolation: isolate;
+}
+.service-network-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 0;
+}
+.service-branch-path,
+.service-branch-current {
+  fill: none;
+  stroke: #259edb;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.8;
+  filter: drop-shadow(0 0 4px #57dfff80);
+}
+.service-branch-junction {
+  fill: #d2f5ff;
+  stroke: #369fdf;
+  stroke-width: 1;
+  filter: drop-shadow(0 0 5px #51d4ff);
+}
+.service-branch-current {
+  stroke: #c7f3ff;
+  stroke-width: 2.1;
+  stroke-dasharray: 0.012 0.088;
+  opacity: 0.75;
+  filter: drop-shadow(0 0 4px #41c5ff);
+  animation: service-network-current 3.8s linear infinite;
+}
+.cloud-service-core {
+  position: absolute;
+  /* Preserve clearance at the existing platform nodes' 1.24x pulse peak. */
+  width: 52%;
+  left: 24%;
+  top: 19%;
+  z-index: 1;
+}
+.cloud-service-capsules {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+.cloud-service-capsule {
+  position: absolute;
+  width: 22%;
+  min-height: 112px;
+  color: var(--capsule-ink);
+  border-radius: 999px;
+  pointer-events: auto;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.service-capsule-shell {
+  display: flex;
+  position: relative;
+  align-items: center;
+  gap: 12px;
+  min-height: inherit;
+  padding: 17px 23px;
+  border-radius: inherit;
+  transform-origin: center;
+}
+.service-capsule-fill {
+  position: absolute;
+  inset: 1.5px;
+  border-radius: 999px;
+  background: linear-gradient(
+    130deg,
+    var(--capsule-glass),
+    var(--capsule-glass-end)
+  );
+  box-shadow:
+    0 11px 25px #21467f14,
+    inset 0 1px 0 #ffffffed,
+    inset 0 -1px 0 #b3cae63d;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  pointer-events: none;
+}
+.service-capsule-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+.service-capsule-outline {
+  fill: none;
+  stroke: var(--service-color);
+  stroke-width: 1.35;
+  stroke-linecap: round;
+  opacity: 0.67;
+  vector-effect: non-scaling-stroke;
+  filter: drop-shadow(
+    0 0 5px color-mix(in srgb, var(--service-color) 18%, transparent)
+  );
+}
+.service-capsule-icon {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  width: 43px;
+  height: 43px;
+  border: 1px solid color-mix(in srgb, var(--service-color) 20%, #fff);
+  border-radius: 14px;
+  color: var(--service-color);
+  background: linear-gradient(
+    135deg,
+    #fff,
+    color-mix(in srgb, var(--service-color) 13%, #f5fbff)
+  );
+  box-shadow:
+    0 5px 10px #244d8010,
+    inset 0 1px 0 #fff;
+}
+.service-capsule-copy {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  flex: 1;
+}
+.service-capsule-copy > strong {
+  font-size: clamp(15px, 0.85vw, 16px);
+  font-weight: 750;
+  line-height: 1.4;
+  letter-spacing: -0.15px;
+  color: var(--capsule-ink);
+}
+.service-capsule-copy > span {
+  font-size: 13px;
+  line-height: 1.6;
+  font-weight: 500;
+  color: var(--capsule-muted);
+}
+.service-capsule-arrow {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  color: var(--service-color);
+  opacity: 0.6;
+}
+.cloud-service-network .service-capsule-shell {
+  padding-right: 34px;
+}
+.cloud-service-capsule:not([data-phase="text"]):not([data-phase="complete"])
+  .service-capsule-arrow {
+  opacity: 0;
+}
+.cloud-service-capsule:not([data-phase="text"]):not([data-phase="complete"]) {
+  pointer-events: none;
+}
+.cloud-service-capsule:hover .service-capsule-fill {
+  box-shadow:
+    0 13px 29px #21467f23,
+    inset 0 1px 0 #fff;
+}
+.cloud-service-capsule:hover .service-capsule-outline {
+  opacity: 1;
+  stroke-width: 1.8;
+}
+.cloud-service-capsule:focus-visible {
+  outline: 2px solid var(--service-color);
+  outline-offset: 5px;
+}
+.cloud-service-network .capsule-oracle-mark {
+  width: 48px;
+  background: #fff;
+}
+.cloud-service-network .capsule-oracle-mark .vendor-brand {
+  width: 41px;
+  height: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+.cloud-service-network .capsule-oracle-mark .vendor-brand img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: none;
+  opacity: 1;
+  mix-blend-mode: normal;
+}
+.capsule-top-one,
+.capsule-top-two,
+.capsule-top-three {
+  top: 2%;
+  width: 29%;
+  min-height: 100px;
+}
+.capsule-top-one {
+  left: 0.5%;
+}
+.capsule-top-two {
+  left: 35.5%;
+}
+.capsule-top-three {
+  right: 0.5%;
+}
+.capsule-left-one,
+.capsule-left-two,
+.capsule-left-three {
+  left: 0.5%;
+}
+.capsule-right-one,
+.capsule-right-two,
+.capsule-right-three {
+  right: 0.5%;
+}
+.capsule-left-one,
+.capsule-right-one {
+  top: 35%;
+}
+.capsule-left-two,
+.capsule-right-two {
+  top: 57%;
+}
+.capsule-left-three,
+.capsule-right-three {
+  top: 79%;
+}
+.cloud-network-caption {
+  position: absolute;
+  left: 26%;
+  right: 26%;
+  bottom: 0;
+  text-align: center;
+  color: var(--capsule-muted);
+  font-size: 12px;
+  line-height: 1.7;
+  letter-spacing: 1.3px;
+  font-weight: 650;
+  pointer-events: none;
+}
+[data-theme="dark"] .cloud-service-network {
+  --capsule-ink: #eaf3ff;
+  --capsule-muted: #bbcee8;
+  --capsule-glass: #162c47ef;
+  --capsule-glass-end: #10243ce8;
+}
+[data-theme="dark"] .service-capsule-fill {
+  box-shadow:
+    0 12px 24px #020a1e28,
+    inset 0 1px 0 #aacaf12e;
+}
+[data-theme="dark"] .service-capsule-outline {
+  stroke: color-mix(in srgb, var(--service-color) 60%, #d5e6ff);
+  opacity: 0.78;
+}
+[data-theme="dark"] .service-branch-path {
+  stroke: #55b7ed;
+  opacity: 0.8;
+}
+[data-theme="dark"] .service-capsule-arrow {
+  color: #b8d5fa;
+}
+.cloud-service-network[data-active="false"] .service-branch-current,
+.cloud-service-network[data-active="false"] .service-capsule-shell {
+  animation-play-state: paused !important;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .cloud-service-network[data-network-state="preparing"] .service-capsule-fill,
+  .cloud-service-network[data-network-state="preparing"] .service-capsule-icon,
+  .cloud-service-network[data-network-state="preparing"] .service-capsule-copy,
+  .cloud-service-network[data-network-state="preparing"]
+    .service-branch-current {
+    opacity: 0;
+  }
+  .cloud-service-network[data-network-state="preparing"]
+    .service-capsule-outline {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+  .cloud-service-capsule[data-phase="complete"][data-in-view="true"]
+    .service-capsule-shell {
+    animation: service-capsule-drift 12s ease-in-out infinite;
+    animation-delay: var(--capsule-delay);
+  }
+}
+@keyframes service-network-current {
+  to {
+    stroke-dashoffset: -0.2;
+  }
+}
+@keyframes service-capsule-drift {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: -0.15deg;
+  }
+  50% {
+    translate: 0 -2px;
+    rotate: 0.15deg;
+  }
+}
+
+/* Capsule typography follows the scene width rather than the whole viewport. */
+@media (min-width: 1000px) {
+  .cloud-service-capsule {
+    min-height: clamp(68px, 8.7cqw, 100px);
+  }
+  .capsule-top-one,
+  .capsule-top-two,
+  .capsule-top-three {
+    min-height: clamp(60px, 7.5cqw, 90px);
+  }
+  .service-capsule-shell {
+    gap: clamp(6px, 0.8cqw, 10px);
+    padding: clamp(9px, 1.3cqw, 16px) clamp(10px, 1.4cqw, 18px);
+  }
+  .cloud-service-network .service-capsule-shell {
+    padding-right: clamp(18px, 2.3cqw, 28px);
+  }
+  .service-capsule-icon {
+    width: clamp(25px, 3.3cqw, 40px);
+    height: clamp(25px, 3.3cqw, 40px);
+    border-radius: 11px;
+  }
+  .service-capsule-icon > svg {
+    width: 60%;
+    height: 60%;
+  }
+  .cloud-service-network .capsule-oracle-mark {
+    width: clamp(29px, 3.8cqw, 45px);
+  }
+  .cloud-service-network .capsule-oracle-mark .vendor-brand {
+    width: 86%;
+    height: 13px;
+  }
+  .service-capsule-copy {
+    gap: 4px;
+  }
+  .service-capsule-copy > strong {
+    font-size: clamp(11.5px, 1.38cqw, 15px);
+    line-height: 1.3;
+    letter-spacing: -0.1px;
+  }
+  .service-capsule-copy > span {
+    font-size: clamp(10px, 1.1cqw, 12px);
+    line-height: 1.45;
+  }
+  .service-capsule-arrow {
+    width: 12px;
+    height: 12px;
+    right: 7px;
+  }
+  .cloud-network-caption {
+    font-size: clamp(9px, 0.95cqw, 11px);
+    line-height: 1.5;
+    letter-spacing: 0.7px;
+  }
+}
+/* Fill the right-hand column horizontally while retaining the viewport fit.
+   The cloud grows with the available height; the capsules use the wider edges. */
+@media (min-width: 1000px) and (min-height: 600px) {
+  .cloud-service-network {
+    --network-height: min(
+      calc(100cqw / 1.45),
+      calc(100svh - var(--hero-header-height, 96px) - 76px)
+    );
+    height: var(--network-height);
+    aspect-ratio: auto;
+  }
+  .cloud-service-core {
+    width: min(52%, calc(var(--network-height) * 0.85));
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+@media (max-width: 999px) {
+  .cloud-service-network {
+    --network-compact: 1;
+    aspect-ratio: auto;
+    padding-bottom: 35px;
+  }
+  .cloud-service-core {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: min(78%, 700px);
+    margin: 0 auto 26px;
+  }
+  .cloud-service-capsules {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding: 0 30px;
+    inset: auto;
+  }
+  .cloud-service-capsule {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    width: 100%;
+    min-height: 112px;
+  }
+  .service-capsule-shell {
+    padding: 18px;
+  }
+  .service-capsule-copy > strong {
+    font-size: 16px;
+  }
+  .service-capsule-copy > span {
+    font-size: 13px;
+  }
+  .cloud-network-caption {
+    position: relative;
+    display: block;
+    inset: auto;
+    margin: 28px 35px 0;
+    font-size: 12px;
+  }
+}
+@media (max-width: 600px) {
+  .cloud-service-network {
+    --network-single: 1;
+    padding-bottom: 20px;
+  }
+  .cloud-service-core {
+    width: 100%;
+    margin-bottom: 26px;
+  }
+  .cloud-service-capsules {
+    grid-template-columns: 1fr;
+    padding-left: 30px;
+    padding-right: 3px;
+    gap: 18px;
+  }
+  .cloud-service-capsule {
+    min-height: 108px;
+  }
+  .service-capsule-shell {
+    padding: 17px 18px;
+    gap: 13px;
+  }
+  .service-capsule-copy > strong {
+    font-size: 16px;
+  }
+  .service-capsule-copy > span {
+    font-size: 13px;
+  }
+  .cloud-network-caption {
+    margin-inline: 30px 10px;
+    font-size: 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cloud-service-network .service-branch-current,
+  .cloud-service-network .service-capsule-shell {
+    animation: none;
+  }
+}

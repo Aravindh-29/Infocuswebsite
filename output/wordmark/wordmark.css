@@ -1,0 +1,3 @@
+.infocus-wordmark { display:block; width:100%; height:auto; overflow:visible; }
+[data-theme="dark"] .infocus-wordmark { filter:drop-shadow(0 0 12px #8b54ff35); }
+[data-theme="dark"] .infocus-wordmark [data-letter] image { filter:var(--night-ink); }

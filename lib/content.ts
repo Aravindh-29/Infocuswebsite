@@ -5,7 +5,7 @@ export const solutions = [
     title: "Cloud solutions",
     short: "A stronger foundation. Limitless possibilities.",
     description:
-      "Build a cloud strategy around your business. Simplify complex infrastructure, connect public and private environments, and make your next move with confidence.",
+      "Create a cloud foundation that supports the way you work and where you want to grow. Connect strategy, migration and governance across public, private and hybrid environments, with ongoing operations considered from the start.",
     capabilities: [
       "Cloud strategy & migration",
       "Hybrid & multicloud",
@@ -20,7 +20,7 @@ export const solutions = [
     title: "Application solutions",
     short: "Modern applications. Meaningful experiences.",
     description:
-      "Bring your applications into the next era. From cloud-native development to SaaS lifecycle management, connect the systems that keep your business moving.",
+      "Remove the friction that keeps applications from keeping pace. Modernise established systems, build cloud-native experiences and connect SaaS platforms with the processes your customers and teams depend on.",
     capabilities: [
       "Application modernization",
       "Cloud-native development",
@@ -35,7 +35,7 @@ export const solutions = [
     title: "Enterprise solutions",
     short: "Your business, working as one.",
     description:
-      "Connect finance, operations and customer experiences with integrated enterprise applications. Our Oracle expertise helps turn complex systems into a cohesive business ecosystem.",
+      "Give finance, operations and customer-facing teams a more connected foundation. Bring Oracle ERP, CRM and business processes together so information can move through the organisation with greater clarity.",
     capabilities: [
       "Oracle ERP solutions",
       "CRM integration",
@@ -50,7 +50,7 @@ export const solutions = [
     title: "Intelligent automation",
     short: "Less friction. More forward momentum.",
     description:
-      "Connect applications and simplify everyday processes with Oracle Integration Cloud. Visual, low-code workflows help your people focus on higher-value work.",
+      "Turn repetitive handoffs into connected workflows. Use Oracle Integration Cloud and visual process automation to connect applications, organise approvals and make everyday work easier to follow and manage.",
     capabilities: [
       "Process automation",
       "Low-code workflows",
@@ -65,7 +65,7 @@ export const solutions = [
     title: "Managed services",
     short: "Complexity handled. Potential unlocked.",
     description:
-      "Keep your infrastructure and applications working for your business. Bring visibility, ongoing optimization and experienced operational support to your technology environment.",
+      "Keep progress moving after implementation. Bring application operations, infrastructure support and ongoing cloud optimisation into a structured approach, with clearer responsibilities and a focus on continual improvement.",
     capabilities: [
       "Application operations",
       "Managed hosting",
@@ -131,7 +131,7 @@ export const industries = [
     image: "bank.webp",
     tag: "Connected financial services",
     description:
-      "Connect your financial ecosystem. Modernize applications, simplify cloud infrastructure and bring your data together to support evolving customer needs.",
+      "Connect your financial ecosystem. Modernise applications, simplify cloud infrastructure and bring your data together to support evolving customer needs. Start with critical services and their dependencies, then shape a transition that considers continuity, operational ownership and the wider application landscape.",
     focus: [
       "Cloud migration",
       "Application integration",
@@ -143,7 +143,7 @@ export const industries = [
     image: "pexels-mikhail-nilov-9242852.webp",
     tag: "Technology with a human purpose",
     description:
-      "Connect healthcare applications and information across your organization, with cloud architecture designed around your operational requirements.",
+      "Help information move across the applications your healthcare organisation relies on. Connect operational systems, review cloud architecture and plan integrations around real workflows, with data handling requirements and service continuity considered throughout the design.",
     focus: [
       "Application connectivity",
       "Cloud architecture",
@@ -155,7 +155,7 @@ export const industries = [
     image: "about.webp",
     tag: "A more connected learning experience",
     description:
-      "Support digital learning with flexible infrastructure and connected applications that help institutions serve students and educators.",
+      "Connect the applications and infrastructure behind learning, collaboration and administration. A flexible cloud approach can help institutions respond to changing demand, while thoughtful integration helps student and operational information move between established systems.",
     focus: [
       "Cloud infrastructure",
       "Collaboration",
@@ -167,7 +167,7 @@ export const industries = [
     image: "petroleum (1).webp",
     tag: "Move your operations forward",
     description:
-      "Bring operational information together across complex environments with integrated enterprise applications and modern cloud infrastructure.",
+      "Bring operational information together across complex environments. Connect enterprise applications, cloud infrastructure and business workflows so distributed teams can work with more consistent information. Begin with the handoffs that create the greatest delay or uncertainty.",
     focus: ["Enterprise integration", "Cloud operations", "Process automation"],
   },
   {
@@ -175,7 +175,7 @@ export const industries = [
     image: "manufacture.webp",
     tag: "Intelligence across your operations",
     description:
-      "Connect your supply chain, enterprise systems and operational workflows to build a more responsive manufacturing business.",
+      "Connect your supply chain, enterprise systems and operational workflows to build a more responsive manufacturing business. Align ERP information with the applications around it, identify fragmented handoffs and create a practical roadmap for better visibility across planning and operations.",
     focus: ["ERP solutions", "Workflow integration", "Cloud transformation"],
   },
   {
@@ -183,7 +183,7 @@ export const industries = [
     image: "wheat-grain (1).webp",
     tag: "Connected from field to enterprise",
     description:
-      "Connect business information and supply chain processes with flexible infrastructure that supports changing operational needs.",
+      "Connect business information and supply chain processes across a changing operating environment. Bring applications and data flows into a clearer structure, with cloud infrastructure that supports seasonal demand, distributed teams and the systems used to coordinate everyday work.",
     focus: [
       "Business applications",
       "Data connectivity",
@@ -195,7 +195,7 @@ export const industries = [
     image: "singapore-1.webp",
     tag: "Built for a connected world",
     description:
-      "Bring offer design, order management and fulfilment together with Oracle communications solutions and integrated cloud services.",
+      "Connect the commercial offer to the delivery process. Bring offer design, order management and fulfilment together through Oracle communications solutions, integration architecture and cloud services, with a clearer view of the steps and systems across the service lifecycle.",
     focus: ["Oracle RODOD", "Service orchestration", "Cloud modernization"],
   },
   {
@@ -203,7 +203,7 @@ export const industries = [
     image: "build.webp",
     tag: "Every connection counts",
     description:
-      "Connect customer-facing applications and back-office systems to create consistent information across your retail business.",
+      "Help customer-facing applications and back-office systems work from connected information. Bring CRM, ERP and operational workflows together so teams can follow the flow between a customer interaction, an order and the processes that support delivery.",
     focus: ["CRM integration", "ERP solutions", "Application operations"],
   },
   {
@@ -211,7 +211,7 @@ export const industries = [
     image: "manufacture.webp",
     tag: "Accelerate what comes next",
     description:
-      "Support complex operations with integrated enterprise applications and a modern technology foundation.",
+      "Bring enterprise applications, operational information and connected workflows into a shared technology foundation. Support the coordination of complex business processes by understanding application dependencies and prioritising the integrations that improve everyday visibility.",
     focus: [
       "Enterprise applications",
       "Cloud migration",
@@ -223,7 +223,7 @@ export const industries = [
     image: "sg.webp",
     tag: "Make room for your next idea",
     description:
-      "Support digital experiences with scalable cloud infrastructure and connected application platforms.",
+      "Connect the platforms behind digital experiences, content workflows and business operations. Bring cloud-native applications and managed infrastructure into a practical architecture, with attention to the dependencies and changing demands that shape delivery.",
     focus: [
       "Cloud-native applications",
       "Digital experience",

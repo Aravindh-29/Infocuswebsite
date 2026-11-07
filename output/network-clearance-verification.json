@@ -1,0 +1,74 @@
+[
+  {
+    "width": 1440,
+    "candidate": "original",
+    "collisions": [
+      {
+        "time": 7500,
+        "node": "Explore Amazon Web Services",
+        "card": "software-maintenance",
+        "overlapX": 2.012298583984375,
+        "overlapY": 112
+      }
+    ],
+    "minimumSideGap": -2.012298583984375,
+    "coreWidth": 734.390625,
+    "canvasWidth": 1360
+  },
+  {
+    "width": 1440,
+    "candidate": "52percent",
+    "collisions": [],
+    "minimumSideGap": 11.89862060546875,
+    "coreWidth": 707.1875,
+    "canvasWidth": 1360
+  },
+  {
+    "width": 1801,
+    "candidate": "original",
+    "collisions": [],
+    "minimumSideGap": -1.7255859375,
+    "coreWidth": 627.546875,
+    "canvasWidth": 1162.125
+  },
+  {
+    "width": 1801,
+    "candidate": "52percent",
+    "collisions": [],
+    "minimumSideGap": 10.18853759765625,
+    "coreWidth": 604.296875,
+    "canvasWidth": 1162.125
+  },
+  {
+    "width": 1920,
+    "candidate": "original",
+    "collisions": [],
+    "minimumSideGap": -1.85809326171875,
+    "coreWidth": 671.234375,
+    "canvasWidth": 1243.046875
+  },
+  {
+    "width": 1920,
+    "candidate": "52percent",
+    "collisions": [],
+    "minimumSideGap": 10.89019775390625,
+    "coreWidth": 646.375,
+    "canvasWidth": 1243.046875
+  },
+  {
+    "width": 1101,
+    "candidate": "original",
+    "collisions": [],
+    "minimumSideGap": -1.54803466796875,
+    "coreWidth": 555.65625,
+    "canvasWidth": 1029
+  },
+  {
+    "width": 1101,
+    "candidate": "52percent",
+    "collisions": [],
+    "minimumSideGap": 9.003692626953125,
+    "coreWidth": 535.078125,
+    "canvasWidth": 1029
+  }
+]
