@@ -1,0 +1,10 @@
+{
+  "aws": "https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original.svg",
+  "azure": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg",
+  "google-cloud": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg",
+  "salesforce": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/salesforce/salesforce-original.svg",
+  "openstack": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/openstack/openstack-original.svg",
+  "sap": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/sap.svg",
+  "oracle": "Original supplied project: images/par-or (4).webp",
+  "microsoft": "Native SVG four-colour mark"
+}

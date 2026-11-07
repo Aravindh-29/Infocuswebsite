@@ -1,0 +1,41 @@
+{
+  "name": "infcs",
+  "version": "1.0.0",
+  "description": "Infocus Consulting Services - responsive static technology website",
+  "main": "nav.js",
+  "scripts": {
+    "dev": "next dev --hostname 0.0.0.0",
+    "build": "next build && node scripts/fix-static-segments.mjs",
+    "start": "node scripts/serve.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "playwright test",
+    "format": "prettier --write app components lib tests scripts/*.mjs scripts/review.cjs *.ts package.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ttarunkumarr/infcs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ttarunkumarr/infcs/issues"
+  },
+  "homepage": "https://github.com/ttarunkumarr/infcs#readme",
+  "dependencies": {
+    "gsap": "^3.15.1",
+    "lucide-react": "^1.70.0",
+    "next": "^16.4.5",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "three": "^0.187.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.0",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/three": "^0.187.0",
+    "prettier": "^3.9.10",
+    "typescript": "^7.0.2"
+  }
+}

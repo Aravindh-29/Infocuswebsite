@@ -1,0 +1,17 @@
+{
+  "build": "passed",
+  "typecheck": "passed",
+  "browserTests": 8,
+  "passed": 8,
+  "coverage": [
+    "All primary and legacy routes",
+    "Desktop navigation, industry keyboard controls and assistant",
+    "WebGL fallback",
+    "Contact draft and careers search",
+    "Light-default and persistent dark preference",
+    "Vendor logo navigation and Oracle theme",
+    "Logo drawing, pause/restart/idle/loop controls",
+    "Mobile overflow in both themes and reduced motion"
+  ],
+  "note": "Six tests passed on the complete suite; both mobile tests passed after the diagram width and decorative orbit fixes. Export alpha verification is in logo/export-verification.json."
+}

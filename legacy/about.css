@@ -1,0 +1,245 @@
+
+.hero-about-us {
+  height: 100vh;
+  width: 100%;
+  background-image: url(./images/about.webp);
+  background-size: cover;
+  display: flex;
+  align-items: center;
+}
+.hero-con-about {
+  padding: 100px;
+  color: white !important;
+}
+.hero-con-about > h1 {
+  font-size: 55px;
+  padding: 20px 0px;
+}
+.hero-con-about > p {
+  width: 65%;
+  font-size: 25px;
+  line-height: 28px;
+  font-family: "Hou-lig";
+}
+.build-future {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 100px 0px;
+}
+.left-build {
+  line-height: 38px;
+  width: 50%;
+}
+.left-build h1 {
+  font-size: 33px;
+  padding: 0px 80px;
+}
+.left-build p {
+  font-size: 24px;
+  padding: 20px 80px;
+}
+.right-build-img {
+  width: 50%;
+}
+.right-build-img img {
+  width: 90%;
+  height: auto;
+}
+.about-us-stats {
+  height: 100%;
+}
+.half-stat {
+  background-color: #001638;
+  height: 50vh;
+  width: 100%;
+  position: relative;
+}
+.box-hol{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.box-stat {
+  width: 300px;
+  height: 300px;
+  background-color: #e1e1e1;
+  position: relative;
+  top: -170px;
+  padding: 30px;
+  margin: 20px auto;
+}
+
+.box-stat h5 {
+  font-size: 16px;
+}
+.box-stat h1 {
+  font-size: 48px;
+  color: #2a70bd;
+  padding: 20px 0px;
+}
+.box-stat p {
+  font-size: 16px;
+}
+.clients-about {
+  background: linear-gradient(
+      to bottom,
+      rgba(28, 28, 28, 0.18),
+      rgba(28, 28, 28, 0.28)
+    ),
+    url("./images/mario-gogh-vblhicvh-li-unsplash.webp");
+  background-position: center;
+  background-size: cover;
+}
+.partners-icon-about {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+.partners-icon-about img {
+  aspect-ratio: 1/1;
+  width: 16%;
+  padding: 10px 20px;
+  object-fit: contain;
+}
+@media  screen and (max-width: 768px) {
+  .build-future {
+      flex-direction: column;
+      padding: 60px 0px;
+      }
+      .left-build, .right-build-img {
+      width: 100%;
+      }
+      .left-build h1, .left-build p {
+      padding: 0px 20px;
+
+      }
+      .right-build-img img {
+      width: 100%;
+      }
+}
+@media  screen and (max-width: 426px) {
+  .hero-con-about {
+    padding: 50px;
+  }
+  .hero-con-about > h1 {
+    font-size: 40px;
+    padding: 10px 0px;
+  }
+  .hero-con-about > p {
+    width: 100%;
+    font-size: 20px;
+    line-height: 24px;
+  }
+  .partners-icon-about {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    flex-wrap: wrap;
+    gap: 20px 30px;
+}
+  .left-build {
+    width: 100%;
+    padding: 0px 20px;
+  }
+  .left-build h1 {
+    font-size: 24px;
+    padding: 0px 20px;
+  }
+  .left-build p {
+    font-size: 18px;
+    padding: 10px 20px;
+  }
+  .right-build-img {
+    width: 100%;
+  }
+  .right-build-img img {
+    width: 100%;
+  }
+  .box-hol {
+    justify-content: space-around;
+  }
+  .box-stat {
+    width: 250px;
+    height: 250px;
+    top: -150px;
+  }
+  .box-stat h1 {
+    font-size: 36px;
+    padding: 10px 0px;
+  }
+  .box-stat p {
+    font-size: 14px;
+  }
+  .partners-icon-about img {
+    width: 35%;
+    padding: 5px;
+  }
+}
+
+/* For devices with a screen width of 320px and below */
+@media  screen and (max-width: 326px) {
+    .hero-con-about {
+      padding: 50px;
+    }
+    .hero-con-about > h1 {
+      font-size: 40px;
+      padding: 10px 0px;
+    }
+    .hero-con-about > p {
+      width: 100%;
+      font-size: 20px;
+      line-height: 24px;
+    }
+    .left-build {
+      width: 100%;
+      padding: 0px 20px;
+    }
+    .left-build h1 {
+      font-size: 24px;
+      padding: 0px 20px;
+    }
+    .left-build p {
+      font-size: 18px;
+      padding: 10px 20px;
+    }
+    .right-build-img {
+      width: 100%;
+    }
+    .right-build-img img {
+      width: 100%;
+    }
+    .box-hol {
+      justify-content: space-around;
+    }
+    .box-stat {
+      width: 250px;
+      height: 250px;
+      top: -150px;
+    }
+    .box-stat h1 {
+      font-size: 36px;
+      padding: 10px 0px;
+    }
+    .box-stat p {
+      font-size: 14px;
+    }
+    .partners-icon-about img {
+      width: 35%;
+      padding: 5px;
+    }
+  }
+  
+  /* For devices with a screen width of 425px and below */
+ 
+  
+
+/* For devices with a screen width of 768px and below */
+
+
+  
+ 

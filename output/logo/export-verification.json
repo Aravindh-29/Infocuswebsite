@@ -1,0 +1,11 @@
+{
+  "webm": "VP9 with verified alpha channel",
+  "gif": "240 frames; transparent palette",
+  "png": [
+    2400,
+    2520
+  ],
+  "svg": "Continuous editable path; transparent",
+  "duration_seconds": 12,
+  "frame_rate": 24
+}

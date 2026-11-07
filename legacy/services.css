@@ -1,0 +1,261 @@
+@import url(./style.css);
+.hero-services {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+}
+.left-services-hero {
+  background-color: white;
+  width: 30%;
+  height: 100%;
+  position: relative;
+}
+.clip-services {
+    clip-path: polygon(0 0, 100% 0, 75% 100%, 0% 100%);
+    width: 55vw;
+    height: 100%;
+    position: relative;
+  }
+  
+  .ib-c1{
+    background-color: #421c5d;
+  }
+  .ib-c2{
+    background-color: #5d1c1c;
+  }
+  .ib-c3{
+    background-color: #5d1c3a;
+  }
+  .ib-c4{
+    background-color: #963596;
+  }
+  .cs-b1{
+    background: rgb(98, 33, 162);
+    background: linear-gradient(
+      145deg,
+      rgba(98, 33, 162, 1) 0%,
+      rgba(154, 62, 223, 1) 50%,
+      rgba(203, 126, 246, 1) 100%
+    );
+  }
+  .cs-b2{
+    background: linear-gradient(
+        145deg,
+        rgba(162, 33, 33, 1) 0%,
+        rgba(223, 62, 62, 1) 50%,
+        rgba(246, 126, 126, 1) 100%
+      );
+  }
+  .cs-b3{
+    background: rgb(205, 65, 127);
+    background: linear-gradient(
+      145deg,
+      rgba(205, 65, 127, 1) 0%,
+      rgba(243, 112, 177, 1) 50%,
+      rgba(254, 164, 209, 1) 100%
+    );
+  }
+  .cs-b4{
+    background: rgb(72, 29, 103);
+    background: linear-gradient(
+      145deg,
+      rgba(72, 29, 103, 1) 0%,
+      rgba(163, 35, 88, 1) 100%
+    );
+  }
+  .img-services {
+    width: 100%;
+  }
+p,li{
+    line-height: 34px;
+}
+ol{
+    padding: 0px 20px;
+}
+.centered-content-hero > h1 {
+  font-size: 33px;
+  padding: 0px 0px 0px 100px;
+  color: white;
+  font-family: "Hou-lig";
+}
+.centered-content-hero > p {
+  width: 100%;
+  font-size: 20px;
+  padding: 10px 0px 0px 100px;
+  line-height: 28px;
+  color: white;
+  font-family: "Hou-lig";
+}
+.centered-content-hero {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.img-services img {
+  width: 100%;
+  object-fit: cover;
+  height: 792px;
+}
+.clear-both {
+  clear: both;
+}
+.nav-3 {
+  width: 100%;
+  display: flex;
+  position: sticky;
+  top: 88px;
+  z-index: 98;
+  background-color: white;
+  min-width: 400px;
+  flex-wrap: wrap;
+}
+.sec {
+  margin: 0px 50px;
+  padding: 10px;
+}
+.sec > h1 {
+  font-size: 20px;
+}
+.content-centered-services {
+  padding: 30px 50px;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 100px;
+  display: none;
+}
+.content-centered-services>h1,h2{
+    padding: 20px 0px 10px 0px;
+}
+.content-centered-services > p {
+  font-size: 20px;
+
+  text-align: justify;
+}
+.content-centered-services p > img {
+  width: 35%;
+  height: auto;
+  object-fit: contain;
+  aspect-ratio: 1/1;
+  float: right;
+  padding: 10px;
+}
+.content-centered-services-selected{
+display:  block;
+}
+ .sec-selected{
+transition: 0.1s ease-in-out;
+  border-bottom: 3px solid#000 ;
+}
+@media screen and (max-width: 770px) {
+    .nav-3 {
+        width: 100%;
+        display: flex;
+        position: sticky;
+        top: 68px;
+        z-index: 98;
+        background-color: white;
+        min-width: 30px;
+        flex-wrap: wrap;
+      }
+.hero-services {
+height: 100vh;
+width: 100%;
+display: flex;
+}
+.left-services-hero {
+width: 100%;
+height: 100%;
+
+}
+.clip-services {
+clip-path: none;
+width: 100%;
+height: 100%;
+}
+.centered-content-hero > h1 {
+font-size: 33px;
+padding: 0px 0px 0px 10px;
+color: white;
+font-family: "Hou-lig";
+}
+.centered-content-hero > p {
+width: 100%;
+font-size: 20px;
+padding: 10px 0px 0px 10px;
+line-height: 28px;
+color: white;
+font-family: "Hou-lig";
+}
+.centered-content-hero {
+width: 100%;
+height: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+.img-services {
+display: none;
+}
+.clear-both {
+clear: both;
+}
+
+.sec {
+margin: 20px 10px;
+padding: 10px 5px;
+
+}
+.sec > h1 {
+font-size: 20px;
+}
+.content-centered-services {
+padding: 10px 20px;
+padding-bottom: 20px;
+display: none;
+}
+.content-centered-services > p {
+font-size: 18px;
+line-height: 34px;
+}
+.content-centered-services p > img {
+width: 60%;
+}
+.content-centered-services-selected{
+display:  block;
+}
+.sec-selected{
+transition: 0.1s ease-in-out;
+border-bottom: 3px solid#963596;
+}
+}
+@media screen and (max-width: 426px){
+.nav-3 {
+  width: 100%;
+  display: flex;
+  position: sticky;
+  top: 68px;
+  z-index: 98;
+  background-color: white;
+  min-width: 30px;
+  flex-wrap: wrap;
+}
+.sec > h1 {
+font-size: 14px;
+}
+
+}
+    .content-centered-services li {
+    
+
+    padding: 10px 0px;
+    background-color: #fff;
+    border-radius: 5px;
+    font-size: 20px;
+    }
+    .content-centered-services li:nth-child(odd) {
+    background-color: #f1f1f5;
+    }
+
