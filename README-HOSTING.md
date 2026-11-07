@@ -661,3 +661,107 @@ Then rebuild and publish. These examples host the site at the **domain root**, s
 7. Keep the editable source project and the previous working deployment as backups.
 
 The application build and local contact-form checks have passed on the current Windows workspace. The Netlify, IIS and Nginx instructions above were checked against the linked official documentation; no public deployment or installation on a separate server was performed while preparing this guide.
+
+## 14. Run with Docker
+
+The project includes:
+
+- `Dockerfile` — builds with Node.js 24, then copies the finished `out` files into a smaller Nginx image.
+- `.dockerignore` — excludes local dependencies, old exports, screenshots and private environment files from the build context.
+- `docker/nginx.conf` — serves the pages, assets and custom 404, with Nginx running as a non-root user on port 8080.
+
+This uses Docker's [multi-stage build approach](https://docs.docker.com/build/building/multi-stage/). Node.js is used during the image build; the running website container uses Nginx. You do not need Node.js or npm installed on the host to use this Dockerfile.
+
+### Step 1 — Install and start Docker
+
+- **Windows 10/11:** install [Docker Desktop](https://docs.docker.com/desktop/setup/install/windows-install/), start it, and use **Linux containers**. This Dockerfile uses Linux images.
+- **Linux:** install [Docker Engine](https://docs.docker.com/engine/install/) for your distribution and start its service. Use `sudo docker` if your user does not have Docker access.
+- **Windows Server:** Docker Desktop is not the Windows Server hosting option. Use a Linux VM with Docker for this image, or use IIS as described in section 8.
+
+Check the installation:
+
+```text
+docker version
+```
+
+It should show both Client and Server information. If it cannot connect to the Docker daemon, start Docker Desktop or the Docker service first.
+
+### Step 2 — Build the image
+
+Open PowerShell or a Linux terminal in the source project folder containing `Dockerfile`, then run:
+
+```text
+docker build --pull -t infocus-website:latest .
+```
+
+Keep the final dot: it means to build using this project folder. The first build needs internet access to download the base images and npm packages. It runs `npm ci` and `npm run build` inside Docker, so you do not need to build `out` separately.
+
+### Step 3 — Start a local container
+
+The same command works in PowerShell and Bash:
+
+```text
+docker run -d --name infocus-web --restart unless-stopped -p 127.0.0.1:8080:8080 infocus-website:latest
+```
+
+Open **http://localhost:8080**. This example is reachable only from the host computer. If port 8080 is already used, change the host side to `127.0.0.1:8081:8080`, then open `http://localhost:8081`.
+
+Check the running container:
+
+```text
+docker ps
+docker logs infocus-web
+docker inspect --format="{{.State.Health.Status}}" infocus-web
+```
+
+The health status starts as `starting` and should become `healthy` after the first check. Test `/contact/`, `/services/`, and a made-up path that should show the 404 page.
+
+### Step 4 — Host on a Linux server
+
+Build the image on the server from the source project, or transfer a saved image as described below. To expose port 8080 on the server's network interfaces, create the container with:
+
+```text
+docker run -d --name infocus-web --restart unless-stopped -p 8080:8080 infocus-website:latest
+```
+
+Use this instead of the local-only command, not alongside it with the same container name. Open `http://SERVER_IP:8080` after allowing that port in the hosting provider's firewall. Docker publishes this port through its own networking rules; do not assume UFW alone restricts a published Docker port. See [Docker port publishing](https://docs.docker.com/engine/network/port-publishing/).
+
+For your public domain with HTTPS, use a reverse proxy or load balancer with a trusted certificate. A reverse proxy running on the same host can forward to the local-only `127.0.0.1:8080` binding. The container itself serves HTTP; it does not issue a certificate. Keep your domain at the website root, not a URL subfolder.
+
+### Step 5 — Stop, restart or update
+
+Stop and start the existing container:
+
+```text
+docker stop infocus-web
+docker start infocus-web
+```
+
+After changing code, images or `emails.json`, rebuild the image and recreate the container:
+
+```text
+docker build --pull -t infocus-website:latest .
+docker stop infocus-web
+docker rm infocus-web
+docker run -d --name infocus-web --restart unless-stopped -p 127.0.0.1:8080:8080 infocus-website:latest
+```
+
+Use the same port binding as your original deployment when recreating it. These commands replace only the named `infocus-web` container. This static website stores no customer submissions inside the container. The Gmail draft flow stays the same: customers send the message themselves in Gmail. Recipient changes require an image rebuild; setting a runtime environment variable will not change the built recipient list.
+
+### Optional — Transfer the image without a registry
+
+On the computer where you built the image:
+
+```text
+docker save -o infocus-website.tar infocus-website:latest
+```
+
+Transfer `infocus-website.tar` to the other Docker host, then run there:
+
+```text
+docker load -i infocus-website.tar
+```
+
+Start the container using the appropriate command above. The image architecture must match the destination; an image built for an ARM computer is not automatically an x86 server image. To build for an x86-64 Linux server explicitly, use `docker build --platform linux/amd64 -t infocus-website:latest .` on a Docker installation that supports that target.
+
+Docker is not installed in the current workspace environment, so the image has not been built or run here. The configuration was reviewed against this project's static export and the official image documentation. The first Docker build and container health check remain to be run on a Docker-enabled computer.

@@ -1,0 +1,34 @@
+# Only send the source and configuration needed for this website build.
+**
+!Dockerfile
+!.dockerignore
+!package.json
+!package-lock.json
+!next.config.ts
+!next-env.d.ts
+!tsconfig.json
+!playwright.config.ts
+!emails.json
+!app/
+!app/**
+!components/
+!components/**
+!lib/
+!lib/**
+!public/
+!public/**
+!tests/
+!tests/**
+!scripts/
+!scripts/fix-static-segments.mjs
+!docker/
+!docker/nginx.conf
+
+# Keep local credentials and generated dependencies out of allowed directories.
+**/.env
+**/.env.*
+**/*.pem
+**/*.key
+**/*.pfx
+**/node_modules
+**/*.tsbuildinfo

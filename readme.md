@@ -4,6 +4,8 @@ A complete static Next.js website for Infocus Consulting Services. The design op
 
 For simple step-by-step Windows, Linux, Netlify, IIS and Nginx instructions, open [Run locally and publish the website](README-HOSTING.md).
 
+For Docker, follow [Run with Docker](README-HOSTING.md#14-run-with-docker). The included Dockerfile builds the static website and serves it with Nginx on port 8080.
+
 ## Run locally
 
 ```sh
